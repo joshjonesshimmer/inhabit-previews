@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<!--
+  Inhabit Real Estate, homepage concept
+  DIRECTION G, "Bright Modern"
+  v3, blue nav, cross-fading hero carousel, softened hand-off, plus the A v2
+  headshot crop fix. Base is v2, E's contemporary rhythm and stat band plus C's survey widget, rebuilt
+  sunlit on a light ground after the dark v2 set read as too moody.
+
+  TODO FONTS: intended sans is TT Commons Pro Expanded, intended serif is
+  EB Garamond. No webfont files exist in /brand-assets, so this builds on
+  neutral fallback stacks. This direction is sans led, so the TT Commons Pro
+  Expanded swap will change it more than it changes direction F.
+
+  Palette per CLAUDE.md: white and cream base, deep blue #003E51 for type and
+  anchoring bands, orange #C3623A as the joy accent.
+
+  PHOTOGRAPHY: real Inhabit assets hotlinked from images.squarespace-cdn.com,
+  daylight and golden hour only in this direction. No twilight hero.
+
+  VERIFIED FACTS (see CLAUDE.md): "female-owned"; Durham, Raleigh
+  and Chapel Hill; closed over $250,000,000 in buy-side transactions in 2024;
+  the four pillars including "We Are Fun" are the client's own words from
+  /for-buyers.
+  DUMMY DATA: every invented value is marked inline with an HTML dummy
+  comment. Grep the file for that marker to find them all.
+  v2 CHANGES FROM v1
+  1. Brand lockups now load from mockups/assets/ with web-safe filenames and no
+     ../ traversal, so they resolve when the file is opened directly from disk,
+     not only over the preview server. The files there are byte-identical
+     copies of the /brand-assets originals.
+  2. The Pride lockup was the only logo coming from the live site CDN, and it
+     carries the OLD identity. It is replaced with the new horizontal lockup.
+     No new-brand Pride variant exists in /brand-assets yet, so the inclusive
+     section keeps its copy but loses the rainbow treatment until one is made.
+  OWNERSHIP WORDING, this round: the live site describes the firm with a longer
+  phrase that includes a word Josh has asked us to drop for now. These files
+  say female-owned only. CLAUDE.md still records the site's exact phrase, so
+  the provenance is not lost, it is just not what we are putting on the page.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inhabit Real Estate, Option 3, Bright Modern</title>
+<style>
+  :root{
+    --blue:#003E51;
+    --orange:#C3623A;
+    --cream:#F8F0DF;
+    --white:#FFFFFF;
+    --sans:"TT Commons Pro Expanded","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
+    --serif:"EB Garamond",Garamond,"Iowan Old Style",Georgia,"Times New Roman",serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;background:var(--white);color:var(--blue);
+    font-family:var(--sans);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  h1,h2,h3{font-family:var(--sans);font-weight:800;line-height:.98;margin:0;
+           letter-spacing:-.025em;text-transform:uppercase;}
+  h1{font-size:2.9rem;}
+  h2{font-size:2.2rem;}
+  h3{font-size:1.2rem;letter-spacing:0;}
+  p{margin:0 0 1rem;}
+  .serif{font-family:var(--serif);text-transform:none;font-weight:400;letter-spacing:-.01em;}
+  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 22px;}
+  .eyebrow{font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--orange);
+           font-weight:800;margin:0 0 16px;}
+  .btn{display:inline-block;background:var(--orange);color:var(--white);text-decoration:none;
+       padding:15px 30px;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;
+       font-weight:800;border:2px solid var(--orange);}
+  .btn.ghost{background:transparent;color:var(--blue);border-color:var(--blue);}
+  .btn.light{background:var(--white);color:var(--orange);border-color:var(--white);}
+  section{padding:70px 0;}
+  @media(min-width:860px){h1{font-size:5.6rem;}h2{font-size:3.4rem;}section{padding:108px 0;}}
+
+  /* NAV */
+  /* v3: nav in brand blue rather than white, with the cream lockup. */
+  .nav{position:sticky;top:0;z-index:90;background:var(--blue);
+       border-bottom:1px solid rgba(248,240,223,.18);}
+  .nav-in{display:flex;align-items:center;gap:14px;padding:18px 22px;max-width:1280px;margin:0 auto;}
+  .nav img{width:158px;}
+  .nav-links{display:none;gap:26px;margin-left:auto;}
+  .nav-links a{color:var(--cream);text-decoration:none;font-size:.7rem;letter-spacing:.16em;
+               text-transform:uppercase;font-weight:700;}
+  .nav-links a:hover{color:var(--orange);}
+  .nav-cta{margin-left:auto;padding:11px 19px;font-size:.66rem;}
+  @media(min-width:1000px){.nav-links{display:flex;}.nav-cta{margin-left:28px;}}
+
+  /* ASYMMETRIC SUNLIT HERO */
+  .hero{background:var(--cream);}
+  .hero-grid{display:grid;gap:0;}
+  .hero-copy{padding:56px 22px 50px;}
+  .hero-copy h1{margin-bottom:20px;}
+  .hero-copy .sub{font-size:1.04rem;max-width:26em;margin-bottom:26px;}
+  .hero-btns{display:flex;gap:11px;flex-wrap:wrap;}
+  /* v3: the single plopped-on photo becomes a slow cross-fade between four of
+     the brightest harvest shots, so the asymmetric block feels intentional. */
+  .hero-photo{position:relative;overflow:hidden;min-height:340px;}
+  .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+                  opacity:0;animation:heroFade 28s linear infinite;}
+  .hero-photo img:nth-child(1){animation-delay:0s;}
+  .hero-photo img:nth-child(2){animation-delay:7s;}
+  .hero-photo img:nth-child(3){animation-delay:14s;}
+  .hero-photo img:nth-child(4){animation-delay:21s;}
+  @keyframes heroFade{
+    0%{opacity:0} 3%{opacity:1} 25%{opacity:1} 28%{opacity:0} 100%{opacity:0}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .hero-photo img{animation:none;}
+    .hero-photo img:nth-child(1){opacity:1;}
+  }
+  /* below the split breakpoint the photo goes full bleed, so it is not
+     inset 22px on the left while sitting flush to the right edge */
+  @media(max-width:899px){.hero>.wrap{padding-left:0;padding-right:0;}}
+  @media(min-width:900px){
+    .hero-grid{grid-template-columns:1fr 1fr;align-items:stretch;}
+    .hero-copy{padding:110px 56px 110px 0;display:flex;flex-direction:column;justify-content:center;}
+    .hero-copy .sub{font-size:1.18rem;}
+    .hero-photo{min-height:640px;}
+  }
+
+  /* SURVEY WIDGET */
+  /* v5: survey on brand blue, cream and orange cards */
+  .survey{background:var(--blue);color:var(--cream);}
+  .survey h2{text-align:center;margin-bottom:8px;color:var(--cream);}
+  .survey .note{font-size:.82rem;text-align:center;opacity:.75;margin-bottom:36px;}
+  .survey .eyebrow{color:var(--orange);}
+  .opts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  .opt{display:flex;flex-direction:column;justify-content:center;align-items:center;
+       text-decoration:none;color:var(--blue);background:var(--cream);border:2px solid var(--orange);
+       padding:30px 14px;text-align:center;min-height:150px;
+       transition:background .15s,color .15s,transform .15s;}
+  .opt:hover{background:var(--orange);border-color:var(--orange);color:var(--white);transform:translateY(-4px);}
+  .opt .t{font-size:1.5rem;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1;}
+  .opt .d{font-size:.72rem;letter-spacing:.08em;opacity:.75;margin-top:9px;}
+  .opt .go{font-size:1.3rem;margin-top:12px;color:var(--orange);font-weight:800;}
+  .opt:hover .go{color:var(--white);}
+  @media(min-width:820px){.opts{grid-template-columns:repeat(4,1fr);gap:14px;}.opt{min-height:210px;padding:44px 18px;}}
+
+  /* BRIGHT STAT BAND, the UpHome module lit */
+  .band{background:var(--cream);border-top:2px solid var(--blue);border-bottom:2px solid var(--blue);}
+  .band-grid{display:grid;grid-template-columns:1fr;}
+  .bcell{display:flex;gap:16px;align-items:flex-start;padding:26px 22px;
+         border-bottom:1px solid rgba(0,62,81,.2);}
+  .bcell:last-child{border-bottom:none;}
+  .bcell .num{font-family:var(--serif);font-size:2.7rem;line-height:.9;color:var(--orange);flex:0 0 auto;}
+  .bcell .lab{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;font-weight:800;margin-bottom:5px;}
+  .bcell .txt{font-size:.8rem;opacity:.7;line-height:1.55;}
+  @media(min-width:860px){
+    .band-grid{grid-template-columns:repeat(4,1fr);}
+    .bcell{border-bottom:none;border-right:1px solid rgba(0,62,81,.2);padding:44px 28px;}
+    .bcell:last-child{border-right:none;}
+    .bcell .num{font-size:3.4rem;}
+  }
+
+  /* BIG STAT, blue anchor */
+  .anchor{background:var(--blue);color:var(--cream);text-align:center;}
+  .anchor .fig{font-family:var(--serif);font-size:5rem;line-height:.92;color:var(--orange);
+               letter-spacing:-.02em;margin-bottom:12px;text-transform:none;}
+  .anchor .cap{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;opacity:.86;font-weight:700;}
+  @media(min-width:860px){.anchor .fig{font-size:11.5rem;}}
+
+  /* OVERLAP MODULE, lit */
+  .overlap{display:grid;gap:0;}
+  .op-panel{background:var(--blue);color:var(--cream);padding:38px 26px;}
+  .op-panel h2{color:var(--cream);margin-bottom:16px;}
+  .op-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;}
+  @media(min-width:900px){
+    .overlap{grid-template-columns:5fr 7fr;align-items:center;}
+    .op-panel{padding:62px 52px;margin-right:-70px;position:relative;z-index:2;
+              box-shadow:0 26px 60px rgba(0,62,81,.28);}
+  }
+
+  /* PATHS */
+  .paths{display:grid;gap:14px;margin-top:42px;}
+  .path{position:relative;overflow:hidden;min-height:380px;display:flex;align-items:flex-end;}
+  .path img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .path .veil{position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(0,62,81,0) 30%,rgba(0,62,81,.88) 100%);}
+  .path .inner{position:relative;padding:26px 24px;width:100%;color:var(--white);}
+  .path .tag{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--cream);
+             font-weight:800;margin-bottom:8px;}
+  .path h3{font-size:1.9rem;margin-bottom:9px;text-transform:uppercase;letter-spacing:-.02em;}
+  .path .steps{display:flex;flex-wrap:wrap;gap:6px;margin-top:15px;}
+  .path .steps span{border:1px solid rgba(255,255,255,.55);padding:6px 10px;font-size:.62rem;
+                    letter-spacing:.08em;text-transform:uppercase;}
+  @media(min-width:900px){.paths{grid-template-columns:1fr 1fr;}.path{min-height:470px;}}
+
+  /* TEAM */
+  .faces{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 16px;margin-top:42px;}
+  .face{text-align:center;}
+  /* v3: per-face absolute crops, see note in direction A v2. */
+  .face .ring{position:relative;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;
+              margin-bottom:12px;border:3px solid var(--orange);}
+  .face .ring img{position:absolute;height:auto;max-width:none;}
+  .face .nm{font-family:var(--serif);font-size:1.2rem;text-transform:none;}
+  .face .rl{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);
+            font-weight:800;margin-top:4px;}
+  @media(min-width:760px){.faces{grid-template-columns:repeat(4,1fr);gap:32px 22px;}}
+
+  /* FEED */
+  .feed{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:40px;}
+  .feed figure{margin:0;position:relative;overflow:hidden;}
+  .feed img{width:100%;aspect-ratio:1;object-fit:cover;}
+  .feed figcaption{position:absolute;left:0;right:0;bottom:0;padding:11px;color:var(--white);
+    background:linear-gradient(transparent,rgba(0,62,81,.9));font-size:.6rem;
+    letter-spacing:.14em;text-transform:uppercase;font-weight:700;}
+  @media(min-width:760px){.feed{grid-template-columns:repeat(4,1fr);}}
+
+  /* PRIDE */
+  .incl{background:var(--white);}
+  .incl-in{display:grid;gap:24px;align-items:center;text-align:center;}
+  .incl img{width:240px;margin:0 auto;}
+  @media(min-width:820px){.incl-in{grid-template-columns:auto 1fr;text-align:left;gap:54px;}.incl img{margin:0;}}
+
+  /* EVENTS */
+  .events{background:var(--orange);color:var(--white);text-align:center;}
+  .events .eyebrow{color:var(--white);}
+  .events .ten{font-family:var(--serif);font-size:8.5rem;line-height:.78;text-transform:none;}
+  .months{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:40px auto 0;max-width:780px;}
+  .months div{border:1px solid rgba(255,255,255,.6);padding:12px 4px;font-size:.62rem;
+              letter-spacing:.14em;text-transform:uppercase;font-weight:800;}
+  .months div.on{background:var(--white);color:var(--orange);border-color:var(--white);}
+  @media(min-width:860px){.events .ten{font-size:14rem;}.months{grid-template-columns:repeat(10,1fr);}}
+
+  /* AWARDS */
+  .awards{background:var(--white);text-align:center;}
+  .badges{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-top:44px;align-items:center;
+          max-width:920px;margin-left:auto;margin-right:auto;}
+  .badges img{max-height:128px;width:auto;margin:0 auto;object-fit:contain;}
+  @media(min-width:760px){.badges{grid-template-columns:repeat(4,1fr);gap:40px;}}
+
+  /* FOOTER */
+  footer{background:var(--blue);color:var(--cream);padding:52px 0 28px;}
+  .aw-strip{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;align-items:center;
+            padding-bottom:36px;margin-bottom:36px;border-bottom:1px solid rgba(248,240,223,.24);}
+  .aw-strip img{height:64px;width:auto;object-fit:contain;}
+  .f-cols{display:grid;gap:26px;}
+  .f-cols h4{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin:0 0 12px;}
+  .f-cols a{display:block;color:var(--cream);text-decoration:none;font-size:.82rem;padding:4px 0;opacity:.86;}
+  footer .logo{width:184px;margin-bottom:15px;}
+  .legal{margin-top:34px;padding-top:19px;border-top:1px solid rgba(248,240,223,.24);font-size:.68rem;opacity:.66;}
+  @media(min-width:820px){.f-cols{grid-template-columns:2fr 1fr 1fr 1fr;gap:42px;}}
+
+  /* GLASS NAV.
+     Solid at the top of the page, frosted once the hero has scrolled past.
+     -webkit- prefix included for Safari. A browser with no backdrop-filter
+     support simply keeps the solid colour. */
+  .nav{transition:background-color .2s ease, box-shadow .2s ease, border-color .2s ease;}
+  .nav.glass{
+    background:rgb(0,62,81);
+    border-bottom:1px solid rgba(248,240,223,.28);
+    box-shadow:0 6px 24px rgba(0,42,56,.20);
+  }
+  @supports ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){
+    .nav.glass{
+      background:rgba(0,62,81,.78);
+      -webkit-backdrop-filter:blur(16px) saturate(180%);
+      backdrop-filter:blur(16px) saturate(180%);
+    }
+  }
+  .nav.glass .nav-links a{color:var(--cream);text-shadow:0 1px 6px rgba(0,42,56,.6);}
+  .nav.glass .nav-cta{box-shadow:0 2px 10px rgba(0,0,0,.18);}
+  @media(prefers-reduced-motion:reduce){ .nav{transition:none;} }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-in">
+    <img src="assets/inhabit-horizontal-cream.png" alt="Inhabit Real Estate">
+    <div class="nav-links">
+      <a href="#start">Start Here</a>
+      <a href="#why">Why Inhabit</a>
+      <a href="#team">Team</a>
+      <a href="#community">Community</a>
+      <a href="#events">Events</a>
+    </div>
+    <a class="btn nav-cta" href="#team">Meet Your Agent</a>
+  </div>
+</nav>
+
+<!-- ASYMMETRIC SUNLIT HERO -->
+<header class="hero">
+  <div class="wrap" style="padding-right:0;">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Female-owned . Durham, Raleigh, Chapel Hill</p>
+        <h1>Live here<br>on purpose.</h1>
+        <p class="sub">
+          A female-owned firm in the Triangle. Ten years
+          independent, and genuinely good company while you do the biggest
+          thing you will do this year.
+        </p>
+        <div class="hero-btns">
+          <a class="btn" href="#team">Meet Your Agent</a>
+          <a class="btn ghost" href="#work">How We Work</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/ba67b245-0e11-4d91-9b53-cc4486bc7ccf/RF050125-9.jpg?format=1500w" alt="The Inhabit team">
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/e6bd76f0-07e0-4ca1-a5d8-91d2a3accb0f/RF050125-79.jpg?format=1500w" alt="An Inhabit event with a rescue dog">
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/48a40215-3e80-47c0-be3e-ca19c979e078/Staff+at+Karma+Keg+2024.JPG?format=1500w" alt="Inhabit staff at Karma Keg 2024">
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/1762367961208-51I4HWYL0S03G6TLLBUB/image-asset.jpeg?format=1000w" alt="An Inhabit agent at a client's front door">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- SURVEY WIDGET -->
+<div class="survey" id="start">
+  <section>
+    <div class="wrap">
+      <h2>Where are you right now?</h2>
+      <p class="note">Pick one.</p>
+      <div class="opts">
+        <a class="opt" href="#work"><div class="t">Buying</div><div class="d">First home or next one</div><div class="go">&rsaquo;</div></a>
+        <a class="opt" href="#work"><div class="t">Selling</div><div class="d">Ready when you are</div><div class="go">&rsaquo;</div></a>
+        <a class="opt" href="#work"><div class="t">Both</div><div class="d">Sell one, buy the next</div><div class="go">&rsaquo;</div></a>
+        <a class="opt" href="#why"><div class="t">Just looking</div><div class="d">No timeline, no pressure</div><div class="go">&rsaquo;</div></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- BRIGHT STAT BAND -->
+<div class="band">
+  <div class="wrap" style="padding:0;">
+    <div class="band-grid">
+      <div class="bcell">
+        <div class="num">10</div>
+        <div><div class="lab">Years independent</div>
+        <div class="txt">Locally owned since 2016<!-- dummy -->, never part of a franchise system.</div></div>
+      </div>
+      <div class="bcell">
+        <div class="num">1,200+<!-- dummy --></div>
+        <div><div class="lab">Families served</div>
+        <div class="txt">Buyers and sellers across the Triangle, one closing table at a time.</div></div>
+      </div>
+      <div class="bcell">
+        <div class="num">28<!-- dummy --></div>
+        <div><div class="lab">Agents</div>
+        <div class="txt">Local market experts in every major Triangle market.</div></div>
+      </div>
+      <div class="bcell">
+        <div class="num">3</div>
+        <div><div class="lab">Core markets</div>
+        <div class="txt">Durham, Raleigh, and Chapel Hill, plus everywhere between.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BIG STAT -->
+<div class="anchor">
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Our track record</p>
+      <div class="fig">$250M+</div>
+      <div class="cap">in 2024 buy-side transactions</div>
+    </div>
+  </section>
+</div>
+
+<!-- OVERLAP MODULE -->
+<section id="why" style="padding-left:0;padding-right:0;">
+  <div class="wrap">
+    <div class="overlap">
+      <div class="op-panel">
+        <p class="eyebrow" style="color:var(--cream);">Why Inhabit</p>
+        <h2>We are<br>fun.</h2>
+        <p style="opacity:.86;font-size:.94rem;">
+          That is one of the four reasons the Inhabit site actually gives for
+          working with them, sitting right alongside reputation and track
+          record. Buying a house is stressful enough. The people helping you
+          do not have to be.
+        </p>
+        <p style="margin-top:22px;"><a class="btn light" href="#work">How we work</a></p>
+      </div>
+      <div class="op-photo">
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/1762974432448-JL6UOFULBWSTKWR82IBL/image-asset.jpeg?format=1000w" alt="Inhabit clients celebrating">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATHS -->
+<section id="work" style="background:var(--cream);">
+  <div class="wrap">
+    <p class="eyebrow">However you got here</p>
+    <h2>Two ways in.</h2>
+    <div class="paths">
+      <div class="path">
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/8a0eb077-f83a-4538-b62e-31760ce54c28/5312WoodsdaleRd-04.jpg?format=1500w" alt="A bright interior in an Inhabit listing">
+        <div class="veil"></div>
+        <div class="inner">
+          <div class="tag">Path one</div>
+          <h3>Buying</h3>
+          <p style="font-size:.85rem;opacity:.92;margin:0;">
+            No stone, or crawlspace, left unturned before you make an offer.
+          </p>
+          <div class="steps">
+            <span>1 Sit down</span><span>2 Your number</span><span>3 Tour</span>
+            <span>4 Offer</span><span>5 Keys</span>
+          </div>
+        </div>
+      </div>
+      <div class="path">
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/1762525772592-8ZZXRKFCTJBE13CUQIRV/image-asset.jpeg?format=1000w" alt="A Triangle home in daylight">
+        <div class="veil"></div>
+        <div class="inner">
+          <div class="tag">Path two</div>
+          <h3>Selling</h3>
+          <p style="font-size:.85rem;opacity:.92;margin:0;">
+            An honest read on price, then only the prep that returns its cost.
+          </p>
+          <div class="steps">
+            <span>1 Walk through</span><span>2 Prep</span><span>3 Photos</span>
+            <span>4 Live</span><span>5 Offers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="wrap">
+    <p class="eyebrow">The people</p>
+    <h2>Pick a person.</h2>
+    <div class="faces">
+      <div class="face">
+        <div class="ring"><img style="width:300%;left:-55%;top:-24%;" src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/ba67b245-0e11-4d91-9b53-cc4486bc7ccf/RF050125-9.jpg?format=1500w" alt="Inhabit team member"></div>
+        <div class="nm">Sam Rivera<!-- dummy --></div><div class="rl">Broker in Charge<!-- dummy --></div>
+      </div>
+      <div class="face">
+        <div class="ring"><img style="width:300%;left:-103%;top:-14%;" src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/ba67b245-0e11-4d91-9b53-cc4486bc7ccf/RF050125-9.jpg?format=1500w" alt="Inhabit team member"></div>
+        <div class="nm">Jordan Lee<!-- dummy --></div><div class="rl">Broker Associate<!-- dummy --></div>
+      </div>
+      <div class="face">
+        <div class="ring"><img style="width:300%;left:-163%;top:-22%;" src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/ba67b245-0e11-4d91-9b53-cc4486bc7ccf/RF050125-9.jpg?format=1500w" alt="Inhabit team member"></div>
+        <div class="nm">Alex Chen<!-- dummy --></div><div class="rl">Buyer Specialist<!-- dummy --></div>
+      </div>
+      <div class="face">
+        <div class="ring"><img style="width:300%;left:-76%;top:-24%;" src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/48a40215-3e80-47c0-be3e-ca19c979e078/Staff+at+Karma+Keg+2024.JPG?format=1500w" alt="Inhabit team member"></div>
+        <div class="nm">Morgan Ellis<!-- dummy --></div><div class="rl">Listing Specialist<!-- dummy --></div>
+      </div>
+    </div>
+    <p style="font-size:.74rem;opacity:.55;margin-top:32px;">
+      Crops taken from real Inhabit team photography. Final build swaps in
+      individual headshots.
+    </p>
+  </div>
+</section>
+
+<!-- COMMUNITY FEED -->
+<section id="community" style="background:var(--cream);">
+  <div class="wrap">
+    <p class="eyebrow">Community</p>
+    <h2>We are in it.</h2>
+    <p class="serif" style="font-size:1.35rem;max-width:26em;margin-top:14px;">
+      Karma Keg, Urban Ministries of Durham, adoption days, and a lot of
+      weekends that never made it onto a listing sheet.
+    </p>
+    <div class="feed">
+      <figure>
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/48a40215-3e80-47c0-be3e-ca19c979e078/Staff+at+Karma+Keg+2024.JPG?format=1000w" alt="Inhabit staff and a puppy at Karma Keg 2024">
+        <figcaption>Karma Keg 2024</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/e6bd76f0-07e0-4ca1-a5d8-91d2a3accb0f/RF050125-79.jpg?format=1000w" alt="An Inhabit event with a rescue dog">
+        <figcaption>Adoption day</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/b0baefb7-257b-4573-ba6c-5897507eebcd/Realtors+at+Urban+Ministries.jpg?format=1000w" alt="Inhabit realtors at Urban Ministries of Durham">
+        <figcaption>Urban Ministries</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/1762913508109-U48PRZ291ZLIF4F3R13D/image-asset.jpeg?format=750w" alt="A celebration at Inhabit">
+        <figcaption>Karma Keg Night<!-- dummy --></figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/db34aa05-66a8-420a-a15f-dcab4e748825/RF050125-8.jpg?format=1000w" alt="An Inhabit gathering">
+        <figcaption>Backpack Drive<!-- dummy --></figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/1763044937709-3TTV02VT2TTDALPQR61K/image-asset.jpeg?format=750w" alt="From the Inhabit Instagram feed">
+        <figcaption>@inhabit</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/1763233765677-1LF0I20V627E293KQO7X/image-asset.jpeg?format=750w" alt="From the Inhabit Instagram feed">
+        <figcaption>@inhabit</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/1762546668069-YMC6JU7X3CSVF5IKCTH3/image-asset.jpeg?format=750w" alt="From the Inhabit Instagram feed">
+        <figcaption>@inhabit</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- PRIDE -->
+<div class="incl">
+  <section style="padding-top:62px;padding-bottom:62px;">
+    <div class="wrap incl-in">
+      <img src="assets/inhabit-horizontal-color.png" alt="Inhabit Real Estate">
+      <div>
+        <p class="eyebrow">Everyone gets a door</p>
+        <p class="serif" style="font-size:1.55rem;line-height:1.34;margin:0;">
+          Fair housing is the floor, not the goal. If you have been talked past,
+          priced out, or steered somewhere else, you are exactly who this firm
+          was built for.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- EVENTS -->
+<div class="events" id="events">
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">The tenth year</p>
+      <div class="ten">10</div>
+      <h2>Ten events. Ten years.<br>First one in January.</h2>
+      <p style="max-width:32em;margin:22px auto 0;">
+        One gathering a month through the anniversary year, open to clients,
+        neighbors, and anyone who wants to come.
+      </p>
+      <div class="months">
+        <div class="on">Jan</div><div>Feb</div><div>Mar</div><div>Apr</div><div>May</div>
+        <div>Jun</div><div>Jul</div><div>Aug</div><div>Sep</div><div>Oct</div>
+      </div>
+      <p style="margin-top:38px;"><a class="btn light" href="#events">See the lineup</a></p>
+    </div>
+  </section>
+</div>
+
+<!-- AWARDS -->
+<div class="awards">
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Recognition</p>
+      <h2>Voted in by<br>the neighbors.</h2>
+      <div class="badges">
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/79f3c7a4-a2bf-4113-9864-02deb277e6bf/Best+of+the+Triangle+Real+Estate+Badge+2024.png?format=500w" alt="Best of the Triangle Real Estate 2024">
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/3d841bb2-dcfd-4123-8528-0de82c3bcef9/LogoBestOfDM_2025-scaled+-+Edited.png?format=500w" alt="Best of Durham Magazine 2025">
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/747a0de2-b976-4a07-a28f-3d764913317e/Best+of+Durham+Mag.png?format=500w" alt="Best of Durham Magazine">
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/d9518df1-e002-4800-b725-d25cefe70d8f/Best+of+Chapel+Hill+Mag.png?format=500w" alt="Best of Chapel Hill Magazine">
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="aw-strip">
+      <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/79f3c7a4-a2bf-4113-9864-02deb277e6bf/Best+of+the+Triangle+Real+Estate+Badge+2024.png?format=300w" alt="Best of the Triangle Real Estate 2024">
+      <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/3d841bb2-dcfd-4123-8528-0de82c3bcef9/LogoBestOfDM_2025-scaled+-+Edited.png?format=300w" alt="Best of Durham Magazine 2025">
+      <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/747a0de2-b976-4a07-a28f-3d764913317e/Best+of+Durham+Mag.png?format=300w" alt="Best of Durham Magazine">
+      <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/d9518df1-e002-4800-b725-d25cefe70d8f/Best+of+Chapel+Hill+Mag.png?format=300w" alt="Best of Chapel Hill Magazine">
+    </div>
+    <div class="f-cols">
+      <div>
+        <img class="logo" src="assets/inhabit-horizontal-cream.png" alt="Inhabit Real Estate">
+        <p style="font-size:.82rem;opacity:.78;">
+          A female-owned real estate firm serving Durham, Raleigh,
+          Chapel Hill, and the wider Triangle.<br><br>1200 West Main Street, Suite 200<!-- dummy --><br>Durham, NC 27701<!-- dummy --><br>(919) 555-0142<!-- dummy -->
+        </p>
+      </div>
+      <div><h4>Company</h4><a href="#why">Why Inhabit</a><a href="#team">Team</a><a href="#">Careers</a></div>
+      <div><h4>Work With Us</h4><a href="#work">Buying</a><a href="#work">Selling</a><a href="#">Listings</a></div>
+      <div><h4>Local</h4><a href="#community">Community</a><a href="#events">Events</a><a href="#">Neighborhoods</a></div>
+    </div>
+    <div class="legal">
+      &copy; 2026<!-- dummy --> Inhabit Real Estate. All rights reserved. Equal Housing Opportunity.
+      Licensed real estate brokerage in North Carolina.<!-- dummy -->
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav goes to frosted glass once the hero is behind you.
+  (function(){
+    var nav = document.querySelector('.nav');
+    if(!nav) return;
+    var hero = document.querySelector('header.hero') || document.querySelector('.hero');
+    function threshold(){
+      return hero ? Math.max(80, hero.offsetHeight * 0.6) : 120;
+    }
+    function update(){ nav.classList.toggle('glass', window.scrollY > threshold()); }
+    update();
+    window.addEventListener('scroll', update, {passive:true});
+    window.addEventListener('resize', update);
+  })();
+</script>
+
+</body>
+</html>
