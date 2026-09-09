@@ -2,55 +2,56 @@
 <!--
   Inhabit Real Estate, homepage concept
   DIRECTION F, "Light Editorial"  =  OPTION 1, the lead
-  v7, built 09.09.26 from the Connie (9/4) and Becky (9/6) written feedback.
+  v8, corrective round 09.09.26. The v7 split hero was rejected.
 
-  WHAT CHANGED FROM v6
-  1. Becky: Option 3's large team-photo hero is merged into this structure. The
-     hero is now the asymmetric split, serif copy left, big cross-fading photo
-     right, instead of a centred headline over a four-square strip.
-  2. Connie: the homepage is shortened. Team, Buying/Selling and Community are
-     gone from this page and now live as subpage stubs (team.html, buying.html,
-     selling.html, community.html). In their place is ONE condensed band
-     modelled on Option 4's "who we are + key stats + why Inhabit" block, with
-     sub-links out to the detail.
-  3. Typography unchanged, this direction's serif display already won.
-  4. Nav lockup is the Orange and Cream lockup, so the keyhole reads orange and
-     matches the Meet Your Agent CTA. This is a brand-supplied file, not a
-     recolour, per the logo rule in CLAUDE.md.
-  5. Every nav link resolves. Anchors point at ids that exist on this page,
-     Team and Community point at their stubs.
-  6. Hero photography is four curated shots from the existing site assets and
-     is preloaded in the head. No Instagram feed images are used here.
-  7. Connie's virtue-posturing note: community is no longer a titled section
-     with charity-name captions. It now shows only as candid agent photography
-     inside the hero rotation, with the detail one click away.
-  8. The 10 Years / 10 Events band uses Option 2's cleaner treatment, photo
-     under an orange veil. It is wrapped in REMOVABLE markers so it can be cut
-     in one delete after the anniversary year.
-  9. Becky: the stats are much smaller. The full-width $250M+ anchor band is
-     gone, replaced by a compact three-up row inside the condensed band.
-  10. Bands change on a hard edge. The choppy-blocks note is answered by band
-     order and spacing rather than by blending. The v7 gradient dividers were
-     stripped out on 09.09.26.
-  11. The "Where are you right now?" quiz is kept, including "Just looking".
-     Destinations are stubbed.
-  12. Hero copy keeps "It takes good people to find a great home", and "Owned
-     by the people who answer the phone" leads the condensed band.
+  DESIGN AUTHORITY IS direction-f-v3. Its centred hero, typography scale and
+  section rhythm are restored wholesale here. Specifically, taken back from v3
+  and not from v7:
+    section padding   76px  /  120px at 820+     (v7 had shrunk this to 104px)
+    h1                3rem  /  5.2rem at 820+    (v7 had shrunk this to 4.6rem)
+    h2                2.3rem / 3.4rem at 820+    (v7 had shrunk this to 3rem)
+    hero padding      56px  /  84px at 820+, text-align centre
+    hero h1           max-width 14em, centred
+    hero sub          1.15rem / 1.4rem, max-width 32em, centred
+    buttons           centred
 
-  TODO FONTS: intended sans is TT Commons Pro Expanded, intended serif is
-  EB Garamond. Searched the whole repo on 09.09.26, there are no .woff, .woff2,
-  .ttf or .otf files anywhere in it, so this still builds on neutral fallback
-  stacks. Swap both when licensed webfonts arrive.
+  "Combine Option 3's team-photo hero" is read as PHOTOGRAPHY, not structure.
+  The four-square strip under the centred hero becomes ONE large cross-fading
+  team photo, team shot first. The centred editorial rhythm above it is
+  untouched.
 
-  Palette per CLAUDE.md: cream #F8F0DF and white as the base, deep blue
-  #003E51 for type and anchoring bands, orange #C3623A as the accent.
+  KEPT FROM v7 (all of it, deliberately):
+    orange and cream nav lockup so the keyhole matches the CTA
+    shortened page, Team / Buying / Selling / Community live in subpage stubs
+    the condensed who-we-are + stats + why band
+    the compact stats row, not the old full-width 11rem anchor band
+    candid-only community, no titled section and no charity-name captions
+    the 10 Years / 10 Events band wrapped in REMOVABLE markers
+    every internal link resolving
+    preloaded curated photography, no Instagram feed images
+    the quiz including "Just looking"
+    both required copy lines
+    the headline held to two lines
 
-  VERIFIED FACTS (see CLAUDE.md): serves the Triangle area of North Carolina;
-  Durham, Raleigh and Chapel Hill; closed over $250,000,000 in buy-side
-  transactions in 2024; the four pillars including "We Are Fun" are the
-  client's own words from /for-buyers.
-  DUMMY DATA: every invented value is marked inline with an HTML dummy comment.
-  Grep for that marker to find them all. Verified facts are not marked.
+  NAV COLOUR, worth knowing: v3's nav was white with blue links. That cannot
+  carry the orange and cream lockup, whose wordmark is cream and would vanish
+  on white. The nav therefore stays v7's brand blue. Keeping the lockup and
+  keeping v3's white nav are mutually exclusive, and the lockup was the
+  explicit instruction.
+
+  SEAMS REMOVED. v3 changes bands on a hard edge, and the corrective note
+  rules that the choppy-blocks problem is solved by band order and spacing
+  rather than by blending. The gradient seams introduced in v7 are gone from
+  this file as well as from Option 3. Band order runs cream, white, blue,
+  cream, orange, blue, so no two saturated solids meet. The events band is
+  photography under a warm wash rather than a flat fill, which is why it can
+  sit next to the footer.
+
+  TODO FONTS: still no .woff, .woff2, .ttf or .otf anywhere in the repo as of
+  09.09.26, so TT Commons Pro Expanded and EB Garamond cannot be embedded and
+  this builds on neutral fallback stacks.
+
+  DUMMY DATA: invented values carry an inline HTML dummy comment.
 -->
 <html lang="en">
 <head>
@@ -59,11 +60,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Inhabit Real Estate, Option 1, Light Editorial</title>
 
-<!-- Curated hero photography, preloaded so the rotation does not pop in. -->
+<!-- Curated, team-forward, preloaded so the showcase does not pop in. -->
 <link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/ba67b245-0e11-4d91-9b53-cc4486bc7ccf/RF050125-9.jpg?format=1500w">
+<link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/db34aa05-66a8-420a-a15f-dcab4e748825/RF050125-8.jpg?format=1500w">
 <link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/48a40215-3e80-47c0-be3e-ca19c979e078/Staff+at+Karma+Keg+2024.JPG?format=1500w">
 <link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/e6bd76f0-07e0-4ca1-a5d8-91d2a3accb0f/RF050125-79.jpg?format=1500w">
-<link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/db34aa05-66a8-420a-a15f-dcab4e748825/RF050125-8.jpg?format=1500w">
 
 <style>
   :root{
@@ -82,8 +83,9 @@
   }
   img{max-width:100%;display:block;}
   h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.04;margin:0;letter-spacing:-.015em;}
-  h1{font-size:2.9rem;}
-  h2{font-size:2.2rem;}
+  /* v3 scale, restored */
+  h1{font-size:3rem;}
+  h2{font-size:2.3rem;}
   p{margin:0 0 1.1rem;}
   em{font-style:italic;color:var(--orange);}
   .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 24px;}
@@ -95,14 +97,13 @@
   .btn.ghost{background:transparent;color:var(--blue);border-color:var(--blue);}
   .btn.light{background:var(--cream);color:var(--orange);border-color:var(--cream);}
   .btn.ghost-light{background:transparent;color:var(--cream);border-color:var(--cream);}
-  section{padding:72px 0;}
-  @media(min-width:820px){h1{font-size:4.6rem;}h2{font-size:3rem;}section{padding:104px 0;}}
+  section{padding:76px 0;}
+  @media(min-width:820px){h1{font-size:5.2rem;}h2{font-size:3.4rem;}section{padding:120px 0;}}
 
-
-  /* NAV. v7 item 4: Orange and Cream lockup so the keyhole matches the CTA. */
+  /* NAV, v7's lockup on v7's blue ground. See the header note. */
   .nav{position:sticky;top:0;z-index:80;background:var(--blue);
        border-bottom:1px solid rgba(248,240,223,.18);}
-  .nav-in{display:flex;align-items:center;gap:14px;padding:20px 24px;max-width:1240px;margin:0 auto;}
+  .nav-in{display:flex;align-items:center;gap:14px;padding:24px;max-width:1240px;margin:0 auto;}
   .nav img{width:168px;}
   .nav-links{display:none;gap:28px;margin-left:auto;font-family:var(--sans);}
   .nav-links a{color:var(--cream);text-decoration:none;font-size:.74rem;letter-spacing:.14em;
@@ -111,40 +112,34 @@
   .nav-cta{margin-left:auto;padding:11px 20px;font-size:.68rem;}
   @media(min-width:980px){.nav-links{display:flex;}.nav-cta{margin-left:30px;}}
 
-  /* HERO. v7 item 1: Option 3's asymmetric team-photo hero, carrying this
-     direction's serif copy instead of Option 3's bold sans. */
-  .hero{background:var(--cream);}
-  .hero-grid{display:grid;gap:0;}
-  .hero-copy{padding:52px 24px 48px;}
-  .hero-copy h1{margin-bottom:20px;}
-  .hero-copy .sub{font-size:1.08rem;max-width:27em;margin-bottom:28px;}
-  .hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
-  .hero-photo{position:relative;overflow:hidden;min-height:340px;}
-  .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-                  opacity:0;animation:heroFade 28s linear infinite;}
-  .hero-photo img:nth-child(1){animation-delay:0s;}
-  .hero-photo img:nth-child(2){animation-delay:7s;}
-  .hero-photo img:nth-child(3){animation-delay:14s;}
-  .hero-photo img:nth-child(4){animation-delay:21s;}
+  /* HERO, v3 geometry exactly: centred, light and airy. */
+  .hero{padding:56px 0 0;text-align:center;}
+  .hero h1{max-width:14em;margin:0 auto;}
+  .hero .sub{font-size:1.15rem;max-width:32em;margin:24px auto 30px;}
+  .hero-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+
+  /* SHOWCASE. v3 put a four-square strip here. Becky wanted Option 3's
+     team-photo hero, so the strip becomes one large cross-fading team photo,
+     team shot first. Everything above it keeps v3's centred rhythm. */
+  .showcase{position:relative;overflow:hidden;margin-top:56px;aspect-ratio:4/3;}
+  .showcase img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+                opacity:0;animation:heroFade 28s linear infinite;}
+  .showcase img:nth-child(1){animation-delay:0s;}
+  .showcase img:nth-child(2){animation-delay:7s;}
+  .showcase img:nth-child(3){animation-delay:14s;}
+  .showcase img:nth-child(4){animation-delay:21s;}
   @keyframes heroFade{
     0%{opacity:0} 3%{opacity:1} 25%{opacity:1} 28%{opacity:0} 100%{opacity:0}
   }
   @media(prefers-reduced-motion:reduce){
-    .hero-photo img{animation:none;}
-    .hero-photo img:nth-child(1){opacity:1;}
+    .showcase img{animation:none;}
+    .showcase img:nth-child(1){opacity:1;}
   }
-  @media(max-width:899px){.hero>.wrap{padding-left:0;padding-right:0;}}
-  @media(min-width:900px){
-    .hero-grid{grid-template-columns:1fr 1fr;align-items:stretch;}
-    .hero-copy{padding:104px 56px 104px 0;display:flex;flex-direction:column;justify-content:center;}
-    .hero-copy .sub{font-size:1.24rem;}
-    .hero-photo{min-height:620px;}
-    /* The split halves the space the headline had when it was centred, so the
-       global h1 size wraps "It takes good people" onto three lines. Hold it
-       down here so the intended two-line break survives. */
-    .hero-copy h1{font-size:3.2rem;}
+  @media(min-width:820px){
+    .hero{padding:84px 0 0;}
+    .hero .sub{font-size:1.4rem;}
+    .showcase{margin-top:74px;aspect-ratio:16/7;}
   }
-  @media(min-width:1240px){.hero-copy h1{font-size:3.8rem;}}
 
   /* QUIZ */
   .survey{background:var(--white);}
@@ -160,10 +155,9 @@
   .opt .ic{font-family:var(--serif);font-size:2.1rem;color:var(--orange);line-height:1;margin-bottom:10px;}
   .opt .t{font-family:var(--serif);font-size:1.5rem;line-height:1.1;}
   .opt .d{font-family:var(--sans);font-size:.74rem;letter-spacing:.06em;opacity:.7;margin-top:7px;}
-  @media(min-width:820px){.opts{grid-template-columns:repeat(4,1fr);gap:18px;}.opt{padding:40px 20px;}}
+  @media(min-width:820px){.opts{grid-template-columns:repeat(4,1fr);gap:18px;}.opt{padding:44px 20px;}}
 
-  /* CONDENSED BAND. v7 item 2: replaces the Team, Buying/Selling and Community
-     sections. Who we are, then compact stats, then why Inhabit, then out. */
+  /* CONDENSED BAND, kept from v7 */
   .cond{background:var(--blue);color:var(--cream);}
   .cond h2{color:var(--cream);}
   .cond-grid{display:grid;gap:34px;align-items:center;}
@@ -173,9 +167,6 @@
          padding:8px 17px;font-family:var(--sans);font-size:.66rem;letter-spacing:.18em;
          text-transform:uppercase;font-weight:700;margin-bottom:18px;}
   .cond p{opacity:.88;max-width:40em;}
-
-  /* v7 item 9: stats shrunk. This used to be a full-width band with an 11rem
-     numeral. It is now a compact row inside the band above. */
   .statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
            margin:30px 0 4px;padding:22px 0;
            border-top:1px solid rgba(248,240,223,.28);
@@ -185,13 +176,11 @@
   .statrow span{font-family:var(--sans);font-size:.6rem;letter-spacing:.16em;
                 text-transform:uppercase;opacity:.82;line-height:1.4;display:block;}
   @media(min-width:820px){.statrow b{font-size:2.2rem;}.statrow span{font-size:.64rem;}}
-
   .whyrow{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 22px;margin-top:24px;}
   .whyrow div{font-family:var(--sans);font-size:.82rem;opacity:.86;line-height:1.5;}
   .whyrow b{display:block;font-family:var(--serif);font-size:1.12rem;font-weight:500;
             opacity:1;margin-bottom:2px;}
   @media(min-width:640px){.whyrow{grid-template-columns:repeat(4,1fr);}}
-
   .sublinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;}
   .sublinks a{font-family:var(--sans);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
               font-weight:700;text-decoration:none;color:var(--cream);
@@ -201,32 +190,35 @@
   .cond .quiet{font-family:var(--sans);font-size:.78rem;opacity:.62;margin:26px 0 0;max-width:40em;}
   @media(min-width:900px){.cond-grid{grid-template-columns:5fr 7fr;gap:64px;}}
 
-  /* EVENTS, Option 2's treatment. See the REMOVABLE markers in the body. */
+  /* AWARDS */
+  .awards{background:var(--cream);text-align:center;}
+  .badges{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:48px;align-items:center;
+          max-width:920px;margin-left:auto;margin-right:auto;}
+  .badges img{max-height:126px;width:auto;margin:0 auto;object-fit:contain;}
+  @media(min-width:760px){.badges{grid-template-columns:repeat(4,1fr);gap:40px;}}
+
+  /* EVENTS, Option 2's treatment. The wash sits at .84 rather than .9 so this
+     reads as photography under warm light, not a flat orange fill. That is what
+     lets it sit between the cream awards band and the blue footer without two
+     saturated solids meeting. */
   .events{position:relative;overflow:hidden;}
   .events>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-  .events .veil{position:absolute;inset:0;background:rgba(195,98,58,.9);}
+  .events .veil{position:absolute;inset:0;background:rgba(195,98,58,.84);}
   .events .inner{position:relative;text-align:center;color:var(--white);}
   .events h2{color:var(--white);}
   .events .eyebrow{color:var(--white);}
-  .events .ten{font-family:var(--serif);font-size:7.5rem;line-height:.8;margin-bottom:12px;}
-  .months{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:38px auto 0;max-width:780px;}
-  .months div{border:1px solid rgba(255,253,248,.6);padding:11px 4px;font-family:var(--sans);
-              font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;}
+  .events .ten{font-family:var(--serif);font-size:8rem;line-height:.8;margin-bottom:14px;}
+  .months{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:44px auto 0;max-width:780px;}
+  .months div{border:1px solid rgba(255,253,248,.6);padding:12px 4px;font-family:var(--sans);
+              font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;}
   .months div.on{background:var(--white);color:var(--orange);border-color:var(--white);}
-  @media(min-width:820px){.events .ten{font-size:12rem;}.months{grid-template-columns:repeat(10,1fr);}}
-
-  /* AWARDS */
-  .awards{background:var(--cream);text-align:center;}
-  .badges{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-top:44px;align-items:center;
-          max-width:900px;margin-left:auto;margin-right:auto;}
-  .badges img{max-height:118px;width:auto;margin:0 auto;object-fit:contain;}
-  @media(min-width:760px){.badges{grid-template-columns:repeat(4,1fr);gap:38px;}}
+  @media(min-width:820px){.events .ten{font-size:13rem;}.months{grid-template-columns:repeat(10,1fr);}}
 
   /* FOOTER */
-  footer{background:var(--blue);color:var(--cream);padding:54px 0 30px;font-family:var(--sans);}
+  footer{background:var(--blue);color:var(--cream);padding:56px 0 30px;font-family:var(--sans);}
   .aw-strip{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;align-items:center;
-            padding-bottom:36px;margin-bottom:36px;border-bottom:1px solid rgba(248,240,223,.24);}
-  .aw-strip img{height:62px;width:auto;object-fit:contain;}
+            padding-bottom:38px;margin-bottom:38px;border-bottom:1px solid rgba(248,240,223,.24);}
+  .aw-strip img{height:66px;width:auto;object-fit:contain;}
   .f-cols{display:grid;gap:28px;}
   .f-cols h4{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin:0 0 12px;}
   .f-cols a{display:block;color:var(--cream);text-decoration:none;font-size:.84rem;padding:4px 0;opacity:.86;}
@@ -234,7 +226,7 @@
   .legal{margin-top:36px;padding-top:20px;border-top:1px solid rgba(248,240,223,.24);font-size:.7rem;opacity:.68;}
   @media(min-width:820px){.f-cols{grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;}}
 
-  /* GLASS NAV, unchanged from v6. */
+  /* GLASS NAV */
   .nav{transition:background-color .2s ease, box-shadow .2s ease, border-color .2s ease;}
   .nav.glass{
     background:rgb(0,62,81);
@@ -270,36 +262,31 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO, centred per v3 -->
 <header class="hero">
-  <div class="wrap" style="padding-right:0;">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">Female-owned . Durham, Raleigh, Chapel Hill</p>
-        <h1>It takes good people<br>to find a <em>great home.</em></h1>
-        <p class="sub">
-          Inhabit is a female-owned real estate firm in the Triangle area of
-          North Carolina. Ten years in, still independent, and still the people
-          who pick up the phone.
-        </p>
-        <div class="hero-btns">
-          <a class="btn" href="team.html">Meet Your Agent</a>
-          <a class="btn ghost" href="#start">How We Work</a>
-        </div>
-      </div>
-      <!-- Curated, preloaded, and deliberately not the Instagram feed. The
-           community showing here is candid agent photography, not a titled
-           volunteer section. -->
-      <div class="hero-photo">
-        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/ba67b245-0e11-4d91-9b53-cc4486bc7ccf/RF050125-9.jpg?format=1500w" alt="The Inhabit team">
-        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/48a40215-3e80-47c0-be3e-ca19c979e078/Staff+at+Karma+Keg+2024.JPG?format=1500w" alt="Inhabit agents at a community event">
-        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/e6bd76f0-07e0-4ca1-a5d8-91d2a3accb0f/RF050125-79.jpg?format=1500w" alt="An Inhabit agent at an adoption day">
-        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/db34aa05-66a8-420a-a15f-dcab4e748825/RF050125-8.jpg?format=1500w" alt="Inhabit agents together">
-      </div>
+  <div class="wrap">
+    <p class="eyebrow">Female-owned . Durham, Raleigh, Chapel Hill</p>
+    <h1>It takes good people<br>to find a <em>great home.</em></h1>
+    <p class="sub">
+      Inhabit is a female-owned real estate firm in the Triangle area of
+      North Carolina. Ten years in, still independent, and still the people
+      who pick up the phone.
+    </p>
+    <div class="hero-btns">
+      <a class="btn" href="team.html">Meet Your Agent</a>
+      <a class="btn ghost" href="#start">How We Work</a>
+    </div>
+    <!-- One large team-forward photo instead of v3's four-square strip.
+         Curated from the existing site assets, never the Instagram feed.
+         Community shows here as candid agent photography, uncaptioned. -->
+    <div class="showcase">
+      <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/ba67b245-0e11-4d91-9b53-cc4486bc7ccf/RF050125-9.jpg?format=1500w" alt="The Inhabit team">
+      <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/db34aa05-66a8-420a-a15f-dcab4e748825/RF050125-8.jpg?format=1500w" alt="Inhabit agents together">
+      <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/48a40215-3e80-47c0-be3e-ca19c979e078/Staff+at+Karma+Keg+2024.JPG?format=1500w" alt="Inhabit agents at a community event">
+      <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/e6bd76f0-07e0-4ca1-a5d8-91d2a3accb0f/RF050125-79.jpg?format=1500w" alt="An Inhabit agent at an adoption day">
     </div>
   </div>
 </header>
-
 
 <!-- QUIZ -->
 <div class="survey" id="start">
@@ -316,7 +303,6 @@
     </div>
   </section>
 </div>
-
 
 <!-- CONDENSED BAND, who we are + key stats + why Inhabit -->
 <div class="cond" id="why">
@@ -363,38 +349,6 @@
   </section>
 </div>
 
-<!-- ============================================================
-     REMOVABLE BAND START, 10 Years / 10 Events.
-     This retires at the end of the anniversary year. To remove it, delete
-     everything between this marker and REMOVABLE BAND END. Nothing else
-     references it except the Events link in the nav, which should be dropped
-     at the same time.
-     ============================================================ -->
-
-<div class="events" id="events">
-  <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/48a40215-3e80-47c0-be3e-ca19c979e078/Staff+at+Karma+Keg+2024.JPG?format=1500w" alt="">
-  <div class="veil"></div>
-  <section class="inner">
-    <div class="wrap">
-      <p class="eyebrow">The tenth year</p>
-      <div class="ten">10</div>
-      <h2>Ten events. Ten years.<br>First one in January.</h2>
-      <p style="max-width:32em;margin:22px auto 0;">
-        One gathering a month through the anniversary year, open to clients,
-        neighbors, and anyone who wants to come. Announced as each is set.
-      </p>
-      <div class="months">
-        <div class="on">Jan</div><div>Feb</div><div>Mar</div><div>Apr</div><div>May</div>
-        <div>Jun</div><div>Jul</div><div>Aug</div><div>Sep</div><div>Oct</div>
-      </div>
-      <p style="margin-top:34px;"><a class="btn ghost-light" href="community.html">See the lineup</a></p>
-    </div>
-  </section>
-</div>
-<!-- ============================================================
-     REMOVABLE BAND END
-     ============================================================ -->
-
 <!-- AWARDS -->
 <div class="awards">
   <section>
@@ -411,6 +365,36 @@
   </section>
 </div>
 
+<!-- ============================================================
+     REMOVABLE BAND START, 10 Years / 10 Events.
+     This retires at the end of the anniversary year. To remove it, delete
+     everything between this marker and REMOVABLE BAND END, and drop the Events
+     link from the nav and the footer at the same time. Band order still reads
+     cream, white, blue, cream, blue afterwards, so nothing else needs changing.
+     ============================================================ -->
+<div class="events" id="events">
+  <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/48a40215-3e80-47c0-be3e-ca19c979e078/Staff+at+Karma+Keg+2024.JPG?format=1500w" alt="">
+  <div class="veil"></div>
+  <section class="inner">
+    <div class="wrap">
+      <p class="eyebrow">The tenth year</p>
+      <div class="ten">10</div>
+      <h2>Ten events. Ten years.<br>First one in January.</h2>
+      <p style="max-width:32em;margin:24px auto 0;">
+        One gathering a month through the anniversary year, open to clients,
+        neighbors, and anyone who wants to come. Announced as each is set.
+      </p>
+      <div class="months">
+        <div class="on">Jan</div><div>Feb</div><div>Mar</div><div>Apr</div><div>May</div>
+        <div>Jun</div><div>Jul</div><div>Aug</div><div>Sep</div><div>Oct</div>
+      </div>
+      <p style="margin-top:40px;"><a class="btn ghost-light" href="community.html">See the lineup</a></p>
+    </div>
+  </section>
+</div>
+<!-- ============================================================
+     REMOVABLE BAND END
+     ============================================================ -->
 
 <!-- FOOTER -->
 <footer>
