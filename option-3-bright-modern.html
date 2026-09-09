@@ -27,7 +27,8 @@
   Everything else matches f-v7: shortened homepage, subpage stubs, orange
   keyhole lockup, working links, curated preloaded hero photography, community
   carried by candid photos only, removable anniversary band, smaller stats,
-  gradient seams, the quiz with "Just looking", and both required copy lines.
+  the quiz with "Just looking", and both required copy lines. Band changes are
+  hard edges, the v7 gradient dividers were stripped out on 09.09.26.
 
   TODO FONTS: no .woff, .woff2, .ttf or .otf exists anywhere in the repo as of
   09.09.26, so this builds on neutral fallback stacks.
@@ -78,13 +79,6 @@
   section{padding:72px 0;}
   @media(min-width:820px){h1{font-size:4.6rem;}h2{font-size:3rem;}section{padding:104px 0;}}
 
-  /* SEAMS, item 10 */
-  .seam{height:80px;}
-  @media(min-width:820px){.seam{height:120px;}}
-  .seam-cream-blue{background:linear-gradient(180deg,var(--cream),var(--blue));}
-  .seam-blue-cream{background:linear-gradient(180deg,var(--blue),var(--cream));}
-  .seam-cream-white{background:linear-gradient(180deg,var(--cream),var(--white));}
-  .seam-white-cream{background:linear-gradient(180deg,var(--white),var(--cream));}
 
   /* NAV, item 4 */
   .nav{position:sticky;top:0;z-index:80;background:var(--blue);
@@ -291,7 +285,6 @@
   </div>
 </header>
 
-<div class="seam seam-cream-blue"></div>
 
 <!-- QUIZ -->
 <div class="survey" id="start">
@@ -309,7 +302,6 @@
   </section>
 </div>
 
-<div class="seam seam-blue-cream"></div>
 
 <!-- CONDENSED BAND -->
 <div class="cond" id="why">
@@ -362,10 +354,8 @@
 <!-- ============================================================
      REMOVABLE BAND START, 10 Years / 10 Events.
      Retires after the anniversary year. Delete everything to REMOVABLE BAND
-     END, including the seam div immediately before it, and drop the Events
-     link from the nav at the same time.
+     END, and drop the Events link from the nav at the same time.
      ============================================================ -->
-<div class="seam seam-white-cream" style="background:linear-gradient(180deg,var(--white),rgba(195,98,58,.9));"></div>
 
 <div class="events" id="events">
   <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/48a40215-3e80-47c0-be3e-ca19c979e078/Staff+at+Karma+Keg+2024.JPG?format=1500w" alt="">
@@ -407,7 +397,6 @@
   </section>
 </div>
 
-<div class="seam" style="background:linear-gradient(180deg,var(--white),var(--blue));"></div>
 
 <!-- FOOTER -->
 <footer>

@@ -29,8 +29,9 @@
      in one delete after the anniversary year.
   9. Becky: the stats are much smaller. The full-width $250M+ anchor band is
      gone, replaced by a compact three-up row inside the condensed band.
-  10. Bands no longer butt solid colour against solid colour. A .seam gradient
-     carries each transition.
+  10. Bands change on a hard edge. The choppy-blocks note is answered by band
+     order and spacing rather than by blending. The v7 gradient dividers were
+     stripped out on 09.09.26.
   11. The "Where are you right now?" quiz is kept, including "Just looking".
      Destinations are stubbed.
   12. Hero copy keeps "It takes good people to find a great home", and "Owned
@@ -97,14 +98,6 @@
   section{padding:72px 0;}
   @media(min-width:820px){h1{font-size:4.6rem;}h2{font-size:3rem;}section{padding:104px 0;}}
 
-  /* SEAMS. v7 item 10: every band change is carried by a gradient rather than
-     one solid colour butting straight against the next. */
-  .seam{height:80px;}
-  @media(min-width:820px){.seam{height:120px;}}
-  .seam-cream-white{background:linear-gradient(180deg,var(--cream),var(--white));}
-  .seam-white-blue{background:linear-gradient(180deg,var(--white),var(--blue));}
-  .seam-blue-cream{background:linear-gradient(180deg,var(--blue),var(--cream));}
-  .seam-cream-blue{background:linear-gradient(180deg,var(--cream),var(--blue));}
 
   /* NAV. v7 item 4: Orange and Cream lockup so the keyhole matches the CTA. */
   .nav{position:sticky;top:0;z-index:80;background:var(--blue);
@@ -307,7 +300,6 @@
   </div>
 </header>
 
-<div class="seam seam-cream-white"></div>
 
 <!-- QUIZ -->
 <div class="survey" id="start">
@@ -325,7 +317,6 @@
   </section>
 </div>
 
-<div class="seam seam-white-blue"></div>
 
 <!-- CONDENSED BAND, who we are + key stats + why Inhabit -->
 <div class="cond" id="why">
@@ -375,12 +366,10 @@
 <!-- ============================================================
      REMOVABLE BAND START, 10 Years / 10 Events.
      This retires at the end of the anniversary year. To remove it, delete
-     everything between this marker and REMOVABLE BAND END, including the two
-     seam divs immediately before and after, then change the seam above the
-     awards section to seam-blue-cream. Nothing else references it except the
-     Events link in the nav, which should be dropped at the same time.
+     everything between this marker and REMOVABLE BAND END. Nothing else
+     references it except the Events link in the nav, which should be dropped
+     at the same time.
      ============================================================ -->
-<div class="seam seam-blue-cream"></div>
 
 <div class="events" id="events">
   <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/48a40215-3e80-47c0-be3e-ca19c979e078/Staff+at+Karma+Keg+2024.JPG?format=1500w" alt="">
@@ -422,7 +411,6 @@
   </section>
 </div>
 
-<div class="seam seam-cream-blue"></div>
 
 <!-- FOOTER -->
 <footer>
