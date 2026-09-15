@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Inhabit Real Estate · Website Site Map</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+  :root{
+    --blue:#14384a;
+    --blue-deep:#0e2c3b;
+    --cream:#f7efe1;
+    --paper:#fffdf8;
+    --orange:#c05e2a;
+    --ink:#22333c;
+    --muted:#5d6f78;
+    --line:rgba(20,56,74,.16);
+    --page:var(--cream);
+    --card:var(--paper);
+    --head:var(--blue);
+  }
+  :root:not([data-theme="light"]){}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --page:#0e2c3b;
+      --card:#f7efe1;
+      --head:#0a2230;
+      --ink:#22333c;
+      --muted:#5d6f78;
+      --line:rgba(20,56,74,.2);
+    }
+  }
+  :root[data-theme="dark"]{
+    --page:#0e2c3b;
+    --card:#f7efe1;
+    --head:#0a2230;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--page);
+    color:var(--ink);
+    font-family:"Avenir Next","Segoe UI",-apple-system,Helvetica,Arial,sans-serif;
+    line-height:1.45;
+    padding-bottom:56px;
+  }
+  .serif{font-family:"EB Garamond",Georgia,"Times New Roman",serif}
+
+  header{
+    background:var(--head);
+    color:#f7efe1;
+    padding:34px 24px 30px;
+  }
+  .shell{max-width:1080px;margin:0 auto;padding:0 8px}
+  .brandline{font-size:14px;letter-spacing:.04em;color:#e9dcc2;margin-bottom:6px}
+  header h1{
+    font-family:"EB Garamond",Georgia,serif;
+    font-weight:500;
+    font-size:clamp(30px,5vw,44px);
+    line-height:1.08;
+  }
+  header h1 em{font-style:italic;color:#e8a06f}
+  .headmeta{
+    display:flex;flex-wrap:wrap;gap:10px 26px;align-items:baseline;
+    margin-top:14px;font-size:14.5px;color:#d9cdb4;
+  }
+  .due{
+    color:#0e2c3b;background:#e8a06f;border-radius:3px;
+    padding:4px 10px;font-weight:600;font-size:13.5px;
+  }
+
+  main{max-width:1080px;margin:26px auto 0;padding:0 24px}
+
+  .homecard{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-top:4px solid var(--blue);
+    border-radius:6px;
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:26px;
+    padding:24px 26px;
+  }
+  .pgname{font-family:"EB Garamond",Georgia,serif;font-weight:600;font-size:26px;color:var(--blue);line-height:1.1}
+  .pgkind{font-size:13.5px;color:var(--muted);margin-top:2px}
+  .pgdesc{margin-top:12px;font-size:15px;max-width:52ch}
+  .facts{margin-top:14px;font-size:14px;color:var(--muted)}
+  .facts b{color:var(--ink);font-weight:600}
+  .owner-tc b{color:var(--orange)}
+  .owner-j b{color:var(--blue)}
+
+  .spine{border-left:1px solid var(--line);padding-left:22px}
+  .spinehead{font-size:13.5px;color:var(--muted);margin-bottom:10px}
+  .band{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:7px 12px;
+    font-size:13.5px;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .band{background:#efe4cd}
+  }
+  .band small{color:var(--muted);display:block;font-size:12px;margin-top:1px}
+  .band.hero{background:var(--blue);color:#f7efe1;border-color:var(--blue)}
+  .band.hero small{color:#cdbfa4}
+  .band.removable{border-style:dashed;border-color:var(--orange);color:var(--ink)}
+  .band.removable small{color:var(--orange)}
+
+  .connector{
+    width:1px;height:34px;background:var(--line);
+    margin:0 auto;
+  }
+  .gridlabel{text-align:center;font-size:14px;color:var(--muted);margin-bottom:14px}
+  .gridlabel b{color:var(--ink)}
+  body > main > .gridlabel{margin-top:0}
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:4px solid var(--blue);
+    border-radius:6px;
+    padding:18px 18px 16px;
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .card.tc{border-left-color:var(--orange)}
+  .card .pgname{font-size:21px}
+  .card .pgdesc{margin-top:0;font-size:14px}
+  .card .facts{margin-top:auto;padding-top:8px}
+  .note{
+    font-size:12.5px;color:var(--muted);
+    border-top:1px dashed var(--line);
+    padding-top:7px;margin-top:2px;
+  }
+  .note.idx{color:var(--orange)}
+
+  .legend{
+    margin-top:26px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:16px 20px;
+    display:flex;flex-wrap:wrap;gap:12px 30px;
+    font-size:14px;align-items:center;
+  }
+  .key{display:flex;align-items:center;gap:9px}
+  .swatch{width:14px;height:14px;border-radius:3px;flex:none}
+  .swatch.o{background:var(--orange)}
+  .swatch.b{background:var(--blue)}
+  .legend .rule{color:var(--muted)}
+
+  footer{
+    max-width:1080px;margin:22px auto 0;padding:0 24px;
+    font-size:13px;color:var(--muted);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) footer{color:#c8bda6}
+    :root:not([data-theme="light"]) .gridlabel{color:#c8bda6}
+    :root:not([data-theme="light"]) .gridlabel b{color:#f7efe1}
+    :root:not([data-theme="light"]) .connector{background:rgba(247,239,225,.35)}
+  }
+
+  @media (max-width:820px){
+    .homecard{grid-template-columns:1fr}
+    .spine{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:16px}
+    .grid{grid-template-columns:1fr}
+  }
+  @media print{
+    body{background:#fff}
+    header{background:var(--blue) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="shell">
+    <div class="brandline">Inhabit Real Estate</div>
+    <h1 class="serif">The new website, <em>page by page</em></h1>
+    <div class="headmeta">
+      <span>Approved at the Sep 9 meeting</span>
+      <span class="due">First drafts due Tue, Sep 23</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="homecard">
+    <div>
+      <div class="pgname serif">Homepage</div>
+      <div class="pgkind">One scrollable page, sticky nav with anchor links</div>
+      <p class="pgdesc">The whole story in one scroll: who Inhabit is, real people first, listings one click away. Every section links deeper instead of piling everything on one page.</p>
+      <div class="facts owner-j">Drafts: <b>Josh</b> (from current site copy) &nbsp;·&nbsp; New copy: <b>≈300 words</b></div>
+    </div>
+    <div class="spine">
+      <div class="spinehead">The scroll, top to bottom</div>
+      <div class="band hero">Hero: team photo + "It takes good people to find a great home."<small>Two buttons: Meet Your Agent · How We Work</small></div>
+      <div class="band">"Where are you right now?" quiz<small>Points visitors at the right person, includes "just looking"</small></div>
+      <div class="band">Who we are + why Inhabit<small>"Owned by the people who answer the phone" + key stats, links to Our Story</small></div>
+      <div class="band">Meet Your Agent teaser<small>Links to the team page</small></div>
+      <div class="band removable">10 Years / 10 Events<small>Built to retire gracefully after the anniversary year</small></div>
+      <div class="band">Community, in candid photos<small>Subtle by design</small></div>
+      <div class="band">Awards + signup + footer</div>
+    </div>
+  </section>
+
+  <div class="connector"></div>
+  <div class="gridlabel">Nine pages linked from the homepage · <b>everyone reviews everything</b></div>
+
+  <section class="grid">
+    <div class="card tc">
+      <div class="pgname serif">Our Story</div>
+      <p class="pgdesc">Who Inhabit is: female-owned, independent, ten years in. Where the keyhole comes from.</p>
+      <div class="facts owner-tc">Drafts: <b>Tammi + Connie</b> · <b>≈450 words</b></div>
+    </div>
+    <div class="card tc">
+      <div class="pgname serif">Meet Your Team</div>
+      <p class="pgdesc">"Who's your guide?" Real roles and titles, Tammi visible as owner, headshots stay.</p>
+      <div class="facts owner-tc">Drafts: <b>Tammi + Connie</b> · <b>≈200 words</b></div>
+    </div>
+    <div class="card">
+      <div class="pgname serif">Agent Pages</div>
+      <p class="pgdesc">One page per agent: a short bio plus that agent's listings, past and present.</p>
+      <div class="facts owner-j">Template: <b>Josh</b> · agents supply bios, <b>≈75–100 words each</b></div>
+      <div class="note idx">Listings feed automatically from the new IDX</div>
+    </div>
+    <div class="card tc">
+      <div class="pgname serif">Buying</div>
+      <p class="pgdesc">The buying journey as a visual, step-by-step path rather than paragraphs.</p>
+      <div class="facts owner-tc">Drafts: <b>Inhabit team</b> · <b>≈300 words</b> + step labels</div>
+    </div>
+    <div class="card tc">
+      <div class="pgname serif">Selling</div>
+      <p class="pgdesc">Same visual treatment, plus the story only Inhabit can tell: one agent, both sides.</p>
+      <div class="facts owner-tc">Drafts: <b>Inhabit team</b> · <b>≈300 words</b> + step labels</div>
+    </div>
+    <div class="card">
+      <div class="pgname serif">Home Search</div>
+      <p class="pgdesc">Full listing search for the Triangle. The IDX vendor does the heavy lifting here.</p>
+      <div class="facts owner-j">Drafts: <b>Josh</b> · <b>≈50 words</b></div>
+      <div class="note idx">Powered by the new IDX</div>
+    </div>
+    <div class="card tc">
+      <div class="pgname serif">Community</div>
+      <p class="pgdesc">"We live here" told through candid photos of the team out in the Triangle.</p>
+      <div class="facts owner-tc">Drafts: <b>Inhabit team</b> · <b>≈225 words</b></div>
+    </div>
+    <div class="card tc">
+      <div class="pgname serif">Events</div>
+      <p class="pgdesc">Home of 10 Years / 10 Events, with room to grow into a community calendar.</p>
+      <div class="facts owner-tc">Drafts: <b>Inhabit team</b> · <b>≈175 words</b> + a blurb per event</div>
+    </div>
+    <div class="card tc">
+      <div class="pgname serif">Contact</div>
+      <p class="pgdesc">A real contact form that reaches real people, plus office details.</p>
+      <div class="facts owner-tc">Drafts: <b>Inhabit team</b> · <b>≈60 words</b></div>
+    </div>
+  </section>
+
+  <section class="legend">
+    <span class="key"><span class="swatch o"></span>Inhabit team drafts first</span>
+    <span class="key"><span class="swatch b"></span>Josh drafts first</span>
+    <span class="rule">Current site copy is the base for everything · Tammi's book list guides the voice</span>
+  </section>
+</main>
+
+<footer>
+  <span>Inhabit Real Estate website redesign</span>
+  <span>Prepared by Shimmer Creative · Sep 16, 2026</span>
+</footer>
+</body>
+</html>
