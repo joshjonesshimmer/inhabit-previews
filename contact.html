@@ -1,148 +1,242 @@
 <!DOCTYPE html>
 <!--
-  Inhabit Real Estate, Contact
-  Built 10.15.26 with the final website copy, word for word.
-  Same header, nav, footer, fonts and colours as the rest of the set.
+  Inhabit Real Estate, Contact. Subpage design v1, 10.15.26.
+  Shares one design system with every subpage (see the :root tokens).
+  Accessibility: WCAG 2.2 AA targets. Deep orange (#A3502B) carries text and buttons
+  because brand orange (#C3623A) is 3.6:1 on cream and fails AA for body-size text.
+  Dashed "slot" boxes mark things not wired yet (IDX listings, form sending).
 -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Inhabit Real Estate, Contact</title>
+<title>Contact | Inhabit Real Estate</title>
+<meta name="description" content="Call, email, or visit Inhabit Real Estate in Durham or Chapel Hill.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --blue:#003E51;
-    --orange:#C3623A;
-    --cream:#F8F0DF;
-    --white:#FFFDF8;
-    --sans:"TT Commons Pro Expanded","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
-    --serif:"EB Garamond",Garamond,"Iowan Old Style",Georgia,"Times New Roman",serif;
-  }
-  *{box-sizing:border-box;}
-  body{margin:0;background:var(--cream);color:var(--blue);
-       font-family:var(--serif);font-size:19px;line-height:1.62;
-       -webkit-font-smoothing:antialiased;}
-  img{max-width:100%;display:block;}
-  h1{font-family:var(--serif);font-weight:500;line-height:1.05;margin:0 0 18px;
-     letter-spacing:-.015em;font-size:2.6rem;}
-  p{margin:0 0 1.1rem;}
-  em{font-style:italic;color:var(--orange);}
-  .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 24px;}
-  .eyebrow{font-family:var(--sans);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
-           color:var(--orange);font-weight:700;margin:0 0 18px;}
-  .btn{font-family:var(--sans);display:inline-block;background:var(--orange);color:var(--white);
-       text-decoration:none;padding:15px 30px;font-size:.76rem;letter-spacing:.14em;
-       text-transform:uppercase;font-weight:700;border:2px solid var(--orange);cursor:pointer;}
-  .btn.ghost{background:transparent;color:var(--blue);border-color:var(--blue);}
-  .nav{position:sticky;top:0;z-index:80;background:var(--blue);
-       border-bottom:1px solid rgba(248,240,223,.18);}
-  .nav-in{display:flex;align-items:center;gap:14px;padding:20px 24px;max-width:1240px;margin:0 auto;}
-  .nav img{width:168px;}
-  .nav-links{display:none;gap:17px;margin-left:auto;font-family:var(--sans);}
-  .nav-links a{color:var(--cream);text-decoration:none;font-size:.68rem;letter-spacing:.11em;
-               text-transform:uppercase;font-weight:600;white-space:nowrap;}
-  .nav-links a:hover{color:var(--orange);}
-  .nav-cta{margin-left:auto;padding:11px 20px;font-size:.68rem;}
-  @media(min-width:1100px){.nav-links{display:flex;}.nav-cta{margin-left:22px;}}
-  main{padding:72px 0 96px;}
-  .lede{font-size:1.16rem;max-width:34em;}
-  .body p{max-width:34em;}
-  ol,ul{font-family:var(--sans);font-size:.92rem;max-width:36em;padding-left:20px;line-height:1.85;
-     opacity:.9;margin:26px 0 34px;}
-  ol li,ul li{margin-bottom:14px;}
-  ol b,ul b{font-family:var(--serif);font-size:1.05rem;}
-  @media(min-width:820px){h1{font-size:4rem;}main{padding:104px 0 128px;}}
+:root{
+  --blue:#003E51; --orange:#C3623A; --orange-ink:#A3502B; --orange-glow:#E59A75;
+  --cream:#F8F0DF; --sand:#EFE3C9; --white:#FFFDF8; --ink-soft:#3E6573;
+  --line:rgba(0,62,81,.16); --line-light:rgba(248,240,223,.26);
+  --sans:"TT Commons Pro Expanded","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
+  --serif:"EB Garamond",Garamond,"Iowan Old Style",Georgia,"Times New Roman",serif;
+  --measure:62ch; --wrap:1240px; --gutter:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--cream);color:var(--blue);font-family:var(--serif);font-size:19px;line-height:1.62;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--orange-ink);text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--orange-ink);outline-offset:3px}
+.on-blue :focus-visible,.nav :focus-visible,footer :focus-visible{outline-color:var(--orange-glow)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.06;letter-spacing:-.015em;margin:0}
+h1{font-size:clamp(2.7rem,6vw,4.6rem)}
+h2{font-size:clamp(2rem,3.6vw,3rem)}
+h3{font-size:1.55rem;line-height:1.15}
+p{margin:0 0 1.1rem}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+.measure{max-width:var(--measure)}
+.sans{font-family:var(--sans)}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--white);color:var(--blue);padding:10px 16px;font-family:var(--sans);z-index:200}
+.skip:focus{left:8px}
 
-  footer{background:var(--blue);color:var(--cream);padding:54px 0 30px;font-family:var(--sans);}
-  .f-cols{display:grid;gap:28px;}
-  .f-cols h4{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin:0 0 12px;}
-  .f-cols a{display:block;color:var(--cream);text-decoration:none;font-size:.84rem;padding:4px 0;opacity:.86;}
-  footer .logo{width:188px;margin-bottom:16px;}
-  .faddr{font-size:.84rem;opacity:.8;}
-  .legal{margin-top:36px;padding-top:20px;border-top:1px solid rgba(248,240,223,.24);font-size:.7rem;opacity:.68;}
-  @media(min-width:820px){.f-cols{grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;}}
-  /* contact form, styled from the existing palette and type, does not send yet */
-  .formcard{background:var(--white);border:1px solid rgba(0,62,81,.16);padding:26px 24px;max-width:38em;margin:0 0 34px;}
-  .formcard label{display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.16em;
-                  text-transform:uppercase;font-weight:700;color:var(--blue);margin:0 0 6px;}
-  .formcard input,.formcard textarea{width:100%;font-family:var(--serif);font-size:1rem;color:var(--blue);
-    background:var(--cream);border:1px solid rgba(0,62,81,.24);padding:11px 12px;margin-bottom:18px;}
-  .formcard textarea{min-height:120px;resize:vertical;}
-  .formnote{font-family:var(--sans);font-size:.72rem;opacity:.6;margin:4px 0 0;}
-  /* home search placeholder */
-  .idxbox{border:2px dashed var(--orange);background:var(--white);padding:46px 24px;text-align:center;
-          max-width:46em;margin:0 0 34px;}
-  .idxbox b{display:block;font-family:var(--sans);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
-            color:var(--orange);margin-bottom:8px;}
-  .idxbox span{font-family:var(--serif);font-size:1.3rem;}
+/* buttons: deep orange passes 4.5:1 with white text */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:14px 28px;
+  font-family:var(--sans);font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  text-decoration:none;background:var(--orange-ink);color:var(--white);border:2px solid var(--orange-ink);cursor:pointer}
+.btn:hover{background:var(--blue);border-color:var(--blue);text-decoration:none}
+.btn.ghost{background:transparent;color:var(--blue);border-color:var(--blue)}
+.btn.ghost:hover{background:var(--blue);color:var(--cream)}
+.on-blue .btn{background:var(--cream);color:var(--blue);border-color:var(--cream)}
+.on-blue .btn:hover{background:var(--orange-glow);border-color:var(--orange-glow)}
+.on-blue .btn.ghost{background:transparent;color:var(--cream);border-color:var(--cream)}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:90;background:var(--blue);border-bottom:1px solid var(--line-light)}
+.nav-in{display:flex;align-items:center;gap:20px;max-width:var(--wrap);margin:0 auto;padding:16px var(--gutter)}
+.nav-logo img{width:156px}
+.nav-in>nav{margin-left:auto}
+.nav-links{display:none;margin:0;padding:0;list-style:none;gap:4px;font-family:var(--sans)}
+.nav-links a{display:block;padding:12px 12px;color:var(--cream);text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.08em}
+.nav-links a:hover{color:var(--orange-glow)}
+.nav-links a[aria-current="page"]{color:var(--orange-glow);box-shadow:inset 0 -2px 0 var(--orange-glow)}
+.nav-cta{margin-left:auto;min-height:44px;padding:10px 16px;font-size:.72rem;white-space:nowrap}
+@media(max-width:420px){.nav-logo img{width:128px}.nav-in{gap:12px}}
+.nav .nav-cta{background:var(--cream);color:var(--blue);border-color:var(--cream)}
+.nav .nav-cta:hover{background:var(--orange-glow);border-color:var(--orange-glow);color:var(--blue)}
+.menu-btn{min-height:44px;min-width:44px;padding:10px 14px;background:transparent;color:var(--cream);border:1px solid var(--line-light);
+  font-family:var(--sans);font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.mobile-panel{display:none;background:var(--blue);border-top:1px solid var(--line-light);padding:8px var(--gutter) 24px}
+.mobile-panel.open{display:block}
+.mobile-panel a{display:block;padding:14px 0;color:var(--cream);text-decoration:none;font-size:1.35rem;border-bottom:1px solid var(--line-light)}
+.mobile-panel a[aria-current="page"]{color:var(--orange-glow)}
+@media(min-width:1060px){.nav-links{display:flex}.menu-btn{display:none}.nav-cta{margin-left:18px}.mobile-panel{display:none!important}}
+
+/* PAGE HEAD: left aligned for reading; homepage stays centred */
+.page-head{padding:64px 0 56px}
+.page-head .kicker{font-family:var(--sans);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-ink);margin:0 0 16px}
+.page-head .kicker a{color:inherit;text-decoration:none}
+.page-head .lede{font-size:clamp(1.2rem,1.9vw,1.45rem);line-height:1.5;max-width:34em;margin:22px 0 0;color:var(--blue)}
+.page-head .btn-row{margin-top:30px}
+@media(min-width:820px){.page-head{padding:104px 0 80px}}
+
+section{padding:72px 0}
+@media(min-width:820px){section{padding:112px 0}}
+.band-white{background:var(--white)}
+.band-sand{background:var(--sand)}
+.band-blue{background:var(--blue);color:var(--cream)}
+.band-blue h2,.band-blue h3{color:var(--cream)}
+.band-blue p{color:rgba(248,240,223,.92)}
+.band-blue a:not(.btn){color:var(--orange-glow)}
+
+.split{display:grid;gap:40px}
+@media(min-width:900px){.split{grid-template-columns:5fr 7fr;gap:72px;align-items:start}}
+.photo{overflow:hidden;background:var(--sand)}
+.photo img{width:100%;height:100%;object-fit:cover}
+
+/* closing CTA band */
+.closing{text-align:left}
+.closing h2{max-width:16em}
+.closing p{max-width:34em;margin-top:18px}
+.closing .btn-row{margin-top:28px}
+
+/* preview placeholder, honest about what is not wired yet */
+.slot{border:2px dashed rgba(0,62,81,.32);background:rgba(255,253,248,.6);padding:28px;font-family:var(--sans);font-size:.9rem;color:var(--ink-soft)}
+.slot strong{display:block;font-family:var(--serif);font-size:1.3rem;font-weight:500;color:var(--blue);margin-bottom:6px}
+
+/* FOOTER */
+footer{background:var(--blue);color:var(--cream);font-family:var(--sans);padding:64px 0 32px}
+footer .logo{width:176px;margin-bottom:18px}
+.f-grid{display:grid;gap:36px}
+@media(min-width:820px){.f-grid{grid-template-columns:2.2fr 1fr 1fr 1fr;gap:48px}}
+footer h2{font-family:var(--sans);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-glow);margin:0 0 14px}
+footer ul{list-style:none;margin:0;padding:0}
+footer li a{display:inline-block;padding:7px 0;color:var(--cream);text-decoration:none;font-size:.92rem}
+footer li a:hover{color:var(--orange-glow)}
+footer address{font-style:normal;font-size:.92rem;line-height:1.7;opacity:.92}
+footer address a{color:var(--cream)}
+.legal{margin-top:44px;padding-top:22px;border-top:1px solid var(--line-light);font-size:.78rem;opacity:.8;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+.contact{display:grid;gap:48px;padding-bottom:96px}
+@media(min-width:960px){.contact{grid-template-columns:5fr 6fr;gap:80px;align-items:start}}
+.direct h2,.formcard h2{font-size:clamp(1.6rem,2.6vw,2.1rem);margin-bottom:22px}
+.big{display:block;font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.2;color:var(--blue);text-decoration:none;padding:6px 0}
+.big:hover{color:var(--orange-ink);text-decoration:underline;text-decoration-thickness:1px}
+.lbl{font-family:var(--sans);font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:24px 0 2px}
+.offices{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:16px}
+.office{background:var(--white);border:1.5px solid var(--line);padding:22px 24px}
+.office h3{font-size:1.35rem;margin-bottom:6px}
+.office address{font-style:normal;margin-bottom:10px}
+.office a{font-family:var(--sans);font-size:.9rem;font-weight:600}
+.formcard{background:var(--white);border:1.5px solid var(--line);padding:28px}
+@media(min-width:700px){.formcard{padding:44px}}
+.field{margin-bottom:22px}
+.field label,.field legend{display:block;font-family:var(--sans);font-size:.95rem;font-weight:600;margin-bottom:8px;padding:0}
+.opt{font-weight:400;color:var(--ink-soft)}
+.field input,.field textarea{width:100%;min-height:50px;padding:12px 14px;border:1.5px solid rgba(0,62,81,.55);background:var(--white);color:var(--blue);font-family:var(--sans);font-size:1rem}
+.field textarea{min-height:140px;resize:vertical}
+.field input[aria-invalid="true"]{border-color:#A3261B;border-width:2px}
+.err{font-family:var(--sans);font-size:.86rem;color:#A3261B;margin:8px 0 0}
+fieldset{border:0;margin:0 0 22px;padding:0}
+.radios{display:grid;gap:10px}
+@media(min-width:560px){.radios{grid-template-columns:1fr 1fr}}
+.radio{display:flex;align-items:center;gap:12px;min-height:50px;padding:10px 14px;border:1.5px solid var(--line);font-family:var(--sans);font-size:.95rem;cursor:pointer}
+.radio:has(input:checked){border-color:var(--blue);background:rgba(0,62,81,.05)}
+.radio input{width:20px;height:20px;accent-color:var(--orange-ink);margin:0}
+.next{font-family:var(--sans);font-size:.9rem;color:var(--ink-soft);margin:16px 0 0}
+.done{display:none;padding:8px 0}.done.show{display:block}
 </style>
 </head>
 <body>
-
-<nav class="nav">
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
   <div class="nav-in">
-    <a href="option-1-light-editorial.html"><img src="assets/inhabit-horizontal-orange-cream.png" alt="Inhabit Real Estate"></a>
-    <div class="nav-links">
-      <a href="option-1-light-editorial.html#start">Start Here</a>
-      <a href="option-1-light-editorial.html#why">Why Inhabit</a>
-      <a href="our-story.html">Our Story</a>
-      <a href="team.html">Our Team</a>
-      <a href="home-search.html">Home Search</a>
-      <a href="community.html">Community</a>
-      <a href="events.html">Events</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <a class="btn nav-cta" href="team.html">Meet Your Agent</a>
+    <a class="nav-logo" href="option-1-light-editorial.html"><img src="https://joshjonesshimmer.github.io/inhabit-previews/assets/inhabit-horizontal-orange-cream.png" alt="Inhabit Real Estate, home"></a>
+    <nav aria-label="Main"><ul class="nav-links"><li><a href="buying.html">Buying</a></li><li><a href="selling.html">Selling</a></li><li><a href="team.html">Our Team</a></li><li><a href="community.html">Community</a></li><li><a href="events.html">Events</a></li><li><a href="our-story.html">Our Story</a></li></ul></nav>
+    <a class="btn nav-cta" href="contact.html">Let&rsquo;s talk</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-panel">Menu</button>
   </div>
-</nav>
+  <nav id="mobile-panel" class="mobile-panel" aria-label="Main, mobile"><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="team.html">Our Team</a><a href="community.html">Community</a><a href="events.html">Events</a><a href="our-story.html">Our Story</a><a href="home-search.html">Browse homes</a><a href="contact.html" aria-current="page">Let’s talk</a></nav>
+</header>
+<main id="main">
 
-<main>
-  <div class="wrap">
-    <p class="eyebrow">Contact</p>
-    <h1>Let's talk.</h1>
-    <p class="lede">Whether you're ready to move or just starting to wonder, we'd love to hear from you. Send a note and a real person on our team will get back to you, usually within one business day. No pressure and no sales pitch, just a conversation about getting you home.</p>
-    <form class="formcard" onsubmit="return false;">
-      <label for="cf-name">Name</label>
-      <input id="cf-name" type="text" autocomplete="name">
-      <label for="cf-email">Email</label>
-      <input id="cf-email" type="email" autocomplete="email">
-      <label for="cf-phone">Phone</label>
-      <input id="cf-phone" type="tel" autocomplete="tel">
-      <label for="cf-msg">How can we help?</label>
-      <textarea id="cf-msg"></textarea>
-      <button class="btn" type="submit">Send a note</button>
-      <p class="formnote">Concept form. Not wired up to send yet.</p>
+<div class="page-head"><div class="wrap">
+  <p class="kicker">Contact</p>
+  <h1>Let&rsquo;s talk.</h1>
+  <p class="lede">Whether you&rsquo;re ready to move or just starting to wonder, we&rsquo;d love to hear from you. Send a note and a real person on our team will get back to you, usually within one business day. No pressure and no sales pitch, just a conversation about getting you home.</p>
+</div></div>
+<div class="wrap contact">
+  <div class="direct">
+    <h2>Reach us directly</h2>
+    <p class="lbl">Call</p><a class="big" href="tel:+19198084549">(919) 808-4549</a>
+    <p class="lbl">Email</p><a class="big" href="mailto:hello@inhabitthetriangle.com">hello@inhabitthetriangle.com</a>
+    <ul class="offices">
+      <li class="office"><h3>Durham office</h3><address>3211 Shannon Road, Suite 40<br>Durham, NC 27707</address>
+        <a href="https://www.google.com/maps/search/?api=1&query=3211+Shannon+Road+Suite+40+Durham+NC+27707">Get directions to the Durham office</a></li>
+      <li class="office"><h3>Chapel Hill office</h3><address>1113 Environ Way<br>Chapel Hill, NC 27517</address>
+        <a href="https://www.google.com/maps/search/?api=1&query=1113+Environ+Way+Chapel+Hill+NC+27517">Get directions to the Chapel Hill office</a></li>
+    </ul>
+  </div>
+  <div class="formcard">
+    <form id="cf" novalidate>
+      <h2>Send a note</h2>
+      <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required data-need="Enter your name so we know who to reply to."><p id="name-err" class="err" hidden></p></div>
+      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required data-need="Enter your email so we can reply."><p id="email-err" class="err" hidden></p></div>
+      <div class="field"><label for="phone">Phone <span class="opt">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"><p id="phone-err" class="err" hidden></p></div>
+      <fieldset><legend class="field" style="margin:0 0 10px;font-family:var(--sans);font-size:.95rem;font-weight:600">What&rsquo;s on your mind? <span class="opt">(optional)</span></legend>
+        <div class="radios">
+          <label class="radio"><input type="radio" name="topic" value="buying"> Buying a home</label>
+          <label class="radio"><input type="radio" name="topic" value="selling"> Selling a home</label>
+          <label class="radio"><input type="radio" name="topic" value="both"> Selling and buying</label>
+          <label class="radio"><input type="radio" name="topic" value="wondering"> Just starting to wonder</label>
+        </div></fieldset>
+      <div class="field"><label for="msg">Anything you&rsquo;d like us to know? <span class="opt">(optional)</span></label><textarea id="msg" name="msg"></textarea></div>
+      <button class="btn" type="submit">Send your note</button>
+      <p class="next">A real person on our team will get back to you, usually within one business day.</p>
     </form>
-    <p class="eyebrow">Offices</p>
-    <p>3211 Shannon Road, Suite 40, Durham, NC 27707<br>
-       1113 Environ Way, Chapel Hill, NC 27517<br>
-       (919) 808-4549 &middot; hello@inhabitthetriangle.com</p>
-    <a class="btn ghost" href="option-1-light-editorial.html">Back to the homepage</a>
+    <div id="done" class="done" role="status"><h2 tabindex="-1"></h2><p>A real person on our team will get back to you, usually within one business day. If it&rsquo;s urgent, call <a href="tel:+19198084549">(919) 808-4549</a>.</p>
+      <div class="slot" style="margin-top:22px"><strong>Preview only</strong>This form doesn&rsquo;t send yet. It gets connected before launch.</div></div>
   </div>
+</div>
 </main>
-
 <footer>
   <div class="wrap">
-    <div class="f-cols">
+    <div class="f-grid">
       <div>
-        <img class="logo" src="assets/inhabit-horizontal-orange-cream.png" alt="Inhabit Real Estate">
-        <p class="faddr">
+        <img class="logo" src="https://joshjonesshimmer.github.io/inhabit-previews/assets/inhabit-horizontal-orange-cream.png" alt="Inhabit Real Estate">
+        <address>
           3211 Shannon Road, Suite 40, Durham, NC 27707<br>
           1113 Environ Way, Chapel Hill, NC 27517<br>
-          (919) 808-4549 &middot; hello@inhabitthetriangle.com
-        </p>
+          <a href="tel:+19198084549">(919) 808-4549</a> &middot; <a href="mailto:hello@inhabitthetriangle.com">hello@inhabitthetriangle.com</a>
+        </address>
       </div>
-      <div><h4>Company</h4><a href="our-story.html">Our Story</a><a href="team.html">Our Team</a><a href="contact.html">Contact</a></div>
-      <div><h4>Work With Us</h4><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="home-search.html">Home Search</a></div>
-      <div><h4>Local</h4><a href="community.html">Community</a><a href="events.html">Events</a></div>
+      <div><h2>Work with us</h2><ul><li><a href="buying.html">Buying</a></li><li><a href="selling.html">Selling</a></li><li><a href="home-search.html">Browse homes</a></li><li><a href="contact.html">Let&rsquo;s talk</a></li></ul></div>
+      <div><h2>Who we are</h2><ul><li><a href="our-story.html">Our Story</a></li><li><a href="team.html">Our Team</a></li></ul></div>
+      <div><h2>Around town</h2><ul><li><a href="community.html">Community</a></li><li><a href="events.html">Events</a></li></ul></div>
     </div>
-    <div class="legal">
-      &copy; 2026<!-- dummy --> Inhabit Real Estate. All rights reserved. Equal Housing Opportunity.
-      Licensed real estate brokerage in North Carolina.<!-- dummy -->
-    </div>
+    <div class="legal"><span>&copy; 2026 Inhabit Real Estate. Equal Housing Opportunity. Licensed real estate brokerage in North Carolina.</span><span>Independent and woman-owned.</span></div>
   </div>
 </footer>
-
+<script>
+(function(){var b=document.querySelector('.menu-btn'),p=document.getElementById('mobile-panel');
+if(!b||!p)return;b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')==='true';
+b.setAttribute('aria-expanded',String(!o));b.textContent=o?'Menu':'Close';p.classList.toggle('open',!o);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&p.classList.contains('open')){b.click();b.focus();}});})();
+</script><script>
+(function(){var f=document.getElementById('cf');if(!f)return;
+function check(i){var e=document.getElementById(i.id+'-err'),msg='';
+ if(i.required&&!i.value.trim())msg=i.dataset.need;
+ else if(i.type==='email'&&i.value&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(i.value))msg='Enter an email like name@example.com.';
+ i.setAttribute('aria-invalid',msg?'true':'false');e.textContent=msg;e.hidden=!msg;return !msg;}
+[].forEach.call(f.querySelectorAll('input[required],input[type=email]'),function(i){i.addEventListener('blur',function(){if(i.value||i.getAttribute('aria-invalid')==='true')check(i);});});
+f.addEventListener('submit',function(ev){ev.preventDefault();var bad=null;[].forEach.call(f.querySelectorAll('input[required],input[type=email]'),function(i){if(!check(i)&&!bad)bad=i;});
+ if(bad){bad.focus();return;}var n=document.getElementById('name').value.trim().split(' ')[0];
+ f.hidden=true;var d=document.getElementById('done');d.querySelector('h2').textContent='Thanks, '+n+'. Your note is on its way.';d.classList.add('show');d.querySelector('h2').focus();});})();
+</script>
 </body>
 </html>

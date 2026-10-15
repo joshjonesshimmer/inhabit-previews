@@ -119,7 +119,18 @@
                text-transform:uppercase;font-weight:600;white-space:nowrap;}
   .nav-links a:hover{color:var(--orange);}
   .nav-cta{margin-left:auto;padding:11px 20px;font-size:.68rem;}
-  @media(min-width:1100px){.nav-links{display:flex;}.nav-cta{margin-left:22px;}}
+  /* phone menu, same behaviour and breakpoint as the new subpages */
+  .menu-btn{min-height:44px;min-width:44px;margin-left:12px;padding:10px 14px;background:transparent;
+            color:var(--cream);border:1px solid rgba(248,240,223,.4);font-family:var(--sans);
+            font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;cursor:pointer;}
+  .mobile-panel{display:none;background:var(--blue);border-top:1px solid rgba(248,240,223,.2);
+                padding:8px 24px 24px;}
+  .mobile-panel.open{display:block;}
+  .mobile-panel a{display:block;padding:14px 0;color:var(--cream);text-decoration:none;
+                  font-family:var(--serif);font-size:1.35rem;
+                  border-bottom:1px solid rgba(248,240,223,.2);}
+  @media(min-width:1060px){.nav-links{display:flex;}.nav-cta{margin-left:22px;}
+                           .menu-btn{display:none;}.mobile-panel{display:none!important;}}
 
   /* HERO, v3 geometry exactly: centred, light and airy. */
   .hero{padding:56px 0 0;text-align:center;}
@@ -268,17 +279,17 @@
   <div class="nav-in">
     <img src="assets/inhabit-horizontal-orange-cream.png" alt="Inhabit Real Estate">
     <div class="nav-links">
-      <a href="#start">Start Here</a>
-      <a href="#why">Why Inhabit</a>
-      <a href="our-story.html">Our Story</a>
+      <a href="buying.html">Buying</a>
+      <a href="selling.html">Selling</a>
       <a href="team.html">Our Team</a>
-      <a href="home-search.html">Home Search</a>
       <a href="community.html">Community</a>
       <a href="events.html">Events</a>
-      <a href="contact.html">Contact</a>
+      <a href="our-story.html">Our Story</a>
     </div>
-    <a class="btn nav-cta" href="team.html">Meet Your Agent</a>
+    <a class="btn nav-cta" href="contact.html">Let's talk</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-panel">Menu</button>
   </div>
+  <nav id="mobile-panel" class="mobile-panel" aria-label="Main, mobile"><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="team.html">Our Team</a><a href="community.html">Community</a><a href="events.html">Events</a><a href="our-story.html">Our Story</a><a href="home-search.html">Browse homes</a><a href="contact.html">Let's talk</a></nav>
 </nav>
 
 <!-- HERO, centred per v3 -->
@@ -474,7 +485,7 @@
         <img class="logo" src="assets/inhabit-horizontal-orange-cream.png" alt="Inhabit Real Estate">
         <p style="font-size:.84rem;opacity:.8;">
           A woman-owned real estate firm serving Durham, Raleigh,
-          Chapel Hill, and the wider Triangle.<br><br>3211 Shannon Road, Suite 40, Durham, NC 27707<br>1113 Environ Way, Chapel Hill, NC 27517<br>(919) 808-4549 &middot; hello@inhabitthetriangle.com
+          Chapel Hill, and the wider Triangle.<br><br>3211 Shannon Road, Suite 40, Durham, NC 27707<br>1113 Environ Way, Chapel Hill, NC 27517<br><a href="tel:+19198084549" style="display:inline;color:inherit;">(919) 808-4549</a> &middot; <a href="mailto:hello@inhabitthetriangle.com" style="display:inline;color:inherit;">hello@inhabitthetriangle.com</a>
         </p>
       </div>
       <div><h4>Company</h4><a href="our-story.html">Our Story</a><a href="team.html">Our Team</a><a href="contact.html">Contact</a></div>
@@ -487,6 +498,13 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function(){var b=document.querySelector('.menu-btn'),p=document.getElementById('mobile-panel');
+if(!b||!p)return;b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')==='true';
+b.setAttribute('aria-expanded',String(!o));b.textContent=o?'Menu':'Close';p.classList.toggle('open',!o);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&p.classList.contains('open')){b.click();b.focus();}});})();
+</script>
 
 <script>
   // Nav goes to frosted glass once the hero is behind you.
