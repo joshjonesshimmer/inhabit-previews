@@ -2,6 +2,8 @@
 <!--
   Inhabit Real Estate, homepage concept
   DIRECTION F, "Light Editorial"  =  OPTION 1, the lead
+  v10, 10.15.26. Four new pages wired in, teasers and closing band added,
+  real office details in the footer, Woman-owned changed to Woman-owned.
   v9, 10.15.26. FINAL WEBSITE COPY dropped in, word for word.
   Text only. Layout, type scale, colour, photography and the noindex on the
   published copy are all exactly as they were in v8.
@@ -112,12 +114,12 @@
        border-bottom:1px solid rgba(248,240,223,.18);}
   .nav-in{display:flex;align-items:center;gap:14px;padding:24px;max-width:1240px;margin:0 auto;}
   .nav img{width:168px;}
-  .nav-links{display:none;gap:28px;margin-left:auto;font-family:var(--sans);}
-  .nav-links a{color:var(--cream);text-decoration:none;font-size:.74rem;letter-spacing:.14em;
-               text-transform:uppercase;font-weight:600;}
+  .nav-links{display:none;gap:17px;margin-left:auto;font-family:var(--sans);}
+  .nav-links a{color:var(--cream);text-decoration:none;font-size:.68rem;letter-spacing:.11em;
+               text-transform:uppercase;font-weight:600;white-space:nowrap;}
   .nav-links a:hover{color:var(--orange);}
   .nav-cta{margin-left:auto;padding:11px 20px;font-size:.68rem;}
-  @media(min-width:980px){.nav-links{display:flex;}.nav-cta{margin-left:30px;}}
+  @media(min-width:1100px){.nav-links{display:flex;}.nav-cta{margin-left:22px;}}
 
   /* HERO, v3 geometry exactly: centred, light and airy. */
   .hero{padding:56px 0 0;text-align:center;}
@@ -163,6 +165,13 @@
   .opt .t{font-family:var(--serif);font-size:1.5rem;line-height:1.1;}
   .opt .d{font-family:var(--sans);font-size:.74rem;letter-spacing:.06em;opacity:.7;margin-top:7px;}
   @media(min-width:820px){.opts{grid-template-columns:repeat(4,1fr);gap:18px;}.opt{padding:44px 20px;}}
+  /* v10 teasers reuse the .opt card exactly, only the column count differs */
+  .teasers{display:grid;grid-template-columns:1fr;gap:12px;}
+  .teasers .opt{text-align:left;}
+  .teasers .opt .t{display:block;margin-bottom:6px;}
+  .teasers .opt .go{display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.14em;
+                    text-transform:uppercase;font-weight:700;color:var(--orange);margin-top:12px;}
+  @media(min-width:820px){.teasers{grid-template-columns:repeat(3,1fr);gap:18px;}}
 
   /* CONDENSED BAND, kept from v7 */
   .cond{background:var(--blue);color:var(--cream);}
@@ -261,9 +270,12 @@
     <div class="nav-links">
       <a href="#start">Start Here</a>
       <a href="#why">Why Inhabit</a>
+      <a href="our-story.html">Our Story</a>
       <a href="team.html">Our Team</a>
+      <a href="home-search.html">Home Search</a>
       <a href="community.html">Community</a>
-      <a href="#events">Events</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
     </div>
     <a class="btn nav-cta" href="team.html">Meet Your Agent</a>
   </div>
@@ -272,7 +284,7 @@
 <!-- HERO, centred per v3 -->
 <header class="hero">
   <div class="wrap">
-    <p class="eyebrow">Female-owned . Durham, Raleigh, Chapel Hill</p>
+    <p class="eyebrow">Woman-owned . Durham, Raleigh, Chapel Hill</p>
     <h1>It takes good people<br>to find a <em>great home.</em></h1>
     <p class="sub">
       Independent, woman-owned, and rooted in the Triangle for more than a
@@ -280,7 +292,7 @@
     </p>
     <div class="hero-btns">
       <a class="btn" href="team.html">Find your guide</a>
-      <a class="btn ghost" href="#start">Browse homes</a>
+      <a class="btn ghost" href="home-search.html">Browse homes</a>
     </div>
     <!-- One large team-forward photo instead of v3's four-square strip.
          Curated from the existing site assets, never the Instagram feed.
@@ -318,7 +330,7 @@
         <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/ba67b245-0e11-4d91-9b53-cc4486bc7ccf/RF050125-9.jpg?format=1500w" alt="The Inhabit team">
       </div>
       <div>
-        <span class="badge">Female-owned</span>
+        <span class="badge">Woman-owned</span>
         <h2>Small enough to know your street.<br>Close enough to pick up the phone.</h2>
         <p>
           Inhabit is an independent, woman-owned real estate firm with offices
@@ -342,6 +354,7 @@
         </div>
 
         <div class="sublinks">
+          <a href="our-story.html">Read our story</a>
           <a href="team.html">Meet your team</a>
           <a href="buying.html">How buying works</a>
           <a href="selling.html">How selling works</a>
@@ -351,6 +364,41 @@
         <p class="quiet">
           Fair housing is the floor, not the goal. Everyone gets a door.
         </p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- TEASERS -->
+<div class="survey">
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="teasers">
+        <a class="opt" href="buying.html">
+          <div class="t">Buying a home, one clear step at a time.</div>
+          <div class="d">From the first conversation to the keys in your hand, we're with you every step of the way.</div>
+          <span class="go">How buying works</span>
+        </a>
+        <a class="opt" href="selling.html">
+          <div class="t">Every home has a story. We help buyers see it.</div>
+          <div class="d">Honest pricing, smart prep, and marketing built around what makes your home special.</div>
+          <span class="go">How selling works</span>
+        </a>
+        <a class="opt" href="team.html">
+          <div class="t">Meet the people who'll get you home.</div>
+          <div class="d">Find the Inhabit agent who fits your plans.</div>
+          <span class="go">Meet your team</span>
+        </a>
+        <a class="opt" href="community.html">
+          <div class="t">We live here.</div>
+          <div class="d">See the Triangle through the eyes of the people who call it home.</div>
+          <span class="go">Our community</span>
+        </a>
+        <a class="opt" href="events.html">
+          <div class="t">Ten years. Ten gatherings. You're invited.</div>
+          <div class="d">One gathering a month to celebrate a decade in the Triangle.</div>
+          <span class="go">Upcoming events</span>
+        </a>
       </div>
     </div>
   </section>
@@ -394,13 +442,23 @@
         <div class="on">Jan</div><div>Feb</div><div>Mar</div><div>Apr</div><div>May</div>
         <div>Jun</div><div>Jul</div><div>Aug</div><div>Sep</div><div>Oct</div>
       </div>
-      <p style="margin-top:40px;"><a class="btn ghost-light" href="community.html">Upcoming events</a></p>
+      <p style="margin-top:40px;"><a class="btn ghost-light" href="events.html">Upcoming events</a></p>
     </div>
   </section>
 </div>
 <!-- ============================================================
      REMOVABLE BAND END
      ============================================================ -->
+
+<!-- CLOSING BAND -->
+<div class="awards">
+  <section>
+    <div class="wrap">
+      <h2>Whenever you're ready to talk about<br>what home means to you, we're here.</h2>
+      <p style="margin-top:30px;"><a class="btn" href="contact.html">Let's talk</a></p>
+    </div>
+  </section>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -415,13 +473,13 @@
       <div>
         <img class="logo" src="assets/inhabit-horizontal-orange-cream.png" alt="Inhabit Real Estate">
         <p style="font-size:.84rem;opacity:.8;">
-          A female-owned real estate firm serving Durham, Raleigh,
-          Chapel Hill, and the wider Triangle.<br><br>1200 West Main Street, Suite 200<!-- dummy --><br>Durham, NC 27701<!-- dummy --><br>(919) 555-0142<!-- dummy -->
+          A woman-owned real estate firm serving Durham, Raleigh,
+          Chapel Hill, and the wider Triangle.<br><br>3211 Shannon Road, Suite 40, Durham, NC 27707<br>1113 Environ Way, Chapel Hill, NC 27517<br>(919) 808-4549 &middot; hello@inhabitthetriangle.com
         </p>
       </div>
-      <div><h4>Company</h4><a href="#why">Why Inhabit</a><a href="team.html">Our Team</a></div>
-      <div><h4>Work With Us</h4><a href="buying.html">Buying</a><a href="selling.html">Selling</a></div>
-      <div><h4>Local</h4><a href="community.html">Community</a><a href="#events">Events</a></div>
+      <div><h4>Company</h4><a href="our-story.html">Our Story</a><a href="team.html">Our Team</a><a href="contact.html">Contact</a></div>
+      <div><h4>Work With Us</h4><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="home-search.html">Home Search</a></div>
+      <div><h4>Local</h4><a href="community.html">Community</a><a href="events.html">Events</a></div>
     </div>
     <div class="legal">
       &copy; 2026<!-- dummy --> Inhabit Real Estate. All rights reserved. Equal Housing Opportunity.

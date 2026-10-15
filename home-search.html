@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--
+  Inhabit Real Estate, Home Search
+  Built 10.15.26 with the final website copy, word for word.
+  Same header, nav, footer, fonts and colours as the rest of the set.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inhabit Real Estate, Home Search</title>
+<style>
+  :root{
+    --blue:#003E51;
+    --orange:#C3623A;
+    --cream:#F8F0DF;
+    --white:#FFFDF8;
+    --sans:"TT Commons Pro Expanded","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
+    --serif:"EB Garamond",Garamond,"Iowan Old Style",Georgia,"Times New Roman",serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--cream);color:var(--blue);
+       font-family:var(--serif);font-size:19px;line-height:1.62;
+       -webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  h1{font-family:var(--serif);font-weight:500;line-height:1.05;margin:0 0 18px;
+     letter-spacing:-.015em;font-size:2.6rem;}
+  p{margin:0 0 1.1rem;}
+  em{font-style:italic;color:var(--orange);}
+  .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 24px;}
+  .eyebrow{font-family:var(--sans);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
+           color:var(--orange);font-weight:700;margin:0 0 18px;}
+  .btn{font-family:var(--sans);display:inline-block;background:var(--orange);color:var(--white);
+       text-decoration:none;padding:15px 30px;font-size:.76rem;letter-spacing:.14em;
+       text-transform:uppercase;font-weight:700;border:2px solid var(--orange);cursor:pointer;}
+  .btn.ghost{background:transparent;color:var(--blue);border-color:var(--blue);}
+  .nav{position:sticky;top:0;z-index:80;background:var(--blue);
+       border-bottom:1px solid rgba(248,240,223,.18);}
+  .nav-in{display:flex;align-items:center;gap:14px;padding:20px 24px;max-width:1240px;margin:0 auto;}
+  .nav img{width:168px;}
+  .nav-links{display:none;gap:17px;margin-left:auto;font-family:var(--sans);}
+  .nav-links a{color:var(--cream);text-decoration:none;font-size:.68rem;letter-spacing:.11em;
+               text-transform:uppercase;font-weight:600;white-space:nowrap;}
+  .nav-links a:hover{color:var(--orange);}
+  .nav-cta{margin-left:auto;padding:11px 20px;font-size:.68rem;}
+  @media(min-width:1100px){.nav-links{display:flex;}.nav-cta{margin-left:22px;}}
+  main{padding:72px 0 96px;}
+  .lede{font-size:1.16rem;max-width:34em;}
+  .body p{max-width:34em;}
+  ol,ul{font-family:var(--sans);font-size:.92rem;max-width:36em;padding-left:20px;line-height:1.85;
+     opacity:.9;margin:26px 0 34px;}
+  ol li,ul li{margin-bottom:14px;}
+  ol b,ul b{font-family:var(--serif);font-size:1.05rem;}
+  @media(min-width:820px){h1{font-size:4rem;}main{padding:104px 0 128px;}}
+
+  footer{background:var(--blue);color:var(--cream);padding:54px 0 30px;font-family:var(--sans);}
+  .f-cols{display:grid;gap:28px;}
+  .f-cols h4{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin:0 0 12px;}
+  .f-cols a{display:block;color:var(--cream);text-decoration:none;font-size:.84rem;padding:4px 0;opacity:.86;}
+  footer .logo{width:188px;margin-bottom:16px;}
+  .faddr{font-size:.84rem;opacity:.8;}
+  .legal{margin-top:36px;padding-top:20px;border-top:1px solid rgba(248,240,223,.24);font-size:.7rem;opacity:.68;}
+  @media(min-width:820px){.f-cols{grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;}}
+  /* contact form, styled from the existing palette and type, does not send yet */
+  .formcard{background:var(--white);border:1px solid rgba(0,62,81,.16);padding:26px 24px;max-width:38em;margin:0 0 34px;}
+  .formcard label{display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.16em;
+                  text-transform:uppercase;font-weight:700;color:var(--blue);margin:0 0 6px;}
+  .formcard input,.formcard textarea{width:100%;font-family:var(--serif);font-size:1rem;color:var(--blue);
+    background:var(--cream);border:1px solid rgba(0,62,81,.24);padding:11px 12px;margin-bottom:18px;}
+  .formcard textarea{min-height:120px;resize:vertical;}
+  .formnote{font-family:var(--sans);font-size:.72rem;opacity:.6;margin:4px 0 0;}
+  /* home search placeholder */
+  .idxbox{border:2px dashed var(--orange);background:var(--white);padding:46px 24px;text-align:center;
+          max-width:46em;margin:0 0 34px;}
+  .idxbox b{display:block;font-family:var(--sans);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+            color:var(--orange);margin-bottom:8px;}
+  .idxbox span{font-family:var(--serif);font-size:1.3rem;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a href="option-1-light-editorial.html"><img src="assets/inhabit-horizontal-orange-cream.png" alt="Inhabit Real Estate"></a>
+    <div class="nav-links">
+      <a href="option-1-light-editorial.html#start">Start Here</a>
+      <a href="option-1-light-editorial.html#why">Why Inhabit</a>
+      <a href="our-story.html">Our Story</a>
+      <a href="team.html">Our Team</a>
+      <a href="home-search.html">Home Search</a>
+      <a href="community.html">Community</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a class="btn nav-cta" href="team.html">Meet Your Agent</a>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <p class="eyebrow">Home Search</p>
+    <h1>Find your place in the Triangle.</h1>
+    <p class="lede">Browse homes for sale across Durham, Chapel Hill, Raleigh, and beyond. When one catches your eye, reach out. An Inhabit agent can tell you what the photos don't show and help you decide if it's the one.</p>
+    <div class="idxbox">
+      <b>Placeholder</b>
+      <span>The listings search goes here.</span>
+      <p class="formnote" style="margin-top:10px;">To be powered by the new IDX feed.</p>
+    </div>
+    <a class="btn ghost" href="option-1-light-editorial.html">Back to the homepage</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-cols">
+      <div>
+        <img class="logo" src="assets/inhabit-horizontal-orange-cream.png" alt="Inhabit Real Estate">
+        <p class="faddr">
+          3211 Shannon Road, Suite 40, Durham, NC 27707<br>
+          1113 Environ Way, Chapel Hill, NC 27517<br>
+          (919) 808-4549 &middot; hello@inhabitthetriangle.com
+        </p>
+      </div>
+      <div><h4>Company</h4><a href="our-story.html">Our Story</a><a href="team.html">Our Team</a><a href="contact.html">Contact</a></div>
+      <div><h4>Work With Us</h4><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="home-search.html">Home Search</a></div>
+      <div><h4>Local</h4><a href="community.html">Community</a><a href="events.html">Events</a></div>
+    </div>
+    <div class="legal">
+      &copy; 2026<!-- dummy --> Inhabit Real Estate. All rights reserved. Equal Housing Opportunity.
+      Licensed real estate brokerage in North Carolina.<!-- dummy -->
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
