@@ -70,7 +70,7 @@
 <title>Inhabit Real Estate, Option 1, Light Editorial</title>
 
 <!-- Curated, team-forward, preloaded so the showcase does not pop in. -->
-<link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/ba67b245-0e11-4d91-9b53-cc4486bc7ccf/RF050125-9.jpg?format=1500w">
+<link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/db34aa05-66a8-420a-a15f-dcab4e748825/RF050125-8.jpg?format=1500w">
 <link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/db34aa05-66a8-420a-a15f-dcab4e748825/RF050125-8.jpg?format=1500w">
 <link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/48a40215-3e80-47c0-be3e-ca19c979e078/Staff+at+Karma+Keg+2024.JPG?format=1500w">
 <link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/e6bd76f0-07e0-4ca1-a5d8-91d2a3accb0f/RF050125-79.jpg?format=1500w">
@@ -143,13 +143,12 @@
      team shot first. Everything above it keeps v3's centred rhythm. */
   .showcase{position:relative;overflow:hidden;margin-top:56px;aspect-ratio:4/3;}
   .showcase img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-                opacity:0;animation:heroFade 28s linear infinite;}
+                opacity:0;animation:heroFade 21s linear infinite;}
   .showcase img:nth-child(1){animation-delay:0s;}
   .showcase img:nth-child(2){animation-delay:7s;}
   .showcase img:nth-child(3){animation-delay:14s;}
-  .showcase img:nth-child(4){animation-delay:21s;}
   @keyframes heroFade{
-    0%{opacity:0} 3%{opacity:1} 25%{opacity:1} 28%{opacity:0} 100%{opacity:0}
+    0%{opacity:0} 4%{opacity:1} 33%{opacity:1} 37%{opacity:0} 100%{opacity:0}
   }
   @media(prefers-reduced-motion:reduce){
     .showcase img{animation:none;}
@@ -270,6 +269,27 @@
   .nav.glass .nav-links a{color:var(--cream);text-shadow:0 1px 6px rgba(0,42,56,.6);}
   .nav.glass .nav-cta{box-shadow:0 2px 10px rgba(0,0,0,.18);}
   @media(prefers-reduced-motion:reduce){ .nav{transition:none;} }
+
+/* v10 (10.19.26): medium rounded corners to match the subpages, plus spacing fixes */
+.survey,.cond,.events{width:calc(100% - 48px);max-width:1192px;margin:18px auto;border-radius:18px;overflow:hidden}
+.showcase{border-radius:18px}
+.survey section,.cond section,.events section{padding:56px 0}
+@media(min-width:820px){.survey section,.cond section,.events section{padding:72px 0}}
+.survey section[style]{padding-top:40px!important;padding-bottom:40px}
+@media(min-width:820px){.survey section[style]{padding-top:48px!important;padding-bottom:48px}}
+.survey .note{margin-bottom:28px}
+.opt{border-radius:15px}
+@media(min-width:820px){.opts .opt{padding:34px 20px}}
+/* who-we-are band: photo fills the full height of the text column, no dead space */
+.cond-grid{align-items:stretch}
+.cond-photo{border-radius:14px}
+@media(min-width:900px){.cond-photo{aspect-ratio:auto;height:100%;min-height:440px}}
+.cond .quiet{margin-top:20px}
+/* page teasers: three across, then two wider cards, so the grid has no empty slot */
+@media(min-width:820px){.teasers{grid-template-columns:repeat(6,1fr)}
+ .teasers .opt{grid-column:span 2;padding:30px 28px}
+ .teasers .opt:nth-child(n+4){grid-column:span 3}}
+.months div{border-radius:9px}
 </style>
 </head>
 <body>
@@ -309,10 +329,9 @@
          Curated from the existing site assets, never the Instagram feed.
          Community shows here as candid agent photography, uncaptioned. -->
     <div class="showcase">
-      <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/ba67b245-0e11-4d91-9b53-cc4486bc7ccf/RF050125-9.jpg?format=1500w" alt="The Inhabit team">
-      <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/db34aa05-66a8-420a-a15f-dcab4e748825/RF050125-8.jpg?format=1500w" alt="Inhabit agents together">
-      <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/48a40215-3e80-47c0-be3e-ca19c979e078/Staff+at+Karma+Keg+2024.JPG?format=1500w" alt="Inhabit agents at a community event">
-      <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/e6bd76f0-07e0-4ca1-a5d8-91d2a3accb0f/RF050125-79.jpg?format=1500w" alt="An Inhabit agent at an adoption day">
+      <img src="assets/photos/team-table-gathering.jpg" alt="Inhabit agents gathered around a table at an outdoor client appreciation event">
+      <img src="assets/photos/team-mural-durham.jpg" alt="Five Inhabit agents standing together in front of a colourful Durham mural">
+      <img src="assets/photos/agents-site-visit.jpg" alt="Inhabit agents in hard hats touring a building under construction">
     </div>
   </div>
 </header>
@@ -338,7 +357,7 @@
   <section>
     <div class="wrap cond-grid">
       <div class="cond-photo">
-        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/ba67b245-0e11-4d91-9b53-cc4486bc7ccf/RF050125-9.jpg?format=1500w" alt="The Inhabit team">
+        <img src="assets/photos/agent-rescue-puppy.jpg" alt="An Inhabit agent holding a grey rescue puppy at a community adoption event">
       </div>
       <div>
         <span class="badge">Woman-owned</span>
