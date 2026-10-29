@@ -13,6 +13,13 @@
   handoff note for the full unplaced list.
   v8 was the corrective round 09.09.26. The v7 split hero was rejected.
 
+  v11, 10.29.26. This nav is now the nav on every page. Need Advice? added after
+  Our Story (desktop and phone menu), Sell and Buy and Need Advice? added to the
+  footer, the quiz's Both answer points at sell-and-buy.html. Nav hover is orange
+  glow (#E59A75) instead of brand orange, which was 2.8:1 on the blue, and phones
+  get a 128px logo so Let's talk stays on one line. Let's talk itself stays brand
+  orange: white on it is 4.0:1, a little under AA's 4.5:1 for type this size.
+
   DESIGN AUTHORITY IS direction-f-v3. Its centred hero, typography scale and
   section rhythm are restored wholesale here. Specifically, taken back from v3
   and not from v7:
@@ -79,6 +86,7 @@
   :root{
     --blue:#003E51;
     --orange:#C3623A;
+    --orange-glow:#E59A75;
     --cream:#F8F0DF;
     --white:#FFFDF8;
     --sans:"TT Commons Pro Expanded","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
@@ -117,8 +125,8 @@
   .nav-links{display:none;gap:17px;margin-left:auto;font-family:var(--sans);}
   .nav-links a{color:var(--cream);text-decoration:none;font-size:.68rem;letter-spacing:.11em;
                text-transform:uppercase;font-weight:600;white-space:nowrap;}
-  .nav-links a:hover{color:var(--orange);}
-  .nav-cta{margin-left:auto;padding:11px 20px;font-size:.68rem;}
+  .nav-links a:hover{color:var(--orange-glow);}
+  .nav-cta{margin-left:auto;padding:11px 20px;font-size:.68rem;white-space:nowrap;}
   /* phone menu, same behaviour and breakpoint as the new subpages */
   .menu-btn{min-height:44px;min-width:44px;margin-left:12px;padding:10px 14px;background:transparent;
             color:var(--cream);border:1px solid rgba(248,240,223,.4);font-family:var(--sans);
@@ -129,6 +137,10 @@
   .mobile-panel a{display:block;padding:14px 0;color:var(--cream);text-decoration:none;
                   font-family:var(--serif);font-size:1.35rem;
                   border-bottom:1px solid rgba(248,240,223,.2);}
+  /* phones: the 168px logo, Let's talk and Menu can't share 390px, so the logo drops to
+     128px (and shrinks further on the narrowest phones), same as every subpage */
+  @media(max-width:420px){.nav-in{gap:10px;padding:18px 24px;}.nav img{width:128px;min-width:0;}
+                          .nav-cta{padding:11px 14px;}.menu-btn{margin-left:0;padding:10px 12px;}}
   @media(min-width:1060px){.nav-links{display:flex;}.nav-cta{margin-left:22px;}
                            .menu-btn{display:none;}.mobile-panel{display:none!important;}}
 
@@ -267,6 +279,7 @@
     }
   }
   .nav.glass .nav-links a{color:var(--cream);text-shadow:0 1px 6px rgba(0,42,56,.6);}
+  .nav.glass .nav-links a:hover{color:var(--orange-glow);}
   .nav.glass .nav-cta{box-shadow:0 2px 10px rgba(0,0,0,.18);}
   @media(prefers-reduced-motion:reduce){ .nav{transition:none;} }
 
@@ -305,11 +318,12 @@
       <a href="community.html">Community</a>
       <a href="events.html">Events</a>
       <a href="our-story.html">Our Story</a>
+      <a href="need-advice.html">Need Advice?</a>
     </div>
     <a class="btn nav-cta" href="contact.html">Let's talk</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-panel">Menu</button>
   </div>
-  <nav id="mobile-panel" class="mobile-panel" aria-label="Main, mobile"><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="team.html">Our Team</a><a href="community.html">Community</a><a href="events.html">Events</a><a href="our-story.html">Our Story</a><a href="home-search.html">Browse homes</a><a href="contact.html">Let's talk</a></nav>
+  <nav id="mobile-panel" class="mobile-panel" aria-label="Main, mobile"><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="team.html">Our Team</a><a href="community.html">Community</a><a href="events.html">Events</a><a href="our-story.html">Our Story</a><a href="need-advice.html">Need Advice?</a><a href="home-search.html">Browse homes</a><a href="contact.html">Let's talk</a></nav>
 </nav>
 
 <!-- HERO, centred per v3 -->
@@ -345,7 +359,7 @@
       <div class="opts">
         <a class="opt" href="buying.html"><div class="ic">A</div><div class="t">Buying</div><div class="d">First home or next one</div></a>
         <a class="opt" href="selling.html"><div class="ic">B</div><div class="t">Selling</div><div class="d">Ready when you are</div></a>
-        <a class="opt" href="buying.html"><div class="ic">C</div><div class="t">Both</div><div class="d">Sell one, buy the next</div></a>
+        <a class="opt" href="sell-and-buy.html"><div class="ic">C</div><div class="t">Both</div><div class="d">Sell one, buy the next</div></a>
         <a class="opt" href="#why"><div class="ic">D</div><div class="t">Just looking</div><div class="d">No timeline, no pressure</div></a>
       </div>
     </div>
@@ -508,7 +522,7 @@
         </p>
       </div>
       <div><h4>Company</h4><a href="our-story.html">Our Story</a><a href="team.html">Our Team</a><a href="contact.html">Contact</a></div>
-      <div><h4>Work With Us</h4><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="home-search.html">Home Search</a></div>
+      <div><h4>Work With Us</h4><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="sell-and-buy.html">Sell and Buy</a><a href="need-advice.html">Need Advice?</a><a href="home-search.html">Home Search</a></div>
       <div><h4>Local</h4><a href="community.html">Community</a><a href="events.html">Events</a></div>
     </div>
     <div class="legal">
