@@ -8,6 +8,8 @@ Inputs
   tools/agent-parts.txt      listings, awards and reviews blocks (agents and leadership only)
   tools/awards.json          who shows awards on their current inhabitthetriangle.com page;
                              only they get the Recognition tile
+  tools/testimonials.json    client testimonials copied word for word from each person's
+                             current inhabitthetriangle.com page; no tile when the list is empty
   team.html                names, roles, groups and headshots (one card per person)
 
 Outputs
@@ -38,8 +40,13 @@ GROUPS = [
     ("agent", "Our Brokers", "Brokers"),
     ("staff", "Staff", "Staff"),
 ]
-GROUP_CSS = (".team-group .sec-title{margin-top:44px}.team-group:first-of-type .sec-title{margin-top:20px}"
-             ".team-group .cards-b{margin-top:14px}")
+# The site's general section{padding} rule made big empty gaps between the groups, so the
+# groups get no padding of their own and a set gap above each heading instead.
+GROUP_CSS = (".team-group{padding:0}.team-group .sec-title{margin-top:20px}"
+             ".team-group+.team-group .sec-title{margin-top:44px}.team-group .cards-b{margin-top:14px}"
+             "@media(min-width:900px){.team-group+.team-group .sec-title{margin-top:64px}}")
+OLD_GROUP_CSS = (".team-group .sec-title{margin-top:44px}.team-group:first-of-type .sec-title{margin-top:20px}"
+                 ".team-group .cards-b{margin-top:14px}")
 
 
 def slug(name):
@@ -54,6 +61,22 @@ def first_name(name):
 def smart(text):
     """Escape for HTML and use curly apostrophes, as the rest of the site does."""
     return html.escape(text, quote=False).replace("'", "&rsquo;")
+
+
+def reviews_html(quotes):
+    """The What clients say tile: each quote word for word, wrapped in curly quotes."""
+    if not quotes:
+        return ""
+    out = ['   <div class="tile t-sand reviews"><h2>What clients say</h2>']
+    for q in quotes:
+        paras = [p.strip() for p in q["text"].strip().strip('\u201c\u201d"').split("\n\n") if p.strip()]
+        paras[0] = "\u201c" + paras[0]
+        paras[-1] = paras[-1] + "\u201d"
+        body = "".join(f"<p>{smart(p)}</p>" for p in paras)
+        cite = smart(q["who"]) + (f", <em>{smart(q['source'])}</em>" if q["source"] else "")
+        out.append(f'    <figure class="quote"><blockquote>{body}</blockquote><figcaption>{cite}</figcaption></figure>')
+    out.append("   </div>")
+    return "\n".join(out) + "\n"
 
 
 def parse_bios(path):
@@ -115,6 +138,7 @@ def group_team(team):
         assert sum(s.count("<li ") for s in sections) == len(items)
         team = team[:m.start()] + "\n".join(sections) + team[m.end():]
         team = team.replace("</style>", GROUP_CSS + "\n</style>", 1)
+    team = team.replace(OLD_GROUP_CSS, GROUP_CSS)
     # filter chips follow the section order and names
     counts = {k: len(re.findall(f'<li data-group="{k}"', team)) for k, _, _ in GROUPS}
     chips = "\n".join(f'<button type="button" data-filter="{k}" aria-pressed="false">{label} ({counts[k]})</button>'
@@ -170,6 +194,7 @@ def build():
     bios = parse_bios(TOOLS / "bios-source.txt")
     staff = json.loads((TOOLS / "staff-bios.json").read_text(encoding="utf-8"))
     awards = json.loads((TOOLS / "awards.json").read_text(encoding="utf-8"))
+    testimonials = json.loads((TOOLS / "testimonials.json").read_text(encoding="utf-8"))
     tpl = (TOOLS / "agent-template.html").read_text(encoding="utf-8")
     team_path = ROOT / "team.html"
     team = group_team(team_path.read_text(encoding="utf-8"))
@@ -177,7 +202,7 @@ def build():
         team = re.sub(r'(<li data-group="\w+" data-name="' + re.escape(key) + r'"><a href="[^"]*"><div class="ph"><img src=")[^"]*(")',
                       lambda m: m.group(1) + photo + m.group(2), team)
     cards = parse_cards(team)
-    report = {"built": [], "placeholder_bio": [], "no_descriptor": [], "bios_without_card": [], "recognition": []}
+    report = {"built": [], "placeholder_bio": [], "no_descriptor": [], "bios_without_card": [], "recognition": [], "no_testimonials": []}
 
     for i, c in enumerate(cards):
         first = first_name(c["name"])
@@ -199,10 +224,12 @@ def build():
         role_html = smart(c["role"]).replace("®", "&reg;")
         is_staff = c["group"] == "staff"
         recognition = parts["RECOGNITION"] + "\n" if awards.get(c["key"]) else ""
-        side = parts["SIDE"].replace("{{RECOGNITION}}\n", recognition)
+        reviews = reviews_html(testimonials.get(c["key"]))
+        side = (parts["SIDE"].replace("{{RECOGNITION}}", recognition).replace("{{REVIEWS}}", reviews)
+                if recognition or reviews else "")
         page = (tpl
                 .replace("{{LISTINGS_BTN}}", "" if is_staff else parts["LISTINGS_BTN"])
-                .replace("{{SIDE}}", "" if is_staff else "\n" + side)
+                .replace("{{SIDE}}", "" if is_staff or not side else "\n" + side)
                 .replace("{{LISTINGS}}", "" if is_staff else "\n" + parts["LISTINGS"])
                 .replace("{{NAME}}", smart(c["name"]))
                 .replace("{{NAME_ATTR}}", html.escape(c["name"]))
@@ -216,6 +243,8 @@ def build():
             sys.exit(f"Unfilled marker on {c['name']}'s page")
         if recognition and not is_staff:
             report["recognition"].append(c["name"])
+        if not reviews and not is_staff:
+            report["no_testimonials"].append(c["name"])
         (ROOT / slug(c["name"])).write_text(page, encoding="utf-8")
         report["built"].append(slug(c["name"]))
         # point this person's card(s) at their own page
@@ -226,6 +255,9 @@ def build():
     missing = sorted(k for k in card_keys if k not in awards)
     if missing:
         sys.exit(f"awards.json has no entry for: {', '.join(missing)}")
+    missing = sorted(c["key"] for c in cards if c["group"] != "staff" and c["key"] not in testimonials)
+    if missing:
+        sys.exit(f"testimonials.json has no entry for: {', '.join(missing)}")
     report["bios_without_card"] = sorted(k for k in bios if k not in card_keys)
 
     # Becky's note: Tammi and Connie alone at the top read as the whole team. Drop that block;

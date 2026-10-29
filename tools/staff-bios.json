@@ -1,16 +1,28 @@
 {
-  "_about": "Staff bios stay as written, so they come from each person's current page on inhabitthetriangle.com, word for word. null means the page could not be read yet; the agent page shows a placeholder box until it is filled in here.",
-  "crystal shores": {
-    "source": "https://www.inhabitthetriangle.com/our-team/crystal-shores",
-    "descriptor": "Business Operations & Finance Lead | Systems Thinker | Calm in Chaos",
-    "bio": [
-      "I come to Inhabit with a background in leading teams across retail, real estate, and most recently as a Director of Operations for an accounting firm focused on startups. My work centers around bringing structure to fast-moving businesses by building scalable systems, optimizing workflows, and turning operational and financial data into clear, actionable insights that support smarter decision-making and sustainable growth.",
-      "I’m naturally observant—quiet at first, but always paying attention. I have a strong instinct for pattern recognition and systems thinking, which allows me to quickly identify inefficiencies, uncover root causes, and create smarter ways of working. I’m especially energized by process optimization, automation, financial visibility, and building operational frameworks that not only solve today’s problems, but prevent tomorrow’s.",
-      "I genuinely enjoy organizing information and translating financial and operational data into insights that help leadership make confident, strategic decisions. If there’s a messy process to untangle, a spreadsheet to build, or an SOP to refine, I’m probably in my happy place.",
-      "Originally from Vermont, I relocated to North Carolina in 2007 and now call Mebane home. As a recent empty nester, I live with my husband, our two dogs, and our Sphynx cat.",
-      "Outside of work, I enjoy slowing things down—watching movies, playing board games, going to concerts, and traveling whenever we can. I value meaningful experiences, authentic connection, and making time for what matters most."
-    ]
-  },
-  "becky alexander": null,
-  "jeff lyons": null
+ "_about": "Staff bios stay as written, so they come from each person's current page on inhabitthetriangle.com, word for word. A null descriptor means the live page has none.",
+ "crystal shores": {
+  "source": "https://www.inhabitthetriangle.com/our-team/crystal-shores",
+  "descriptor": "Business Operations & Finance Lead | Systems Thinker | Calm in Chaos",
+  "bio": [
+   "I come to Inhabit with a background in leading teams across retail, real estate, and most recently as a Director of Operations for an accounting firm focused on startups. My work centers around bringing structure to fast-moving businesses by building scalable systems, optimizing workflows, and turning operational and financial data into clear, actionable insights that support smarter decision-making and sustainable growth.",
+   "I’m naturally observant—quiet at first, but always paying attention. I have a strong instinct for pattern recognition and systems thinking, which allows me to quickly identify inefficiencies, uncover root causes, and create smarter ways of working. I’m especially energized by process optimization, automation, financial visibility, and building operational frameworks that not only solve today’s problems, but prevent tomorrow’s.",
+   "I genuinely enjoy organizing information and translating financial and operational data into insights that help leadership make confident, strategic decisions. If there’s a messy process to untangle, a spreadsheet to build, or an SOP to refine, I’m probably in my happy place.",
+   "Originally from Vermont, I relocated to North Carolina in 2007 and now call Mebane home. As a recent empty nester, I live with my husband, our two dogs, and our Sphynx cat.",
+   "Outside of work, I enjoy slowing things down—watching movies, playing board games, going to concerts, and traveling whenever we can. I value meaningful experiences, authentic connection, and making time for what matters most."
+  ]
+ },
+ "becky alexander": {
+  "source": "https://www.inhabitthetriangle.com/our-team/becky-alexander",
+  "descriptor": "Fueled by coffee and checklists | Baker at heart | Sports mom of 2 | I’m a twin 👯‍♀️",
+  "bio": [
+   "I am the Marketing and Community Engagement Manager at Inhabit Real Estate. With a background in education, interior design, and home staging, I’ve always enjoyed working with people and creating thoughtful, well-executed experiences. I’m a natural planner who loves a good to-do list, the final details of an event, and bringing ideas to life in a way that feels intentional. With my “spare time”, I love traveling, making memories with family + friends, coaching/cheering on my kids at their games, and baking something sweet in the kitchen!"
+  ]
+ },
+ "jeff lyons": {
+  "source": "https://www.inhabitthetriangle.com/our-team/jeff-lyons",
+  "descriptor": null,
+  "bio": [
+   "Who is this guy they’re calling–in hushed tones–the C.R.T. GURU? Born of a Navy dad and a banking mom, I navigate flowing waters and account for my curiosities, sometimes with a chart or table but always with a ready smile, smirk, or squint. I do enjoy a well-organized spreadsheet, and ensconce in the tidiest file folder. Empowering others through teaching makes me happy, which is exactly what you’d expect a guru to say!"
+  ]
+ }
 }

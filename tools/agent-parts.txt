@@ -3,9 +3,7 @@ Agent-only parts of the page. Staff pages leave these out (no listings, awards o
 <a class="btn ghost" href="#listings">See {{FIRST}}&rsquo;s listings</a>
 === SIDE
   <div class="side">
-{{RECOGNITION}}
-   <div class="tile t-sand"><h2>What clients say</h2><div class="slot2"><strong>Testimonials carry over word for word</strong>Copied from {{FIRST}}&rsquo;s current page, never edited.</div></div>
-  </div>
+{{RECOGNITION}}{{REVIEWS}}  </div>
 === RECOGNITION
    <div class="tile t-sand"><h2>Recognition</h2><div class="slot2"><strong>{{FIRST}}&rsquo;s awards go here</strong>Award badges with the year.</div></div>
 === LISTINGS
