@@ -57,34 +57,37 @@ p{margin:0 0 1.1rem}
 .btn-row{display:flex;flex-wrap:wrap;gap:12px}
 
 /* NAV: the homepage nav, carried to every page (10.29.26). 24px padding, 168px logo,
-   uppercase links at .68rem / .11em with 17px gaps, the square brand-orange Let's talk,
+   uppercase links at .68rem / .11em with 17px gaps, the square deep-orange Let’s talk,
    and the homepage's frosted glass once the page has scrolled 80px (script at the foot).
-   The current page's link shows in orange glow (#E59A75), as does hover: brand orange
-   (#C3623A) is 2.8:1 on the blue and fails AA, glow is 5.1:1. Links keep 10px of
-   invisible top and bottom padding so the tap target is bigger than the type.
-   Let's talk stays brand orange to match the homepage: white on it is 4.0:1, a little
-   under AA's 4.5:1 for type this size (deep orange #A3502B would pass at 5.5:1). */
+   Round 2 (10.29.26): Let’s talk is deep orange (#A3502B, 5.5:1 with white) on every
+   page, Sell and Buy sits after Selling, and the full link row starts at 1150px so
+   all eight links fit on one line. The current page's link shows in orange glow
+   (#E59A75), as does hover: brand orange (#C3623A) is 2.8:1 on the blue and fails AA,
+   glow is 5.1:1. Links keep 10px of invisible top and bottom padding so the tap target
+   is bigger than the type. The buttons never shrink; the logo gives way instead. */
 .nav{position:sticky;top:0;z-index:90;background:var(--blue);border-bottom:1px solid rgba(248,240,223,.18)}
 .nav-in{display:flex;align-items:center;gap:14px;max-width:var(--wrap);margin:0 auto;padding:24px var(--gutter)}
+.nav-logo{min-width:0}
 .nav-logo img{width:168px}
 .nav-in>nav{display:none;margin-left:auto}
 .nav-links{display:flex;margin:0;padding:0;list-style:none;gap:17px;font-family:var(--sans)}
 .nav-links a{display:block;padding:10px 0;color:var(--cream);text-decoration:none;font-size:.68rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;white-space:nowrap}
 .nav-links a:hover{color:var(--orange-glow)}
 .nav-links a[aria-current="page"]{color:var(--orange-glow)}
-.nav-cta{margin-left:auto;min-height:44px;padding:11px 20px;font-size:.68rem;letter-spacing:.14em;white-space:nowrap}
-.nav .nav-cta{background:var(--orange);color:var(--white);border-color:var(--orange)}
-.nav .nav-cta:hover{background:var(--orange-ink);border-color:var(--orange-ink);color:var(--white)}
-.menu-btn{min-height:44px;min-width:44px;margin-left:12px;padding:10px 14px;background:transparent;color:var(--cream);border:1px solid rgba(248,240,223,.4);
+.nav-cta{flex:none;margin-left:auto;min-height:44px;padding:11px 20px;font-size:.68rem;letter-spacing:.14em;white-space:nowrap}
+.nav .nav-cta{background:var(--orange-ink);color:var(--white);border-color:var(--orange-ink)}
+.nav .nav-cta:hover{background:var(--orange-glow);border-color:var(--orange-glow);color:var(--blue)}
+.menu-btn{flex:none;min-height:44px;min-width:44px;margin-left:12px;padding:10px 14px;background:transparent;color:var(--cream);border:1px solid rgba(248,240,223,.4);
   font-family:var(--sans);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
-/* phones: the 168px logo, Let's talk and Menu can't share 390px, so the logo drops to 128px
-   (and shrinks further on the narrowest phones) and the nav loses a little height */
-@media(max-width:420px){.nav-in{gap:10px;padding:18px var(--gutter)}.nav-logo{min-width:0}.nav-logo img{width:128px}.nav-cta{padding:11px 14px}.menu-btn{margin-left:0;padding:10px 12px}}
+/* phones: the 168px logo, Let’s talk and Menu can't share a phone's width, so up to 480px
+   (430px iPhones included) the logo drops to 128px, shrinking further on the narrowest
+   phones, and the nav loses a little height */
+@media(max-width:480px){.nav-in{gap:10px;padding:18px var(--gutter)}.nav-logo img{width:128px}.nav-cta{padding:11px 14px}.menu-btn{margin-left:0;padding:10px 12px}}
 .mobile-panel{display:none;background:var(--blue);border-top:1px solid rgba(248,240,223,.2);padding:8px var(--gutter) 24px}
 .mobile-panel.open{display:block}
 .mobile-panel a{display:block;padding:14px 0;color:var(--cream);text-decoration:none;font-family:var(--serif);font-size:1.35rem;border-bottom:1px solid rgba(248,240,223,.2)}
 .mobile-panel a[aria-current="page"]{color:var(--orange-glow)}
-@media(min-width:1060px){.nav-in>nav{display:block}.menu-btn{display:none}.nav-cta{margin-left:22px}.mobile-panel{display:none!important}}
+@media(min-width:1150px){.nav-in>nav{display:block}.menu-btn{display:none}.nav-cta{margin-left:22px}.mobile-panel{display:none!important}}
 /* glass nav, copied from the homepage */
 .nav{transition:background-color .2s ease, box-shadow .2s ease, border-color .2s ease}
 .nav.glass{background:rgb(0,62,81);border-bottom:1px solid rgba(248,240,223,.28);box-shadow:0 6px 24px rgba(0,42,56,.20)}
@@ -154,7 +157,8 @@ body{background:var(--cream)}
 .hero .tile:first-child{display:flex;flex-direction:column;justify-content:flex-end;background:var(--sand)}
 .hero h1{font-size:clamp(2.6rem,5.4vw,4.4rem)}
 .hero .lede{font-size:1.25rem;max-width:30em;margin:18px 0 26px}
-.pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:.82rem;font-weight:700;color:var(--orange-ink);background:rgba(163,80,43,.10);padding:8px 14px;border-radius:999px;margin-bottom:18px;width:max-content}
+/* pills (round 2): deep orange on a cream chip is 4.95:1; on the old orange tint over sand it was 3.9:1 */
+.pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:.82rem;font-weight:700;color:var(--orange-ink);background:var(--cream);padding:8px 14px;border-radius:999px;margin-bottom:18px;width:max-content}
 .steps-b{list-style:none;margin:0;padding:0;display:grid;gap:14px}
 @media(min-width:900px){.steps-b{gap:18px;grid-template-columns:repeat(4,1fr);grid-template-areas:"s1 s1 s2 s3" "s1 s1 s4 s4" "s5 s6 s6 s7"}
  .steps-b li:nth-child(1){grid-area:s1}.steps-b li:nth-child(2){grid-area:s2}.steps-b li:nth-child(3){grid-area:s3}.steps-b li:nth-child(4){grid-area:s4}
@@ -216,7 +220,7 @@ body{background:var(--cream)}
 /* title card in burnt orange */
 .hero3 .t-title{background:var(--orange-ink);color:var(--white)}
 .hero3 .t-title h1{color:var(--white)}
-.hero3 .t-title .pill{background:rgba(255,253,248,.18);color:var(--white)}
+.hero3 .t-title .pill{background:transparent;box-shadow:inset 0 0 0 1.5px rgba(255,253,248,.6);color:var(--white)}
 
 .hero2c{display:grid;gap:14px;padding-top:14px}
 @media(min-width:900px){.hero2c{grid-template-columns:7fr 5fr;gap:18px}}
@@ -226,7 +230,7 @@ body{background:var(--cream)}
 .hero2c .t-blue p{margin:0;font-size:1.12rem;line-height:1.55;color:var(--cream)}
 .t-title{background:var(--orange-ink)!important;color:var(--white)}
 .t-title h1{color:var(--white)}
-.t-title .pill{background:rgba(255,253,248,.18);color:var(--white)}
+.t-title .pill{background:transparent;box-shadow:inset 0 0 0 1.5px rgba(255,253,248,.6);color:var(--white)}
 .t-white{background:var(--white)}
 .slot2{border:2px dashed rgba(0,62,81,.3);border-radius:18px;padding:22px;font-family:var(--sans);font-size:.9rem;color:var(--ink-soft);background:rgba(255,253,248,.6)}
 .slot2 strong{display:block;font-family:var(--serif);font-size:1.25rem;font-weight:500;color:var(--blue);margin-bottom:4px}
@@ -272,11 +276,11 @@ body.has-sticky{padding-bottom:84px}
 <header class="nav">
   <div class="nav-in">
     <a class="nav-logo" href="option-1-light-editorial.html"><img src="https://joshjonesshimmer.github.io/inhabit-previews/assets/inhabit-horizontal-orange-cream.png" alt="Inhabit Real Estate, home"></a>
-    <nav aria-label="Main"><ul class="nav-links"><li><a href="buying.html">Buying</a></li><li><a href="selling.html">Selling</a></li><li><a href="team.html">Our Team</a></li><li><a href="community.html">Community</a></li><li><a href="events.html">Events</a></li><li><a href="our-story.html">Our Story</a></li><li><a href="need-advice.html">Need Advice?</a></li></ul></nav>
+    <nav aria-label="Main"><ul class="nav-links"><li><a href="buying.html">Buying</a></li><li><a href="selling.html">Selling</a></li><li><a href="sell-and-buy.html">Sell and Buy</a></li><li><a href="team.html">Our Team</a></li><li><a href="community.html">Community</a></li><li><a href="events.html">Events</a></li><li><a href="our-story.html">Our Story</a></li><li><a href="need-advice.html">Need Advice?</a></li></ul></nav>
     <a class="btn nav-cta" href="contact.html">Let&rsquo;s talk</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-panel">Menu</button>
   </div>
-  <nav id="mobile-panel" class="mobile-panel" aria-label="Main, mobile"><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="team.html">Our Team</a><a href="community.html">Community</a><a href="events.html">Events</a><a href="our-story.html">Our Story</a><a href="need-advice.html">Need Advice?</a><a href="home-search.html" aria-current="page">Browse homes</a><a href="contact.html">Let’s talk</a></nav>
+  <nav id="mobile-panel" class="mobile-panel" aria-label="Main, mobile"><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="sell-and-buy.html">Sell and Buy</a><a href="team.html">Our Team</a><a href="community.html">Community</a><a href="events.html">Events</a><a href="our-story.html">Our Story</a><a href="need-advice.html">Need Advice?</a><a href="home-search.html" aria-current="page">Browse homes</a><a href="contact.html">Let’s talk</a></nav>
 </header>
 <main id="main">
 <div class="wrap">

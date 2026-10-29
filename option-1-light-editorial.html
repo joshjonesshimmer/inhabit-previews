@@ -20,6 +20,22 @@
   get a 128px logo so Let's talk stays on one line. Let's talk itself stays brand
   orange: white on it is 4.0:1, a little under AA's 4.5:1 for type this size.
 
+  v12, 10.29.26 (round 2). Accessible orange: every button or label with white
+  or cream text on it, Let’s talk and Find your guide included, is deep orange
+  (#A3502B, 5.5:1 with white), and so is orange text under 24px on cream or
+  white (eyebrows, teaser links, the current month). The footer headings sit on
+  blue, where deep orange is 2.1:1, so they take the subpages' orange glow
+  (5.1:1). Brand orange (#C3623A) stays only where no small text sits on or in
+  it: the hero's "great home.", the quiz letters, the stat figures and hover
+  borders. The events wash is deep orange at .9 so its small white text passes
+  AA over the brightest part of the photo. Curly apostrophes throughout. Sell
+  and Buy joins the nav, the phone menu, the teasers and the who-we-are links;
+  the full link row starts at 1150px so all eight links fit on one line.
+  Phones up to 480px get the compact nav, and its buttons never shrink, so
+  Let’s talk stays on one line beside the logo and Menu. Phones (600px and
+  under) also get a balanced hero: no forced line break, a clamped headline
+  size, and even 16 / 20 / 28px spacing. Desktop hero is unchanged.
+
   DESIGN AUTHORITY IS direction-f-v3. Its centred hero, typography scale and
   section rhythm are restored wholesale here. Specifically, taken back from v3
   and not from v7:
@@ -87,6 +103,7 @@
     --blue:#003E51;
     --orange:#C3623A;
     --orange-glow:#E59A75;
+    --orange-ink:#A3502B;
     --cream:#F8F0DF;
     --white:#FFFDF8;
     --sans:"TT Commons Pro Expanded","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
@@ -107,12 +124,12 @@
   em{font-style:italic;color:var(--orange);}
   .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 24px;}
   .eyebrow{font-family:var(--sans);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
-           color:var(--orange);font-weight:700;margin:0 0 18px;}
-  .btn{font-family:var(--sans);display:inline-block;background:var(--orange);color:var(--white);
+           color:var(--orange-ink);font-weight:700;margin:0 0 18px;}
+  .btn{font-family:var(--sans);display:inline-block;background:var(--orange-ink);color:var(--white);
        text-decoration:none;padding:15px 30px;font-size:.76rem;letter-spacing:.14em;
-       text-transform:uppercase;font-weight:700;border:2px solid var(--orange);}
+       text-transform:uppercase;font-weight:700;border:2px solid var(--orange-ink);}
   .btn.ghost{background:transparent;color:var(--blue);border-color:var(--blue);}
-  .btn.light{background:var(--cream);color:var(--orange);border-color:var(--cream);}
+  .btn.light{background:var(--cream);color:var(--orange-ink);border-color:var(--cream);}
   .btn.ghost-light{background:transparent;color:var(--cream);border-color:var(--cream);}
   section{padding:76px 0;}
   @media(min-width:820px){h1{font-size:5.2rem;}h2{font-size:3.4rem;}section{padding:120px 0;}}
@@ -121,14 +138,15 @@
   .nav{position:sticky;top:0;z-index:80;background:var(--blue);
        border-bottom:1px solid rgba(248,240,223,.18);}
   .nav-in{display:flex;align-items:center;gap:14px;padding:24px;max-width:1240px;margin:0 auto;}
-  .nav img{width:168px;}
+  .nav img{width:168px;min-width:0;}
   .nav-links{display:none;gap:17px;margin-left:auto;font-family:var(--sans);}
   .nav-links a{color:var(--cream);text-decoration:none;font-size:.68rem;letter-spacing:.11em;
                text-transform:uppercase;font-weight:600;white-space:nowrap;}
   .nav-links a:hover{color:var(--orange-glow);}
-  .nav-cta{margin-left:auto;padding:11px 20px;font-size:.68rem;white-space:nowrap;}
+  .nav-cta{flex:none;margin-left:auto;padding:11px 20px;font-size:.68rem;white-space:nowrap;}
+  .nav-cta:hover{background:var(--orange-glow);border-color:var(--orange-glow);color:var(--blue);}
   /* phone menu, same behaviour and breakpoint as the new subpages */
-  .menu-btn{min-height:44px;min-width:44px;margin-left:12px;padding:10px 14px;background:transparent;
+  .menu-btn{flex:none;min-height:44px;min-width:44px;margin-left:12px;padding:10px 14px;background:transparent;
             color:var(--cream);border:1px solid rgba(248,240,223,.4);font-family:var(--sans);
             font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;cursor:pointer;}
   .mobile-panel{display:none;background:var(--blue);border-top:1px solid rgba(248,240,223,.2);
@@ -137,11 +155,12 @@
   .mobile-panel a{display:block;padding:14px 0;color:var(--cream);text-decoration:none;
                   font-family:var(--serif);font-size:1.35rem;
                   border-bottom:1px solid rgba(248,240,223,.2);}
-  /* phones: the 168px logo, Let's talk and Menu can't share 390px, so the logo drops to
-     128px (and shrinks further on the narrowest phones), same as every subpage */
-  @media(max-width:420px){.nav-in{gap:10px;padding:18px 24px;}.nav img{width:128px;min-width:0;}
+  /* phones: the 168px logo, Let’s talk and Menu can't share a phone's width, so up to
+     480px (430px iPhones included) the logo drops to 128px, shrinking further on the
+     narrowest phones, same as every subpage. Let’s talk and Menu never shrink. */
+  @media(max-width:480px){.nav-in{gap:10px;padding:18px 24px;}.nav img{width:128px;}
                           .nav-cta{padding:11px 14px;}.menu-btn{margin-left:0;padding:10px 12px;}}
-  @media(min-width:1060px){.nav-links{display:flex;}.nav-cta{margin-left:22px;}
+  @media(min-width:1150px){.nav-links{display:flex;}.nav-cta{margin-left:22px;}
                            .menu-btn{display:none;}.mobile-panel{display:none!important;}}
 
   /* HERO, v3 geometry exactly: centred, light and airy. */
@@ -149,6 +168,14 @@
   .hero h1{max-width:14em;margin:0 auto;}
   .hero .sub{font-size:1.15rem;max-width:32em;margin:24px auto 30px;}
   .hero-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+  /* phones only (600px and under): no forced break, balanced lines with no word left
+     alone, a clamped headline, and even 16 / 20 / 28px spacing. Desktop is untouched. */
+  @media(max-width:600px){
+    .hero .eyebrow{letter-spacing:.16em;text-wrap:balance;margin-bottom:16px;}
+    .hero h1{font-size:clamp(2.1rem,1.1rem + 5vw,2.75rem);line-height:1.08;text-wrap:balance;}
+    .hero h1 br{display:none;}
+    .hero .sub{line-height:1.45;text-wrap:pretty;margin:20px auto 28px;}
+  }
 
   /* SHOWCASE. v3 put a four-square strip here. Becky wanted Option 3's
      team-photo hero, so the strip becomes one large cross-fading team photo,
@@ -192,7 +219,7 @@
   .teasers .opt{text-align:left;}
   .teasers .opt .t{display:block;margin-bottom:6px;}
   .teasers .opt .go{display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.14em;
-                    text-transform:uppercase;font-weight:700;color:var(--orange);margin-top:12px;}
+                    text-transform:uppercase;font-weight:700;color:var(--orange-ink);margin-top:12px;}
   @media(min-width:820px){.teasers{grid-template-columns:repeat(3,1fr);gap:18px;}}
 
   /* CONDENSED BAND, kept from v7 */
@@ -224,7 +251,7 @@
               font-weight:700;text-decoration:none;color:var(--cream);
               border:1px solid rgba(248,240,223,.45);padding:11px 18px;
               transition:background .15s,color .15s,border-color .15s;}
-  .sublinks a:hover{background:var(--orange);border-color:var(--orange);color:var(--white);}
+  .sublinks a:hover{background:var(--orange-ink);border-color:var(--orange-ink);color:var(--white);}
   .cond .quiet{font-family:var(--sans);font-size:.78rem;opacity:.62;margin:26px 0 0;max-width:40em;}
   @media(min-width:900px){.cond-grid{grid-template-columns:5fr 7fr;gap:64px;}}
 
@@ -235,13 +262,15 @@
   .badges img{max-height:126px;width:auto;margin:0 auto;object-fit:contain;}
   @media(min-width:760px){.badges{grid-template-columns:repeat(4,1fr);gap:40px;}}
 
-  /* EVENTS, Option 2's treatment. The wash sits at .84 rather than .9 so this
-     reads as photography under warm light, not a flat orange fill. That is what
+  /* EVENTS, Option 2's treatment. The wash is deep orange at .9 (it was brand
+     orange at .84) so the small white type on it passes AA even over the photo's
+     brightest pixels; it still reads as photography under warm light, not a
+     flat fill. That is what
      lets it sit between the cream awards band and the blue footer without two
      saturated solids meeting. */
   .events{position:relative;overflow:hidden;}
   .events>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-  .events .veil{position:absolute;inset:0;background:rgba(195,98,58,.84);}
+  .events .veil{position:absolute;inset:0;background:rgba(163,80,43,.9);}
   .events .inner{position:relative;text-align:center;color:var(--white);}
   .events h2{color:var(--white);}
   .events .eyebrow{color:var(--white);}
@@ -249,7 +278,7 @@
   .months{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:44px auto 0;max-width:780px;}
   .months div{border:1px solid rgba(255,253,248,.6);padding:12px 4px;font-family:var(--sans);
               font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;}
-  .months div.on{background:var(--white);color:var(--orange);border-color:var(--white);}
+  .months div.on{background:var(--white);color:var(--orange-ink);border-color:var(--white);}
   @media(min-width:820px){.events .ten{font-size:13rem;}.months{grid-template-columns:repeat(10,1fr);}}
 
   /* FOOTER */
@@ -258,7 +287,7 @@
             padding-bottom:38px;margin-bottom:38px;border-bottom:1px solid rgba(248,240,223,.24);}
   .aw-strip img{height:66px;width:auto;object-fit:contain;}
   .f-cols{display:grid;gap:28px;}
-  .f-cols h4{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin:0 0 12px;}
+  .f-cols h4{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--orange-glow);margin:0 0 12px;}
   .f-cols a{display:block;color:var(--cream);text-decoration:none;font-size:.84rem;padding:4px 0;opacity:.86;}
   footer .logo{width:188px;margin-bottom:16px;}
   .legal{margin-top:36px;padding-top:20px;border-top:1px solid rgba(248,240,223,.24);font-size:.7rem;opacity:.68;}
@@ -298,10 +327,9 @@
 .cond-photo{border-radius:14px}
 @media(min-width:900px){.cond-photo{aspect-ratio:auto;height:100%;min-height:440px}}
 .cond .quiet{margin-top:20px}
-/* page teasers: three across, then two wider cards, so the grid has no empty slot */
-@media(min-width:820px){.teasers{grid-template-columns:repeat(6,1fr)}
- .teasers .opt{grid-column:span 2;padding:30px 28px}
- .teasers .opt:nth-child(n+4){grid-column:span 3}}
+/* page teasers: six cards, two rows of three, so the grid has no empty slot */
+@media(min-width:820px){.teasers{grid-template-columns:repeat(3,1fr)}
+ .teasers .opt{padding:30px 28px}}
 .months div{border-radius:9px}
 </style>
 </head>
@@ -314,26 +342,27 @@
     <div class="nav-links">
       <a href="buying.html">Buying</a>
       <a href="selling.html">Selling</a>
+      <a href="sell-and-buy.html">Sell and Buy</a>
       <a href="team.html">Our Team</a>
       <a href="community.html">Community</a>
       <a href="events.html">Events</a>
       <a href="our-story.html">Our Story</a>
       <a href="need-advice.html">Need Advice?</a>
     </div>
-    <a class="btn nav-cta" href="contact.html">Let's talk</a>
+    <a class="btn nav-cta" href="contact.html">Let’s talk</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-panel">Menu</button>
   </div>
-  <nav id="mobile-panel" class="mobile-panel" aria-label="Main, mobile"><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="team.html">Our Team</a><a href="community.html">Community</a><a href="events.html">Events</a><a href="our-story.html">Our Story</a><a href="need-advice.html">Need Advice?</a><a href="home-search.html">Browse homes</a><a href="contact.html">Let's talk</a></nav>
+  <nav id="mobile-panel" class="mobile-panel" aria-label="Main, mobile"><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="sell-and-buy.html">Sell and Buy</a><a href="team.html">Our Team</a><a href="community.html">Community</a><a href="events.html">Events</a><a href="our-story.html">Our Story</a><a href="need-advice.html">Need Advice?</a><a href="home-search.html">Browse homes</a><a href="contact.html">Let’s talk</a></nav>
 </nav>
 
 <!-- HERO, centred per v3 -->
 <header class="hero">
   <div class="wrap">
     <p class="eyebrow">Woman-owned . Durham, Raleigh, Chapel Hill</p>
-    <h1>It takes good people<br>to find a <em>great home.</em></h1>
+    <h1>It takes good people<br> to find a <em>great home.</em></h1>
     <p class="sub">
       Independent, woman-owned, and rooted in the Triangle for more than a
-      decade. Let's find your place in it.
+      decade. Let’s find your place in it.
     </p>
     <div class="hero-btns">
       <a class="btn" href="team.html">Find your guide</a>
@@ -355,7 +384,7 @@
   <section>
     <div class="wrap">
       <h2>Where are you on the road home?</h2>
-      <p class="note">Just starting to wonder, or ready to pack? Answer a few quick questions and we'll point you to your next step and the agent who fits your plans.</p>
+      <p class="note">Just starting to wonder, or ready to pack? Answer a few quick questions and we’ll point you to your next step and the agent who fits your plans.</p>
       <div class="opts">
         <a class="opt" href="buying.html"><div class="ic">A</div><div class="t">Buying</div><div class="d">First home or next one</div></a>
         <a class="opt" href="selling.html"><div class="ic">B</div><div class="t">Selling</div><div class="d">Ready when you are</div></a>
@@ -380,8 +409,8 @@
           Inhabit is an independent, woman-owned real estate firm with offices
           in Durham and Chapel Hill and agents who live all over the Triangle.
           Our agents collaborate instead of compete, so when you work with one
-          of us, you get the whole firm's experience behind you. We listen
-          first, tell you what we'd tell a friend, and build a plan around your
+          of us, you get the whole firm’s experience behind you. We listen
+          first, tell you what we’d tell a friend, and build a plan around your
           life, not around a sale.
         </p>
 
@@ -392,9 +421,9 @@
         </div>
 
         <div class="whyrow">
-          <div><b>We share what we know.</b>Contract changes, market shifts, what's working in negotiations this month: our agents compare notes, so your advice is always current.</div>
+          <div><b>We share what we know.</b>Contract changes, market shifts, what’s working in negotiations this month: our agents compare notes, so your advice is always current.</div>
           <div><b>We live here.</b>We raise families, walk dogs, and volunteer in the neighborhoods we serve, and we bring that local knowledge to every search.</div>
-          <div><b>We're recognized for it.</b>Our agents and our firm have been named among the best in the Triangle, year after year.</div>
+          <div><b>We’re recognized for it.</b>Our agents and our firm have been named among the best in the Triangle, year after year.</div>
         </div>
 
         <div class="sublinks">
@@ -402,6 +431,7 @@
           <a href="team.html">Meet your team</a>
           <a href="buying.html">How buying works</a>
           <a href="selling.html">How selling works</a>
+          <a href="sell-and-buy.html">How selling and buying together works</a>
           <a href="community.html">Our community</a>
         </div>
 
@@ -420,7 +450,7 @@
       <div class="teasers">
         <a class="opt" href="buying.html">
           <div class="t">Buying a home, one clear step at a time.</div>
-          <div class="d">From the first conversation to the keys in your hand, we're with you every step of the way.</div>
+          <div class="d">From the first conversation to the keys in your hand, we’re with you every step of the way.</div>
           <span class="go">How buying works</span>
         </a>
         <a class="opt" href="selling.html">
@@ -428,8 +458,13 @@
           <div class="d">Honest pricing, smart prep, and marketing built around what makes your home special.</div>
           <span class="go">How selling works</span>
         </a>
+        <a class="opt" href="sell-and-buy.html">
+          <div class="t">Moving from one home to the next? One agent, one plan.</div>
+          <div class="d">One agent guides both your sale and your purchase.</div>
+          <span class="go">How selling and buying together works</span>
+        </a>
         <a class="opt" href="team.html">
-          <div class="t">Meet the people who'll get you home.</div>
+          <div class="t">Meet the people who’ll get you home.</div>
           <div class="d">Find the Inhabit agent who fits your plans.</div>
           <span class="go">Meet your team</span>
         </a>
@@ -439,7 +474,7 @@
           <span class="go">Our community</span>
         </a>
         <a class="opt" href="events.html">
-          <div class="t">Ten years. Ten gatherings. You're invited.</div>
+          <div class="t">Ten years. Ten gatherings. You’re invited.</div>
           <div class="d">One gathering a month to celebrate a decade in the Triangle.</div>
           <span class="go">Upcoming events</span>
         </a>
@@ -478,7 +513,7 @@
     <div class="wrap">
       <p class="eyebrow">The tenth year</p>
       <div class="ten">10</div>
-      <h2>Ten years. Ten gatherings.<br>You're invited.</h2>
+      <h2>Ten years. Ten gatherings.<br>You’re invited.</h2>
       <p style="max-width:32em;margin:24px auto 0;">
         One gathering a month to celebrate a decade in the Triangle.
       </p>
@@ -498,8 +533,8 @@
 <div class="awards">
   <section>
     <div class="wrap">
-      <h2>Whenever you're ready to talk about<br>what home means to you, we're here.</h2>
-      <p style="margin-top:30px;"><a class="btn" href="contact.html">Let's talk</a></p>
+      <h2>Whenever you’re ready to talk about<br>what home means to you, we’re here.</h2>
+      <p style="margin-top:30px;"><a class="btn" href="contact.html">Let’s talk</a></p>
     </div>
   </section>
 </div>
