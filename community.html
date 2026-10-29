@@ -84,6 +84,15 @@ p{margin:0 0 1.1rem}
 .mobile-panel.open{display:block}
 .mobile-panel a{display:block;padding:14px 0;color:var(--cream);text-decoration:none;font-family:var(--serif);font-size:1.35rem;border-bottom:1px solid rgba(248,240,223,.2)}
 .mobile-panel a[aria-current="page"]{color:var(--orange-glow)}
+/* nested menus (10.29.26 call): Our Story sits under Our Team, Events under Community, Sell and Buy is its own item. Desktop opens on hover or keyboard focus; phones list the two child pages indented under their parent. */
+.nav-links .has-sub{position:relative}
+.nav-links .has-sub>a::after{content:"";display:inline-block;margin-left:6px;vertical-align:2px;border:4px solid transparent;border-top-color:currentColor;border-bottom:0}
+.nav-links .sub{display:none;position:absolute;left:-18px;top:100%;margin:0;padding:8px 0;list-style:none;min-width:170px;background:var(--blue);border:1px solid rgba(248,240,223,.22);border-radius:10px;box-shadow:0 10px 28px rgba(0,42,56,.28);z-index:95}
+.nav-links .has-sub:hover .sub,.nav-links .has-sub:focus-within .sub{display:block}
+.nav-links .sub a{display:block;padding:10px 18px;text-shadow:none}
+.nav-links .has-sub:has([aria-current="page"])>a{color:var(--orange-glow)}
+.mobile-panel a.sub-link{padding:11px 0 11px 22px;font-size:1.12rem;opacity:.9}
+
 @media(min-width:1060px){.nav-in>nav{display:block}.menu-btn{display:none}.nav-cta{margin-left:22px}.mobile-panel{display:none!important}}
 /* glass nav, copied from the homepage */
 .nav{transition:background-color .2s ease, box-shadow .2s ease, border-color .2s ease}
@@ -247,9 +256,10 @@ body.has-sticky{padding-bottom:84px}
 .ctext p{margin:0;font-size:1.08rem}
 .awards-tile{margin-top:14px;text-align:center}
 .awards-tile h2{font-size:clamp(1.6rem,2.6vw,2.2rem);max-width:20em;margin:0 auto}
-.aw{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:center}
-@media(min-width:760px){.aw{grid-template-columns:repeat(4,1fr)}}
-.aw img{max-height:116px;width:auto;margin:0 auto;object-fit:contain}
+/* 10.29.26: Becky's seven badges, centred wrap */
+.aw{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:20px 26px;align-items:center}
+.aw img{height:88px;width:auto;object-fit:contain}
+@media(min-width:760px){.aw img{height:110px}}
 
 /* v4 (10.19.26): medium rounded corners, matching the homepage */
 .tile,.tB,.v2 li,.bento .tile,.thead4,.about4,.formcard,.finder,.wide-photo{border-radius:18px!important}
@@ -266,11 +276,11 @@ body.has-sticky{padding-bottom:84px}
 <header class="nav">
   <div class="nav-in">
     <a class="nav-logo" href="option-1-light-editorial.html"><img src="https://joshjonesshimmer.github.io/inhabit-previews/assets/inhabit-horizontal-orange-cream.png" alt="Inhabit Real Estate, home"></a>
-    <nav aria-label="Main"><ul class="nav-links"><li><a href="buying.html">Buying</a></li><li><a href="selling.html">Selling</a></li><li><a href="team.html">Our Team</a></li><li><a href="community.html" aria-current="page">Community</a></li><li><a href="events.html">Events</a></li><li><a href="our-story.html">Our Story</a></li><li><a href="need-advice.html">Need Advice?</a></li></ul></nav>
+    <nav aria-label="Main"><ul class="nav-links"><li><a href="buying.html">Buying</a></li><li><a href="selling.html">Selling</a></li><li><a href="sell-and-buy.html">Sell and Buy</a></li><li class="has-sub"><a href="team.html">Our Team</a><ul class="sub"><li><a href="our-story.html">Our Story</a></li></ul></li><li class="has-sub"><a href="community.html" aria-current="page">Community</a><ul class="sub"><li><a href="events.html">Events</a></li></ul></li><li><a href="need-advice.html">Need Advice?</a></li></ul></nav>
     <a class="btn nav-cta" href="contact.html">Let&rsquo;s talk</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-panel">Menu</button>
   </div>
-  <nav id="mobile-panel" class="mobile-panel" aria-label="Main, mobile"><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="team.html">Our Team</a><a href="community.html" aria-current="page">Community</a><a href="events.html">Events</a><a href="our-story.html">Our Story</a><a href="need-advice.html">Need Advice?</a><a href="home-search.html">Browse homes</a><a href="contact.html">Let’s talk</a></nav>
+  <nav id="mobile-panel" class="mobile-panel" aria-label="Main, mobile"><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="sell-and-buy.html">Sell and Buy</a><a href="team.html">Our Team</a><a class="sub-link" href="our-story.html">Our Story</a><a href="community.html" aria-current="page">Community</a><a class="sub-link" href="events.html">Events</a><a href="need-advice.html">Need Advice?</a><a href="home-search.html">Browse homes</a><a href="contact.html">Let’s talk</a></nav>
 </header>
 <main id="main">
 <div class="wrap">
@@ -287,7 +297,7 @@ body.has-sticky{padding-bottom:84px}
   <div class="tile t-photo"><img src="assets/photos/adoption-day-puppies.jpg" alt="Three Inhabit agents each holding a rescue puppy at an adoption day" loading="lazy"></div>
   <div class="tile t-photo"><img src="assets/photos/agents-event-group.jpg" alt="A group of Inhabit agents at an outdoor community gathering" loading="lazy"></div>
 </div>
-<div class="tile t-white awards-tile"><h2>Along the way, our neighbors have honored us with awards we&rsquo;re proud of.</h2><ul class="aw"><li><img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/79f3c7a4-a2bf-4113-9864-02deb277e6bf/Best+of+the+Triangle+Real+Estate+Badge+2024.png?format=500w" alt="Best of the Triangle, Real Estate, 2024" loading="lazy"></li><li><img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/3d841bb2-dcfd-4123-8528-0de82c3bcef9/LogoBestOfDM_2025-scaled+-+Edited.png?format=500w" alt="Best of Durham Magazine, 2025" loading="lazy"></li><li><img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/747a0de2-b976-4a07-a28f-3d764913317e/Best+of+Durham+Mag.png?format=500w" alt="Best of Durham Magazine" loading="lazy"></li><li><img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/d9518df1-e002-4800-b725-d25cefe70d8f/Best+of+Chapel+Hill+Mag.png?format=500w" alt="Best of Chapel Hill Magazine" loading="lazy"></li></ul></div>
+<div class="tile t-white awards-tile"><h2>Along the way, our neighbors have honored us with awards we&rsquo;re proud of.</h2><ul class="aw"><li><img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/79f3c7a4-a2bf-4113-9864-02deb277e6bf/Best+of+the+Triangle+Real+Estate+Badge+2024.png?format=500w" alt="Best of the Triangle, Real Estate, 2024" loading="lazy"></li><li><img src="assets/awards/best-of-durham-2026.png" alt="Best of Durham, Durham Magazine readers' favorite, 2026" loading="lazy"></li><li><img src="assets/awards/best-of-durham-2025.png" alt="Best of Durham, Durham Magazine readers' favorite, 2025" loading="lazy"></li><li><img src="assets/awards/best-of-durham-2024.png" alt="Best of Durham, Durham Magazine readers' favorite, 2024" loading="lazy"></li><li><img src="assets/awards/best-of-durham-2023.png" alt="Best of Durham, Durham Magazine readers' favorite, 2023" loading="lazy"></li><li><img src="assets/awards/best-of-durham-2022.png" alt="Best of Durham, Durham Magazine readers' favorite, 2022" loading="lazy"></li><li><img src="assets/awards/best-of-chapel-hill-2024.png" alt="Best of Chapel Hill, Chapel Hill Magazine readers' favorite, 2024" loading="lazy"></li></ul></div>
 <div class="bento" style="padding-bottom:72px"><div class="tile t-orange closing-b"><h2>Ten years. Ten gatherings. You&rsquo;re invited.</h2><div class="btn-row"><a class="btn" href="events.html">See what&rsquo;s coming up</a></div></div></div>
 </div><div class="sticky-cta"><a class="btn" href="contact.html">Let&rsquo;s talk</a><a class="btn ghost" href="tel:+19198084549">Call us</a></div>
 </main>

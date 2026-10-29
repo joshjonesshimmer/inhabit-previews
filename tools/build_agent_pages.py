@@ -6,7 +6,8 @@ Inputs
   tools/staff-bios.json    staff bios copied word for word from the current site
   tools/agent-template.html  Dara's page with the person-specific parts marked
   tools/agent-parts.txt      listings, awards and reviews blocks (agents and leadership only)
-  tools/awards.json          who shows awards on their current inhabitthetriangle.com page;
+  tools/awards.json          each person's own awards, from Becky's Oct 28 list of Durham and
+                             Chapel Hill Magazine wins (badge artwork in assets/awards);
                              only they get the Recognition tile
   tools/bio-overrides.json   bios sent after the doc was finished; each replaces that person's
                              After text and their Our Team card descriptor, word for word
@@ -79,6 +80,15 @@ def reviews_html(quotes):
         out.append(f'    <figure class="quote"><blockquote>{body}</blockquote><figcaption>{cite}</figcaption></figure>')
     out.append("   </div>")
     return "\n".join(out) + "\n"
+
+
+def awards_html(items):
+    """The Recognition tile's list: badge artwork as supplied, then the award in words."""
+    rows = []
+    for a in items:
+        rows.append(f'<li><img src="{a["img"]}" alt="{html.escape(a["title"])} {a["year"]} badge" loading="lazy">'
+                    f'<span><strong>{smart(a["title"])} {a["year"]}</strong>{smart(a["detail"])}</span></li>')
+    return '<ul class="recog-list">' + "".join(rows) + "</ul>"
 
 
 def parse_bios(path):
@@ -235,7 +245,8 @@ def build():
             report["placeholder_bio"].append(c["name"])
         role_html = smart(c["role"]).replace("®", "&reg;")
         is_staff = c["group"] == "staff"
-        recognition = parts["RECOGNITION"] + "\n" if awards.get(c["key"]) else ""
+        recognition = (parts["RECOGNITION"].replace("{{AWARDS}}", awards_html(awards[c["key"]])) + "\n"
+                       if awards.get(c["key"]) else "")
         reviews = reviews_html(testimonials.get(c["key"]))
         side = (parts["SIDE"].replace("{{RECOGNITION}}", recognition).replace("{{REVIEWS}}", reviews)
                 if recognition or reviews else "")

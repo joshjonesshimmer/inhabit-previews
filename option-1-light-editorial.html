@@ -79,6 +79,7 @@
 <!-- Curated, team-forward, preloaded so the showcase does not pop in. -->
 <link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/db34aa05-66a8-420a-a15f-dcab4e748825/RF050125-8.jpg?format=1500w">
 <link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/db34aa05-66a8-420a-a15f-dcab4e748825/RF050125-8.jpg?format=1500w">
+<link rel="preload" as="image" href="assets/photos/house-craftsman-red-door.jpg">
 <link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/48a40215-3e80-47c0-be3e-ca19c979e078/Staff+at+Karma+Keg+2024.JPG?format=1500w">
 <link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/e6bd76f0-07e0-4ca1-a5d8-91d2a3accb0f/RF050125-79.jpg?format=1500w">
 
@@ -137,6 +138,19 @@
   .mobile-panel a{display:block;padding:14px 0;color:var(--cream);text-decoration:none;
                   font-family:var(--serif);font-size:1.35rem;
                   border-bottom:1px solid rgba(248,240,223,.2);}
+  /* v12, 10.29.26 call: nested menus, same as every subpage. Our Story sits under Our Team,
+     Events under Community, Sell and Buy is its own item. Desktop opens on hover or keyboard
+     focus; phones list the two child pages indented under their parent. */
+  .nav-links{align-items:center;}
+  .nav-links .has-sub{position:relative;padding:10px 0;}
+  .nav-links .has-sub>a::after{content:"";display:inline-block;margin-left:6px;vertical-align:2px;
+               border:4px solid transparent;border-top-color:currentColor;border-bottom:0;}
+  .nav-links .sub{display:none;position:absolute;left:-18px;top:100%;padding:8px 0;min-width:170px;
+               background:var(--blue);border:1px solid rgba(248,240,223,.22);border-radius:10px;
+               box-shadow:0 10px 28px rgba(0,42,56,.28);z-index:95;}
+  .nav-links .has-sub:hover .sub,.nav-links .has-sub:focus-within .sub{display:block;}
+  .nav-links .sub a{display:block;padding:10px 18px;text-shadow:none;}
+  .mobile-panel a.sub-link{padding:11px 0 11px 22px;font-size:1.12rem;opacity:.9;}
   /* phones: the 168px logo, Let's talk and Menu can't share 390px, so the logo drops to
      128px (and shrinks further on the narrowest phones), same as every subpage */
   @media(max-width:420px){.nav-in{gap:10px;padding:18px 24px;}.nav img{width:128px;min-width:0;}
@@ -155,12 +169,16 @@
      team shot first. Everything above it keeps v3's centred rhythm. */
   .showcase{position:relative;overflow:hidden;margin-top:56px;aspect-ratio:4/3;}
   .showcase img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-                opacity:0;animation:heroFade 21s linear infinite;}
+                opacity:0;animation:heroFade 42s linear infinite;}
+  /* six slides, 7s each: team, house, team, house, hard hats, house */
   .showcase img:nth-child(1){animation-delay:0s;}
   .showcase img:nth-child(2){animation-delay:7s;}
   .showcase img:nth-child(3){animation-delay:14s;}
+  .showcase img:nth-child(4){animation-delay:21s;}
+  .showcase img:nth-child(5){animation-delay:28s;}
+  .showcase img:nth-child(6){animation-delay:35s;}
   @keyframes heroFade{
-    0%{opacity:0} 4%{opacity:1} 33%{opacity:1} 37%{opacity:0} 100%{opacity:0}
+    0%{opacity:0} 2%{opacity:1} 16.67%{opacity:1} 18.67%{opacity:0} 100%{opacity:0}
   }
   @media(prefers-reduced-motion:reduce){
     .showcase img{animation:none;}
@@ -230,10 +248,19 @@
 
   /* AWARDS */
   .awards{background:var(--cream);text-align:center;}
-  .badges{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:48px;align-items:center;
-          max-width:920px;margin-left:auto;margin-right:auto;}
-  .badges img{max-height:126px;width:auto;margin:0 auto;object-fit:contain;}
-  @media(min-width:760px){.badges{grid-template-columns:repeat(4,1fr);gap:40px;}}
+  /* v12: seven badges from Becky's artwork, so a centred wrap instead of a 4-up grid */
+  .badges{display:flex;flex-wrap:wrap;justify-content:center;gap:22px 26px;margin-top:48px;align-items:center;
+          max-width:1000px;margin-left:auto;margin-right:auto;}
+  .badges img{height:92px;width:auto;object-fit:contain;}
+  @media(min-width:760px){.badges{gap:30px 34px;}.badges img{height:116px;}}
+  .aw-list{display:grid;gap:26px;max-width:760px;margin:46px auto 0;text-align:left;font-family:var(--sans);}
+  .aw-list>div{background:var(--white);border-radius:15px;padding:24px 26px;}
+  .aw-list h3{font-family:var(--serif);font-size:1.6rem;margin:0 0 2px;}
+  .aw-list .aw-src{font-size:.78rem;opacity:.7;margin:0 0 14px;}
+  .aw-list p{font-size:.9rem;margin:0 0 10px;line-height:1.55;}
+  .aw-list b{display:block;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:2px;}
+  .aw-list a{color:var(--blue);}
+  @media(min-width:760px){.aw-list{grid-template-columns:1fr 1fr;}}
 
   /* EVENTS, Option 2's treatment. The wash sits at .84 rather than .9 so this
      reads as photography under warm light, not a flat orange fill. That is what
@@ -314,16 +341,15 @@
     <div class="nav-links">
       <a href="buying.html">Buying</a>
       <a href="selling.html">Selling</a>
-      <a href="team.html">Our Team</a>
-      <a href="community.html">Community</a>
-      <a href="events.html">Events</a>
-      <a href="our-story.html">Our Story</a>
+      <a href="sell-and-buy.html">Sell and Buy</a>
+      <div class="has-sub"><a href="team.html">Our Team</a><div class="sub"><a href="our-story.html">Our Story</a></div></div>
+      <div class="has-sub"><a href="community.html">Community</a><div class="sub"><a href="events.html">Events</a></div></div>
       <a href="need-advice.html">Need Advice?</a>
     </div>
     <a class="btn nav-cta" href="contact.html">Let's talk</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-panel">Menu</button>
   </div>
-  <nav id="mobile-panel" class="mobile-panel" aria-label="Main, mobile"><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="team.html">Our Team</a><a href="community.html">Community</a><a href="events.html">Events</a><a href="our-story.html">Our Story</a><a href="need-advice.html">Need Advice?</a><a href="home-search.html">Browse homes</a><a href="contact.html">Let's talk</a></nav>
+  <nav id="mobile-panel" class="mobile-panel" aria-label="Main, mobile"><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="sell-and-buy.html">Sell and Buy</a><a href="team.html">Our Team</a><a class="sub-link" href="our-story.html">Our Story</a><a href="community.html">Community</a><a class="sub-link" href="events.html">Events</a><a href="need-advice.html">Need Advice?</a><a href="home-search.html">Browse homes</a><a href="contact.html">Let's talk</a></nav>
 </nav>
 
 <!-- HERO, centred per v3 -->
@@ -342,10 +368,15 @@
     <!-- One large team-forward photo instead of v3's four-square strip.
          Curated from the existing site assets, never the Instagram feed.
          Community shows here as candid agent photography, uncaptioned. -->
+    <!-- v12, 10.29.26 call: real house photos from Becky's Website Photos > Houses folder now
+         alternate with the team shots, every other slide. The hard-hat photo stays. -->
     <div class="showcase">
       <img src="assets/photos/team-table-gathering.jpg" alt="Inhabit agents gathered around a table at an outdoor client appreciation event">
+      <img src="assets/photos/house-craftsman-red-door.jpg" alt="Two-story craftsman home with a red front door and a covered front porch">
       <img src="assets/photos/team-mural-durham.jpg" alt="Five Inhabit agents standing together in front of a colourful Durham mural">
+      <img src="assets/photos/house-blue-cottage-porch.jpg" alt="Blue cottage with a white-railed front porch and crepe myrtles in bloom">
       <img src="assets/photos/agents-site-visit.jpg" alt="Inhabit agents in hard hats touring a building under construction">
+      <img src="assets/photos/cottage-green.jpg" alt="Sage green cape cod with an arched portico, framed by dogwood trees">
     </div>
   </div>
 </header>
@@ -455,10 +486,22 @@
       <p class="eyebrow">Recognition</p>
       <h2>Voted in by the<br>people who live here.</h2>
       <div class="badges">
-        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/79f3c7a4-a2bf-4113-9864-02deb277e6bf/Best+of+the+Triangle+Real+Estate+Badge+2024.png?format=500w" alt="Best of the Triangle Real Estate 2024">
-        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/3d841bb2-dcfd-4123-8528-0de82c3bcef9/LogoBestOfDM_2025-scaled+-+Edited.png?format=500w" alt="Best of Durham Magazine 2025">
-        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/747a0de2-b976-4a07-a28f-3d764913317e/Best+of+Durham+Mag.png?format=500w" alt="Best of Durham Magazine">
-        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/d9518df1-e002-4800-b725-d25cefe70d8f/Best+of+Chapel+Hill+Mag.png?format=500w" alt="Best of Chapel Hill Magazine">
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/79f3c7a4-a2bf-4113-9864-02deb277e6bf/Best+of+the+Triangle+Real+Estate+Badge+2024.png?format=500w" alt="Best of the Triangle, Real Estate, 2024" loading="lazy">
+        <img src="assets/awards/best-of-durham-2026.png" alt="Best of Durham, Durham Magazine readers' favorite, 2026" loading="lazy">
+        <img src="assets/awards/best-of-durham-2025.png" alt="Best of Durham, Durham Magazine readers' favorite, 2025" loading="lazy">
+        <img src="assets/awards/best-of-durham-2024.png" alt="Best of Durham, Durham Magazine readers' favorite, 2024" loading="lazy">
+        <img src="assets/awards/best-of-durham-2023.png" alt="Best of Durham, Durham Magazine readers' favorite, 2023" loading="lazy">
+        <img src="assets/awards/best-of-durham-2022.png" alt="Best of Durham, Durham Magazine readers' favorite, 2022" loading="lazy">
+        <img src="assets/awards/best-of-chapel-hill-2024.png" alt="Best of Chapel Hill, Chapel Hill Magazine readers' favorite, 2024" loading="lazy">
+      </div>
+      <!-- v12, 10.29.26 call: Becky's Oct 28 awards list and artwork. Former agents' wins
+           (2023, 2024) are left off; INDY artwork still to come from Becky. -->
+      <div class="aw-list">
+        <div><h3>Best of Durham</h3><p class="aw-src">Durham Magazine readers&rsquo; favorite</p>
+          <p><b>Real estate company</b>2022, 2023, 2024, 2025, 2026</p>
+          <p><b>Real estate agent</b><a href="agent-tammi-brooks.html">Tammi Brooks</a>, 2018<br><a href="agent-liz-dean.html">Liz Dean</a>, 2025<br><a href="agent-dara-shain.html">Dara Shain</a>, 2026</p></div>
+        <div><h3>Best of Chapel Hill</h3><p class="aw-src">Chapel Hill Magazine readers&rsquo; favorite</p>
+          <p><b>Real estate company</b>2024</p></div>
       </div>
     </div>
   </section>

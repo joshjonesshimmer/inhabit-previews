@@ -5,7 +5,14 @@
  "connie semans": false,
  "courtney eason": false,
  "crystal shores": false,
- "dara shain": false,
+ "dara shain": [
+  {
+   "title": "Best of Durham",
+   "year": 2026,
+   "detail": "Real Estate Agent, Durham Magazine readers' favorite",
+   "img": "assets/awards/best-of-durham-2026.png"
+  }
+ ],
  "dave cherry": false,
  "eila voloshen": false,
  "elizabeth barry": false,
@@ -21,7 +28,14 @@
  "katelin walpole": false,
  "katie dinsmore": false,
  "lee coggins": false,
- "liz dean": false,
+ "liz dean": [
+  {
+   "title": "Best of Durham",
+   "year": 2025,
+   "detail": "Real Estate Agent, Durham Magazine readers' favorite",
+   "img": "assets/awards/best-of-durham-2025.png"
+  }
+ ],
  "marie brockenbrough": false,
  "meredith pope": false,
  "nata bozymski": false,
@@ -35,5 +49,12 @@
  "stephanie ross": false,
  "sue fox": false,
  "tamara talansky": false,
- "tammi brooks": false
+ "tammi brooks": [
+  {
+   "title": "Best of Durham",
+   "year": 2018,
+   "detail": "Real Estate Agent, Durham Magazine readers' favorite",
+   "img": "assets/awards/best-of-durham-2018.png"
+  }
+ ]
 }
