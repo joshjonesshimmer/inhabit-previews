@@ -243,6 +243,8 @@ body{background:var(--cream)}
 body.has-sticky{padding-bottom:84px}
 @media(min-width:900px){.sticky-cta{display:none}body.has-sticky{padding-bottom:0}}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* 10.29.26: the anniversary headline balances on phones so no word sits alone on its line */
+@media(max-width:600px){.closing-b h2{text-wrap:balance}}
 .cmos{display:grid;gap:14px;margin-top:14px}
 @media(min-width:900px){.cmos{grid-template-columns:5fr 4fr 4fr;gap:18px}}
 .cmos .t-photo{min-height:280px}
@@ -292,7 +294,7 @@ body.has-sticky{padding-bottom:84px}
   <div class="tile t-photo"><img src="assets/photos/agents-event-group.jpg" alt="A group of Inhabit agents at an outdoor community gathering" loading="lazy"></div>
 </div>
 <div class="tile t-white awards-tile"><h2>Along the way, our neighbors have honored us with awards we&rsquo;re proud of.</h2><ul class="aw"><li><img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/79f3c7a4-a2bf-4113-9864-02deb277e6bf/Best+of+the+Triangle+Real+Estate+Badge+2024.png?format=500w" alt="Best of the Triangle, Real Estate, 2024" loading="lazy"></li><li><img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/3d841bb2-dcfd-4123-8528-0de82c3bcef9/LogoBestOfDM_2025-scaled+-+Edited.png?format=500w" alt="Best of Durham Magazine, 2025" loading="lazy"></li><li><img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/747a0de2-b976-4a07-a28f-3d764913317e/Best+of+Durham+Mag.png?format=500w" alt="Best of Durham Magazine" loading="lazy"></li><li><img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/d9518df1-e002-4800-b725-d25cefe70d8f/Best+of+Chapel+Hill+Mag.png?format=500w" alt="Best of Chapel Hill Magazine" loading="lazy"></li></ul></div>
-<div class="bento" style="padding-bottom:72px"><div class="tile t-orange closing-b"><h2>Ten years. Ten gatherings. You&rsquo;re invited.</h2><div class="btn-row"><a class="btn" href="events.html">See what&rsquo;s coming up</a></div></div></div>
+<div class="bento" style="padding-bottom:72px"><div class="tile t-orange closing-b"><h2>10 years, lots to celebrate. You&rsquo;re invited.</h2><div class="btn-row"><a class="btn" href="events.html">See what&rsquo;s coming up</a></div></div></div>
 </div><div class="sticky-cta"><a class="btn" href="contact.html">Let&rsquo;s talk</a><a class="btn ghost" href="tel:+19198084549">Call us</a></div>
 </main>
 <footer>

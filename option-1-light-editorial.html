@@ -36,6 +36,11 @@
   under) also get a balanced hero: no forced line break, a clamped headline
   size, and even 16 / 20 / 28px spacing. Desktop hero is unchanged.
 
+  v13, 10.29.26. From the 10/21 client call: the anniversary is no longer
+  "Ten years. Ten gatherings." but a monthly spotlight on local businesses open
+  ten years or more. New headline, text and button in the 10-year band (layout,
+  photo and "The tenth year" label unchanged) and in the Events teaser.
+
   DESIGN AUTHORITY IS direction-f-v3. Its centred hero, typography scale and
   section rhythm are restored wholesale here. Specifically, taken back from v3
   and not from v7:
@@ -58,7 +63,7 @@
     the condensed who-we-are + stats + why band
     the compact stats row, not the old full-width 11rem anchor band
     candid-only community, no titled section and no charity-name captions
-    the 10 Years / 10 Events band wrapped in REMOVABLE markers
+    the 10-year band (now the local business spotlight) wrapped in REMOVABLE markers
     every internal link resolving
     preloaded curated photography, no Instagram feed images
     the quiz including "Just looking"
@@ -280,6 +285,11 @@
               font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;}
   .months div.on{background:var(--white);color:var(--orange-ink);border-color:var(--white);}
   @media(min-width:820px){.events .ten{font-size:13rem;}.months{grid-template-columns:repeat(10,1fr);}}
+  /* v13: the anniversary headline balances on phones so no word sits alone on its line
+     (band and teaser). In the band it also scales with the screen so "You’re invited."
+     keeps to one line even in Android's wider fallback serif; full size from about 437px. */
+  @media(max-width:600px){.events h2,.teasers .opt .t{text-wrap:balance;}
+                          .events h2{font-size:clamp(1.5rem,10.9vw - 10px,2.3rem);}}
 
   /* FOOTER */
   footer{background:var(--blue);color:var(--cream);padding:56px 0 30px;font-family:var(--sans);}
@@ -474,9 +484,9 @@
           <span class="go">Our community</span>
         </a>
         <a class="opt" href="events.html">
-          <div class="t">Ten years. Ten gatherings. You’re invited.</div>
-          <div class="d">One gathering a month to celebrate a decade in the Triangle.</div>
-          <span class="go">Upcoming events</span>
+          <div class="t">10 years, lots to celebrate. You’re invited.</div>
+          <div class="d">A monthly spotlight on local businesses celebrating ten years or more.</div>
+          <span class="go">Follow the celebration</span>
         </a>
       </div>
     </div>
@@ -500,7 +510,7 @@
 </div>
 
 <!-- ============================================================
-     REMOVABLE BAND START, 10 Years / 10 Events.
+     REMOVABLE BAND START, 10-year local business spotlight.
      This retires at the end of the anniversary year. To remove it, delete
      everything between this marker and REMOVABLE BAND END, and drop the Events
      link from the nav and the footer at the same time. Band order still reads
@@ -513,15 +523,15 @@
     <div class="wrap">
       <p class="eyebrow">The tenth year</p>
       <div class="ten">10</div>
-      <h2>Ten years. Ten gatherings.<br>You’re invited.</h2>
+      <h2>10 years, lots to celebrate.<br>You’re invited.</h2>
       <p style="max-width:32em;margin:24px auto 0;">
-        One gathering a month to celebrate a decade in the Triangle.
+        Ten years in the Triangle, and we’re celebrating the neighbors who’ve been here even longer. Each month, our agents will spotlight a local business that’s been open ten years or more, from plumbers and painters to coffee shops and bookstores, across Wake, Durham, and Orange counties.
       </p>
       <div class="months">
         <div class="on">Jan</div><div>Feb</div><div>Mar</div><div>Apr</div><div>May</div>
         <div>Jun</div><div>Jul</div><div>Aug</div><div>Sep</div><div>Oct</div>
       </div>
-      <p style="margin-top:40px;"><a class="btn ghost-light" href="events.html">Upcoming events</a></p>
+      <p style="margin-top:40px;"><a class="btn ghost-light" href="events.html">See what’s coming</a></p>
     </div>
   </section>
 </div>

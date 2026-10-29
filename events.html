@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <!--
   Inhabit Real Estate, Events. Subpage design v1, 10.15.26.
+  10.29.26: from the 10/21 client call, the anniversary is a monthly spotlight on local
+  businesses open ten years or more, not ten gatherings. The big "10" panel stays.
   Shares one design system with every subpage (see the :root tokens).
   Accessibility: WCAG 2.2 AA targets. Deep orange (#A3502B) carries text and buttons
   because brand orange (#C3623A) is 3.6:1 on cream and fails AA for body-size text.
@@ -12,7 +14,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Events | Inhabit Real Estate</title>
-<meta name="description" content="Ten years, ten gatherings: Inhabit Real Estate's year of community events in the Triangle.">
+<meta name="description" content="10 years, lots to celebrate: Inhabit Real Estate’s monthly spotlight on Triangle businesses open ten years or more.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
@@ -247,6 +249,8 @@ body.has-sticky{padding-bottom:84px}
 @media(min-width:900px){.ev{grid-template-columns:4fr 8fr;gap:18px}}
 .ten-tile{display:flex;align-items:center;justify-content:center;min-height:240px}
 .ten-tile span{font-family:var(--serif);font-size:clamp(9rem,18vw,15rem);line-height:.8;color:var(--orange)}
+/* 10.29.26: the anniversary headline balances on phones so no word sits alone on its line */
+@media(max-width:600px){.hero2c h1{text-wrap:balance}}
 .ev .t-white{display:flex;flex-direction:column;justify-content:center;gap:22px}
 .ev h2{font-size:clamp(1.6rem,2.6vw,2.2rem)}
 .ev p{margin:0;font-size:1.08rem;max-width:var(--measure)}
@@ -272,14 +276,14 @@ body.has-sticky{padding-bottom:84px}
 <main id="main">
 <div class="wrap">
 <div class="hero2c">
-  <div class="tile t-title"><span class="pill">Events</span><h1>Ten years. Ten gatherings. You&rsquo;re invited.</h1></div>
-  <div class="tile t-blue on-blue"><p>To mark ten years in the Triangle, we&rsquo;re hosting one gathering a month, and everyone&rsquo;s welcome: clients, neighbors, friends, and anyone who&rsquo;s curious. Some will be for good causes, some will be just for fun, and all of them are our way of saying thank you to the community that has let us help people find home here for a decade.</p></div>
+  <div class="tile t-title"><span class="pill">Events</span><h1>10 years, lots to celebrate. You&rsquo;re invited.</h1></div>
+  <div class="tile t-blue on-blue"><p>Ten years in the Triangle, and we&rsquo;re celebrating the neighbors who&rsquo;ve been here even longer. Each month, our agents will spotlight a local business that&rsquo;s been open ten years or more, from plumbers and painters to coffee shops and bookstores, across Wake, Durham, and Orange counties.</p></div>
 </div>
 <div class="ev">
   <div class="tile t-sand ten-tile" aria-hidden="true"><span>10</span></div>
-  <div class="tile t-white"><h2>Events are on their way</h2>
-   <p>We&rsquo;ll add each event here as it&rsquo;s set, with the details you need. Bring a friend, and bring your questions about the market if you have them. Or just come for the company.</p>
-   <div><a class="btn" href="contact.html">Ask about upcoming events</a></div></div>
+  <div class="tile t-white"><h2>Spotlights are on their way</h2>
+   <p>We&rsquo;ll share each month&rsquo;s spotlight here.</p>
+   <div><a class="btn" href="contact.html">Let&rsquo;s talk</a></div></div>
 </div>
 <div class="bento" style="padding-bottom:72px"><div class="tile t-orange closing-b"><h2>Want to see how we show up around town?</h2><div class="btn-row"><a class="btn" href="community.html">Explore our community</a></div></div></div>
 </div><div class="sticky-cta"><a class="btn" href="contact.html">Let&rsquo;s talk</a><a class="btn ghost" href="tel:+19198084549">Call us</a></div>
