@@ -67,19 +67,20 @@ def smart(text):
 
 
 def reviews_html(quotes):
-    """The What clients say tile: each quote word for word, wrapped in curly quotes."""
+    """The What clients say tile: each quote word for word, wrapped in curly quotes, as equal cards.
+    The n<count> class picks the desktop grid (3 across; 2 or 4 as pairs; 5 as 3 + 2)."""
     if not quotes:
         return ""
-    out = ['   <div class="tile t-sand reviews"><h2>What clients say</h2>']
+    out = [f'<div class="tile t-sand reviews2 n{len(quotes)}"><h2>What clients say</h2><div class="qgrid">']
     for q in quotes:
         paras = [p.strip() for p in q["text"].strip().strip('\u201c\u201d"').split("\n\n") if p.strip()]
         paras[0] = "\u201c" + paras[0]
         paras[-1] = paras[-1] + "\u201d"
         body = "".join(f"<p>{smart(p)}</p>" for p in paras)
         cite = smart(q["who"]) + (f", <em>{smart(q['source'])}</em>" if q["source"] else "")
-        out.append(f'    <figure class="quote"><blockquote>{body}</blockquote><figcaption>{cite}</figcaption></figure>')
-    out.append("   </div>")
-    return "\n".join(out) + "\n"
+        out.append(f'  <figure class="qc"><blockquote>{body}</blockquote><figcaption>{cite}</figcaption></figure>')
+    out.append("</div></div>")
+    return "\n".join(out)
 
 
 def awards_html(items):
@@ -245,14 +246,14 @@ def build():
             report["placeholder_bio"].append(c["name"])
         role_html = smart(c["role"]).replace("®", "&reg;")
         is_staff = c["group"] == "staff"
-        recognition = (parts["RECOGNITION"].replace("{{AWARDS}}", awards_html(awards[c["key"]])) + "\n"
-                       if awards.get(c["key"]) else "")
-        reviews = reviews_html(testimonials.get(c["key"]))
-        side = (parts["SIDE"].replace("{{RECOGNITION}}", recognition).replace("{{REVIEWS}}", reviews)
-                if recognition or reviews else "")
+        recognition = (parts["RECOGNITION"].replace("{{AWARDS}}", awards_html(awards[c["key"]]))
+                       if awards.get(c["key"]) and not is_staff else "")
+        reviews = "" if is_staff else reviews_html(testimonials.get(c["key"]))
         page = (tpl
                 .replace("{{LISTINGS_BTN}}", "" if is_staff else parts["LISTINGS_BTN"])
-                .replace("{{SIDE}}", "" if is_staff or not side else "\n" + side)
+                .replace("{{RECOG_CLASS}}", " has-recog" if recognition else "")
+                .replace("{{RECOGNITION}}", "\n" + recognition if recognition else "")
+                .replace("{{REVIEWS}}", "\n" + reviews if reviews else "")
                 .replace("{{LISTINGS}}", "" if is_staff else "\n" + parts["LISTINGS"])
                 .replace("{{NAME}}", smart(c["name"]))
                 .replace("{{NAME_ATTR}}", html.escape(c["name"]))

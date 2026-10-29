@@ -260,11 +260,30 @@ body.has-sticky{padding-bottom:84px}
 .ahero .tag{font-size:clamp(1.25rem,2vw,1.55rem);font-style:italic;line-height:1.35;margin:20px 0 26px;max-width:28em;color:var(--white)}
 .ahero .t-title .btn{background:var(--white);color:var(--orange-ink);border-color:var(--white)}
 .ahero .t-title .btn.ghost{background:transparent;color:var(--white)}
-.abody{display:grid;gap:14px;margin-top:14px}
-@media(min-width:900px){.abody{gap:18px}}
-.abody{max-width:820px;margin-left:auto;margin-right:auto}
-.abody h2{font-size:clamp(1.5rem,2.2vw,1.9rem);margin-bottom:14px;text-align:center}
-.abody .side{display:grid;gap:14px}
+/* v5 (10.29.26): every module shares the hero's outer edges and 18px gaps on desktop */
+.abody2{display:grid;gap:14px;margin-top:14px}
+.abody2 h2,.reviews2 h2{font-size:clamp(1.5rem,2.2vw,1.9rem);margin-bottom:14px;text-align:left}
+.bio .cols p,.bio .cols .slot2{break-inside:avoid}
+.reviews2,#listings{margin-top:14px}
+.qgrid{display:grid;gap:14px}
+.qc{margin:0;background:var(--white);border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:14px}
+.qc blockquote{margin:0}.qc blockquote p{font-family:var(--serif);font-size:1.05rem;line-height:1.55;color:var(--blue);margin:0}
+.qc figcaption{font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--ink-soft)}.qc figcaption em{font-weight:400}
+.recog .recog-list li{flex-direction:column;align-items:flex-start;gap:12px}
+@media(min-width:900px){
+ .abody2{gap:18px;margin-top:18px}
+ .reviews2,#listings{margin-top:18px}
+ .abody2.has-recog{grid-template-columns:4fr 7fr}
+ .abody2.has-recog .recog{order:-1}
+ .abody2:not(.has-recog) .bio .cols{columns:2;column-gap:48px}
+ .qgrid{grid-template-columns:repeat(6,1fr);grid-auto-rows:1fr;gap:18px}
+ .qc{grid-column:span 2}
+ .n1 .qc{grid-column:span 6}
+ .n2 .qc,.n4 .qc{grid-column:span 3}
+ .n5 .qgrid{grid-auto-rows:auto}
+ .n5 .qc:nth-child(n+4){grid-column:span 3}
+ .bento.end{padding-top:18px}
+}
 /* Recognition: badge artwork exactly as supplied, then the award in words */
 .recog-list{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:16px}.recog-list li{display:flex;align-items:center;gap:18px}.recog-list img{width:88px;height:88px;object-fit:contain;flex:none}.recog-list strong{display:block;font-family:var(--serif);font-size:1.25rem;font-weight:500;color:var(--blue);margin-bottom:2px}.recog-list span{font-family:var(--sans);font-size:.88rem;line-height:1.45;color:var(--ink-soft)}
 .reviews .quote{margin:0;padding:20px 0;border-top:1px solid rgba(0,62,81,.15)}.reviews .quote:first-of-type{border-top:0;padding-top:4px}.reviews .quote:last-child{padding-bottom:0}
@@ -304,19 +323,17 @@ body.has-sticky{padding-bottom:84px}
    <p class="tag">Outdoor Enthusiast | Dog Treat Dispenser | Bargain Hunter | French Toast Connoisseur</p>
    <div class="btn-row"><a class="btn" href="contact.html">Contact Katie</a><a class="btn ghost" href="#listings">See Katie&rsquo;s listings</a></div></div>
 </div>
-<div class="abody">
-  <div class="tile t-white"><h2>Meet Katie</h2>
-   <p style="margin:0">Douglas Adams said, “I may not have gone where I intended to go, but I think I have ended up where I needed to be.” A background in psychology, a childhood as a builder’s daughter, and master negotiation lessons from my three boys have given me a quirky mix of agent superpowers. I’m here to make buying or selling your home as smooth and stress-free as possible!</p></div>
-  <div class="side">
-   <div class="tile t-sand reviews"><h2>What clients say</h2>
-    <figure class="quote"><blockquote><p>“Katie helped me buy a home a few years ago, then she was the listing agent when I sold my home in Duke Forest. She did a great deal of market research, presented it to us thoughtfully, and priced it perfectly! We choose Katie primarily because of her strong interpersonal skills and diplomacy with other realtors. The home sold in less than a week for almost 10% over list price, while other very similar homes in our neighborhood sat on the market for a couple of months because they were overpriced, then sold for the same as our home (even though they were slightly bigger and probably nicer.) She really made the process of selling pretty low-stress.”</p></blockquote><figcaption>Dorian C., <em>Google</em></figcaption></figure>
-    <figure class="quote"><blockquote><p>“I can&rsquo;t say enough good things about Katie. As my seller&rsquo;s agent, she helped me stage my house, provided reliable contacts for fixing it up, and coordinated three open houses in one weekend with no snags. She kept me grounded when I was feeling anxious, encouraging me throughout the process. Once offers started coming in, she dealt with difficult buyer&rsquo;s agents with kindness while still standing her ground and working in our best interest. Throughout various negotiations, she had great insights on the options we had, and she always responded to the other agent in a way that was strong and direct without being mean. She was always available when we needed her, and was never annoyed with all of my questions. I&rsquo;d wholeheartedly recommend her to anyone.”</p></blockquote><figcaption>Ruth A., <em>Zillow</em></figcaption></figure>
-    <figure class="quote"><blockquote><p>“Katie told us on Day One that she was in it with us for the long haul because nothing was more important to her than helping us find the house we both loved. Katie was always incredibly responsive, patient, flexible, and understanding, especially as we considered making offers on houses we had seen but ultimately decided to keep looking. She is a careful listener and delivers on the wants and needs of her clients. When a house we were very interested in came up as “Coming Soon,” Katie monitored the status of the listing and worked with the seller’s agent to get us one of the first showings. My wife and I highly recommend Katie and know you will enjoy working with her as well.”</p></blockquote><figcaption>Joe G., <em>Google</em></figcaption></figure>
-   </div>
-  </div>
+<div class="abody2">
+  <div class="tile t-white bio"><h2>Meet Katie</h2><div class="cols">
+   <p style="margin:0">Douglas Adams said, “I may not have gone where I intended to go, but I think I have ended up where I needed to be.” A background in psychology, a childhood as a builder’s daughter, and master negotiation lessons from my three boys have given me a quirky mix of agent superpowers. I’m here to make buying or selling your home as smooth and stress-free as possible!</p></div></div>
 </div>
-<div class="tile t-white" style="margin-top:14px" id="listings"><h2 style="font-size:clamp(1.5rem,2.2vw,1.9rem);margin-bottom:14px">Katie&rsquo;s listings</h2><div class="slot2"><strong>Active and past listings load here</strong>From IDX Broker: current listings first, then the last three years of sales. Co-listed homes credit both agents.</div></div>
-<div class="bento" style="padding-bottom:72px"><div class="tile t-orange closing-b"><h2>Want Katie in your corner?</h2><div class="btn-row"><a class="btn" href="contact.html">Contact Katie</a></div></div></div>
+<div class="tile t-sand reviews2 n3"><h2>What clients say</h2><div class="qgrid">
+  <figure class="qc"><blockquote><p>“Katie helped me buy a home a few years ago, then she was the listing agent when I sold my home in Duke Forest. She did a great deal of market research, presented it to us thoughtfully, and priced it perfectly! We choose Katie primarily because of her strong interpersonal skills and diplomacy with other realtors. The home sold in less than a week for almost 10% over list price, while other very similar homes in our neighborhood sat on the market for a couple of months because they were overpriced, then sold for the same as our home (even though they were slightly bigger and probably nicer.) She really made the process of selling pretty low-stress.”</p></blockquote><figcaption>Dorian C., <em>Google</em></figcaption></figure>
+  <figure class="qc"><blockquote><p>“I can&rsquo;t say enough good things about Katie. As my seller&rsquo;s agent, she helped me stage my house, provided reliable contacts for fixing it up, and coordinated three open houses in one weekend with no snags. She kept me grounded when I was feeling anxious, encouraging me throughout the process. Once offers started coming in, she dealt with difficult buyer&rsquo;s agents with kindness while still standing her ground and working in our best interest. Throughout various negotiations, she had great insights on the options we had, and she always responded to the other agent in a way that was strong and direct without being mean. She was always available when we needed her, and was never annoyed with all of my questions. I&rsquo;d wholeheartedly recommend her to anyone.”</p></blockquote><figcaption>Ruth A., <em>Zillow</em></figcaption></figure>
+  <figure class="qc"><blockquote><p>“Katie told us on Day One that she was in it with us for the long haul because nothing was more important to her than helping us find the house we both loved. Katie was always incredibly responsive, patient, flexible, and understanding, especially as we considered making offers on houses we had seen but ultimately decided to keep looking. She is a careful listener and delivers on the wants and needs of her clients. When a house we were very interested in came up as “Coming Soon,” Katie monitored the status of the listing and worked with the seller’s agent to get us one of the first showings. My wife and I highly recommend Katie and know you will enjoy working with her as well.”</p></blockquote><figcaption>Joe G., <em>Google</em></figcaption></figure>
+</div></div>
+<div class="tile t-white" id="listings"><h2 style="font-size:clamp(1.5rem,2.2vw,1.9rem);margin-bottom:14px">Katie&rsquo;s listings</h2><div class="slot2"><strong>Active and past listings load here</strong>From IDX Broker: current listings first, then the last three years of sales. Co-listed homes credit both agents.</div></div>
+<div class="bento end" style="padding-bottom:72px"><div class="tile t-orange closing-b"><h2>Want Katie in your corner?</h2><div class="btn-row"><a class="btn" href="contact.html">Contact Katie</a></div></div></div>
 </div><div class="sticky-cta"><a class="btn" href="contact.html">Let&rsquo;s talk</a><a class="btn ghost" href="tel:+19198084549">Call us</a></div>
 </main>
 <footer>
