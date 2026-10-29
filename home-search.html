@@ -56,26 +56,45 @@ p{margin:0 0 1.1rem}
 .on-blue .btn.ghost{background:transparent;color:var(--cream);border-color:var(--cream)}
 .btn-row{display:flex;flex-wrap:wrap;gap:12px}
 
-/* NAV */
-.nav{position:sticky;top:0;z-index:90;background:var(--blue);border-bottom:1px solid var(--line-light)}
-.nav-in{display:flex;align-items:center;gap:20px;max-width:var(--wrap);margin:0 auto;padding:16px var(--gutter)}
-.nav-logo img{width:156px}
-.nav-in>nav{margin-left:auto}
-.nav-links{display:none;margin:0;padding:0;list-style:none;gap:4px;font-family:var(--sans)}
-.nav-links a{display:block;padding:12px 12px;color:var(--cream);text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.08em}
+/* NAV: the homepage nav, carried to every page (10.29.26). 24px padding, 168px logo,
+   uppercase links at .68rem / .11em with 17px gaps, the square brand-orange Let's talk,
+   and the homepage's frosted glass once the page has scrolled 80px (script at the foot).
+   The current page's link shows in orange glow (#E59A75), as does hover: brand orange
+   (#C3623A) is 2.8:1 on the blue and fails AA, glow is 5.1:1. Links keep 10px of
+   invisible top and bottom padding so the tap target is bigger than the type.
+   Let's talk stays brand orange to match the homepage: white on it is 4.0:1, a little
+   under AA's 4.5:1 for type this size (deep orange #A3502B would pass at 5.5:1). */
+.nav{position:sticky;top:0;z-index:90;background:var(--blue);border-bottom:1px solid rgba(248,240,223,.18)}
+.nav-in{display:flex;align-items:center;gap:14px;max-width:var(--wrap);margin:0 auto;padding:24px var(--gutter)}
+.nav-logo img{width:168px}
+.nav-in>nav{display:none;margin-left:auto}
+.nav-links{display:flex;margin:0;padding:0;list-style:none;gap:17px;font-family:var(--sans)}
+.nav-links a{display:block;padding:10px 0;color:var(--cream);text-decoration:none;font-size:.68rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;white-space:nowrap}
 .nav-links a:hover{color:var(--orange-glow)}
-.nav-links a[aria-current="page"]{color:var(--orange-glow);box-shadow:inset 0 -2px 0 var(--orange-glow)}
-.nav-cta{margin-left:auto;min-height:44px;padding:10px 16px;font-size:.72rem;white-space:nowrap}
-@media(max-width:420px){.nav-logo img{width:128px}.nav-in{gap:12px}}
-.nav .nav-cta{background:var(--cream);color:var(--blue);border-color:var(--cream)}
-.nav .nav-cta:hover{background:var(--orange-glow);border-color:var(--orange-glow);color:var(--blue)}
-.menu-btn{min-height:44px;min-width:44px;padding:10px 14px;background:transparent;color:var(--cream);border:1px solid var(--line-light);
-  font-family:var(--sans);font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
-.mobile-panel{display:none;background:var(--blue);border-top:1px solid var(--line-light);padding:8px var(--gutter) 24px}
+.nav-links a[aria-current="page"]{color:var(--orange-glow)}
+.nav-cta{margin-left:auto;min-height:44px;padding:11px 20px;font-size:.68rem;letter-spacing:.14em;white-space:nowrap}
+.nav .nav-cta{background:var(--orange);color:var(--white);border-color:var(--orange)}
+.nav .nav-cta:hover{background:var(--orange-ink);border-color:var(--orange-ink);color:var(--white)}
+.menu-btn{min-height:44px;min-width:44px;margin-left:12px;padding:10px 14px;background:transparent;color:var(--cream);border:1px solid rgba(248,240,223,.4);
+  font-family:var(--sans);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+/* phones: the 168px logo, Let's talk and Menu can't share 390px, so the logo drops to 128px
+   (and shrinks further on the narrowest phones) and the nav loses a little height */
+@media(max-width:420px){.nav-in{gap:10px;padding:18px var(--gutter)}.nav-logo{min-width:0}.nav-logo img{width:128px}.nav-cta{padding:11px 14px}.menu-btn{margin-left:0;padding:10px 12px}}
+.mobile-panel{display:none;background:var(--blue);border-top:1px solid rgba(248,240,223,.2);padding:8px var(--gutter) 24px}
 .mobile-panel.open{display:block}
-.mobile-panel a{display:block;padding:14px 0;color:var(--cream);text-decoration:none;font-size:1.35rem;border-bottom:1px solid var(--line-light)}
+.mobile-panel a{display:block;padding:14px 0;color:var(--cream);text-decoration:none;font-family:var(--serif);font-size:1.35rem;border-bottom:1px solid rgba(248,240,223,.2)}
 .mobile-panel a[aria-current="page"]{color:var(--orange-glow)}
-@media(min-width:1060px){.nav-links{display:flex}.menu-btn{display:none}.nav-cta{margin-left:18px}.mobile-panel{display:none!important}}
+@media(min-width:1060px){.nav-in>nav{display:block}.menu-btn{display:none}.nav-cta{margin-left:22px}.mobile-panel{display:none!important}}
+/* glass nav, copied from the homepage */
+.nav{transition:background-color .2s ease, box-shadow .2s ease, border-color .2s ease}
+.nav.glass{background:rgb(0,62,81);border-bottom:1px solid rgba(248,240,223,.28);box-shadow:0 6px 24px rgba(0,42,56,.20)}
+@supports ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){
+  .nav.glass{background:rgba(0,62,81,.78);-webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%)}
+}
+.nav.glass .nav-links a{color:var(--cream);text-shadow:0 1px 6px rgba(0,42,56,.6)}
+.nav.glass .nav-links a:hover,.nav.glass .nav-links a[aria-current="page"]{color:var(--orange-glow)}
+.nav.glass .nav-cta{box-shadow:0 2px 10px rgba(0,0,0,.18)}
+@media(prefers-reduced-motion:reduce){.nav{transition:none}}
 
 /* PAGE HEAD: left aligned for reading; homepage stays centred */
 .page-head{padding:64px 0 56px}
@@ -253,11 +272,11 @@ body.has-sticky{padding-bottom:84px}
 <header class="nav">
   <div class="nav-in">
     <a class="nav-logo" href="option-1-light-editorial.html"><img src="https://joshjonesshimmer.github.io/inhabit-previews/assets/inhabit-horizontal-orange-cream.png" alt="Inhabit Real Estate, home"></a>
-    <nav aria-label="Main"><ul class="nav-links"><li><a href="buying.html">Buying</a></li><li><a href="selling.html">Selling</a></li><li><a href="team.html">Our Team</a></li><li><a href="community.html">Community</a></li><li><a href="events.html">Events</a></li><li><a href="our-story.html">Our Story</a></li></ul></nav>
+    <nav aria-label="Main"><ul class="nav-links"><li><a href="buying.html">Buying</a></li><li><a href="selling.html">Selling</a></li><li><a href="team.html">Our Team</a></li><li><a href="community.html">Community</a></li><li><a href="events.html">Events</a></li><li><a href="our-story.html">Our Story</a></li><li><a href="need-advice.html">Need Advice?</a></li></ul></nav>
     <a class="btn nav-cta" href="contact.html">Let&rsquo;s talk</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-panel">Menu</button>
   </div>
-  <nav id="mobile-panel" class="mobile-panel" aria-label="Main, mobile"><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="team.html">Our Team</a><a href="community.html">Community</a><a href="events.html">Events</a><a href="our-story.html">Our Story</a><a href="home-search.html" aria-current="page">Browse homes</a><a href="contact.html">Let’s talk</a></nav>
+  <nav id="mobile-panel" class="mobile-panel" aria-label="Main, mobile"><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="team.html">Our Team</a><a href="community.html">Community</a><a href="events.html">Events</a><a href="our-story.html">Our Story</a><a href="need-advice.html">Need Advice?</a><a href="home-search.html" aria-current="page">Browse homes</a><a href="contact.html">Let’s talk</a></nav>
 </header>
 <main id="main">
 <div class="wrap">
@@ -291,7 +310,7 @@ body.has-sticky{padding-bottom:84px}
           <a href="tel:+19198084549">(919) 808-4549</a> &middot; <a href="mailto:hello@inhabitthetriangle.com">hello@inhabitthetriangle.com</a>
         </address>
       </div>
-      <div><h2>Work with us</h2><ul><li><a href="buying.html">Buying</a></li><li><a href="selling.html">Selling</a></li><li><a href="home-search.html">Browse homes</a></li><li><a href="contact.html">Let&rsquo;s talk</a></li></ul></div>
+      <div><h2>Work with us</h2><ul><li><a href="buying.html">Buying</a></li><li><a href="selling.html">Selling</a></li><li><a href="sell-and-buy.html">Sell and Buy</a></li><li><a href="need-advice.html">Need Advice?</a></li><li><a href="home-search.html">Browse homes</a></li><li><a href="contact.html">Let&rsquo;s talk</a></li></ul></div>
       <div><h2>Who we are</h2><ul><li><a href="our-story.html">Our Story</a></li><li><a href="team.html">Our Team</a></li></ul></div>
       <div><h2>Around town</h2><ul><li><a href="community.html">Community</a></li><li><a href="events.html">Events</a></li></ul></div>
     </div>
@@ -303,6 +322,11 @@ body.has-sticky{padding-bottom:84px}
 if(!b||!p)return;b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')==='true';
 b.setAttribute('aria-expanded',String(!o));b.textContent=o?'Menu':'Close';p.classList.toggle('open',!o);});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&p.classList.contains('open')){b.click();b.focus();}});})();
+</script><script>
+// Nav goes to frosted glass after 80px of scrolling, as on the homepage.
+(function(){var nav=document.querySelector('.nav');if(!nav)return;
+function update(){nav.classList.toggle('glass',window.scrollY>80);}
+update();window.addEventListener('scroll',update,{passive:true});})();
 </script><script>document.body.classList.add('has-sticky');</script>
 </body>
 </html>
