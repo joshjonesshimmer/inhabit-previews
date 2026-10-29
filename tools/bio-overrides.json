@@ -1,0 +1,11 @@
+{
+ "_about": "Bios sent after the bios doc was finished. Each entry replaces that person's After text from bios-source.txt, word for word, so a fresh download of the doc doesn't undo it. The descriptor also goes on their Our Team card.",
+ "courtney eason": {
+  "from": "Courtney's email to Becky, forwarded Oct 29 2026",
+  "descriptor": "Master of Calendars | Dessert Enthusiast | Witty Dance Mom | Suburban Adventurer",
+  "bio": [
+   "I’ve called Durham home since 2011, and I’m still happy to brag about it. Before real estate, I spent more than 20 years in customer-focused careers, building relationships with clients, patients, and their families. That work gave me a sharp eye for detail, a listening ear, and a strong instinct to advocate for the people I’m working with.",
+   "Parenting took care of the rest. I’m organized, efficient, and have learned not to take myself too seriously. With a wife, two kids, and two cats at home, I know a house has to do more than look good. It has to feel like home, and I believe home is where people and families get to feel safe being exactly who they are. Whether you’re buying or selling, I’ll keep the details handled, the calendar under control, and the process as painless as I can make it."
+  ]
+ }
+}

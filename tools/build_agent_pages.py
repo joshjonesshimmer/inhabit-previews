@@ -8,6 +8,8 @@ Inputs
   tools/agent-parts.txt      listings, awards and reviews blocks (agents and leadership only)
   tools/awards.json          who shows awards on their current inhabitthetriangle.com page;
                              only they get the Recognition tile
+  tools/bio-overrides.json   bios sent after the doc was finished; each replaces that person's
+                             After text and their Our Team card descriptor, word for word
   tools/testimonials.json    client testimonials copied word for word from each person's
                              current inhabitthetriangle.com page; no tile when the list is empty
   team.html                names, roles, groups and headshots (one card per person)
@@ -192,6 +194,11 @@ def load_parts(path):
 def build():
     parts = load_parts(TOOLS / "agent-parts.txt")
     bios = parse_bios(TOOLS / "bios-source.txt")
+    overrides = json.loads((TOOLS / "bio-overrides.json").read_text(encoding="utf-8"))
+    for key, o in overrides.items():
+        if key.startswith("_"):
+            continue
+        bios[key] = {"descriptor": o["descriptor"], "bio": o["bio"]}
     staff = json.loads((TOOLS / "staff-bios.json").read_text(encoding="utf-8"))
     awards = json.loads((TOOLS / "awards.json").read_text(encoding="utf-8"))
     testimonials = json.loads((TOOLS / "testimonials.json").read_text(encoding="utf-8"))
@@ -201,6 +208,11 @@ def build():
     for key, photo in PHOTO_OVERRIDES.items():
         team = re.sub(r'(<li data-group="\w+" data-name="' + re.escape(key) + r'"><a href="[^"]*"><div class="ph"><img src=")[^"]*(")',
                       lambda m: m.group(1) + photo + m.group(2), team)
+    for key, o in overrides.items():
+        if key.startswith("_"):
+            continue
+        team = re.sub(r'(<li data-group="\w+" data-name="' + re.escape(key) + r'"><a href="[^"]*">.*?<p class=d>)[^<]*(</p>)',
+                      lambda m: m.group(1) + html.escape(o["descriptor"], quote=False) + m.group(2), team, flags=re.S)
     cards = parse_cards(team)
     report = {"built": [], "placeholder_bio": [], "no_descriptor": [], "bios_without_card": [], "recognition": [], "no_testimonials": []}
 
