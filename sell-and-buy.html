@@ -312,19 +312,9 @@ main section{padding:0}
 .step-last h3{color:var(--white)}.step-last .num{color:var(--orange-glow)}
 .step-last .touch i{background:rgba(255,253,248,.85)}
 
-/* why one agent */
-.one-agent{display:grid;gap:14px;margin:14px 0}
-@media(min-width:900px){.one-agent{grid-template-columns:7fr 5fr;gap:18px;margin:18px 0}}
-.one-agent .t-sand{display:flex;flex-direction:column;justify-content:space-between}
-.one-agent h2{font-size:clamp(1.7rem,2.4vw,2.1rem);color:var(--orange-ink);margin-bottom:26px}
-.one-agent .say{margin:0;font-size:clamp(1.9rem,3vw,2.6rem);line-height:1.15;letter-spacing:-.01em}
-.one-agent .btn-row{margin-top:40px}
-.one-agent .t-photo{min-height:300px}
-@media(min-width:900px){.one-agent .t-photo{min-height:520px}}
-.one-agent .t-photo img{object-position:35% 55%}
-
 /* closing band */
-.closing-b{gap:24px;margin:0 0 72px}
+.closing-b{gap:24px;margin:14px 0 72px}
+@media(min-width:900px){.closing-b{margin-top:18px}}
 .closing-b h2{font-size:clamp(1.8rem,3.4vw,2.6rem)}
 @media(min-width:900px){.closing-b .btn-row{justify-content:flex-end}}
 .t-orange :focus-visible{outline-color:var(--white)}
@@ -379,16 +369,6 @@ main section{padding:0}
   </ol>
 </section>
 
-<section class="one-agent" aria-labelledby="why-title">
-  <div class="tile t-sand">
-    <div>
-      <h2 id="why-title">Why one agent makes it easier</h2>
-      <p class="say">When the same person knows both sides of your move, they see how a change in one deal affects the other and adjust the plan right away.</p>
-    </div>
-    <div class="btn-row"><a class="btn" href="contact.html">Let&rsquo;s talk about your next move</a></div>
-  </div>
-  <div class="tile t-photo"><img src="assets/photos/porch-screened.jpg" alt="A screened porch with wood ceiling and seating" loading="lazy"></div>
-</section>
 
 <section class="tile t-orange closing-b" aria-labelledby="closing-title">
   <h2 id="closing-title">Whenever you&rsquo;re ready to talk about what home means to you, we&rsquo;re here.</h2>
