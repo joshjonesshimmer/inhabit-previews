@@ -6,6 +6,8 @@ Inputs
   tools/staff-bios.json    staff bios copied word for word from the current site
   tools/agent-template.html  Dara's page with the person-specific parts marked
   tools/agent-parts.txt      listings, awards and reviews blocks (agents and leadership only)
+  tools/awards.json          who shows awards on their current inhabitthetriangle.com page;
+                             only they get the Recognition tile
   team.html                names, roles, groups and headshots (one card per person)
 
 Outputs
@@ -152,14 +154,6 @@ def bio_html(first, paras):
     return "\n" + "\n".join(out)
 
 
-def more_html(cards, i):
-    picks = [cards[(i + k) % len(cards)] for k in range(1, 5)]
-    items = "".join(
-        f'<li><a href="{slug(c["name"])}"><div class="ph"><img src="{img_at(c["img"], 500)}" alt="" loading="lazy"></div>'
-        f'<h3>{smart(c["name"])}</h3></a></li>' for c in picks)
-    return f'<ul class="more" style="margin-top:14px">{items}</ul>'
-
-
 def load_parts(path):
     parts, cur = {}, None
     for line in path.read_text(encoding="utf-8").splitlines():
@@ -175,6 +169,7 @@ def build():
     parts = load_parts(TOOLS / "agent-parts.txt")
     bios = parse_bios(TOOLS / "bios-source.txt")
     staff = json.loads((TOOLS / "staff-bios.json").read_text(encoding="utf-8"))
+    awards = json.loads((TOOLS / "awards.json").read_text(encoding="utf-8"))
     tpl = (TOOLS / "agent-template.html").read_text(encoding="utf-8")
     team_path = ROOT / "team.html"
     team = group_team(team_path.read_text(encoding="utf-8"))
@@ -182,7 +177,7 @@ def build():
         team = re.sub(r'(<li data-group="\w+" data-name="' + re.escape(key) + r'"><a href="[^"]*"><div class="ph"><img src=")[^"]*(")',
                       lambda m: m.group(1) + photo + m.group(2), team)
     cards = parse_cards(team)
-    report = {"built": [], "placeholder_bio": [], "no_descriptor": [], "bios_without_card": []}
+    report = {"built": [], "placeholder_bio": [], "no_descriptor": [], "bios_without_card": [], "recognition": []}
 
     for i, c in enumerate(cards):
         first = first_name(c["name"])
@@ -203,9 +198,11 @@ def build():
             report["placeholder_bio"].append(c["name"])
         role_html = smart(c["role"]).replace("®", "&reg;")
         is_staff = c["group"] == "staff"
+        recognition = parts["RECOGNITION"] + "\n" if awards.get(c["key"]) else ""
+        side = parts["SIDE"].replace("{{RECOGNITION}}\n", recognition)
         page = (tpl
                 .replace("{{LISTINGS_BTN}}", "" if is_staff else parts["LISTINGS_BTN"])
-                .replace("{{SIDE}}", "" if is_staff else "\n" + parts["SIDE"])
+                .replace("{{SIDE}}", "" if is_staff else "\n" + side)
                 .replace("{{LISTINGS}}", "" if is_staff else "\n" + parts["LISTINGS"])
                 .replace("{{NAME}}", smart(c["name"]))
                 .replace("{{NAME_ATTR}}", html.escape(c["name"]))
@@ -214,10 +211,11 @@ def build():
                 .replace("{{ROLE_TEXT}}", html.escape(c["role"]))
                 .replace("{{PHOTO}}", img_at(c["img"], 1000))
                 .replace("{{TAG}}", f'\n   <p class="tag">{smart(desc)}</p>' if desc else "")
-                .replace("{{BIO}}", bio_html(first, paras))
-                .replace("{{MORE}}", more_html(cards, i)))
+                .replace("{{BIO}}", bio_html(first, paras)))
         if "{{" in page:
             sys.exit(f"Unfilled marker on {c['name']}'s page")
+        if recognition and not is_staff:
+            report["recognition"].append(c["name"])
         (ROOT / slug(c["name"])).write_text(page, encoding="utf-8")
         report["built"].append(slug(c["name"]))
         # point this person's card(s) at their own page
@@ -225,6 +223,9 @@ def build():
                       r"\g<1>" + slug(c["name"]) + r"\2", team)
 
     card_keys = {c["key"] for c in cards}
+    missing = sorted(k for k in card_keys if k not in awards)
+    if missing:
+        sys.exit(f"awards.json has no entry for: {', '.join(missing)}")
     report["bios_without_card"] = sorted(k for k in bios if k not in card_keys)
 
     # Becky's note: Tammi and Connie alone at the top read as the whole team. Drop that block;

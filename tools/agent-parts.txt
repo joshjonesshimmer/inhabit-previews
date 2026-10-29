@@ -3,8 +3,10 @@ Agent-only parts of the page. Staff pages leave these out (no listings, awards o
 <a class="btn ghost" href="#listings">See {{FIRST}}&rsquo;s listings</a>
 === SIDE
   <div class="side">
-   <div class="tile t-sand"><h2>Recognition</h2><div class="slot2"><strong>{{FIRST}}&rsquo;s awards go here</strong>Award badges with the year.</div></div>
+{{RECOGNITION}}
    <div class="tile t-sand"><h2>What clients say</h2><div class="slot2"><strong>Testimonials carry over word for word</strong>Copied from {{FIRST}}&rsquo;s current page, never edited.</div></div>
   </div>
+=== RECOGNITION
+   <div class="tile t-sand"><h2>Recognition</h2><div class="slot2"><strong>{{FIRST}}&rsquo;s awards go here</strong>Award badges with the year.</div></div>
 === LISTINGS
 <div class="tile t-white" style="margin-top:14px" id="listings"><h2 style="font-size:clamp(1.5rem,2.2vw,1.9rem);margin-bottom:14px">{{FIRST}}&rsquo;s listings</h2><div class="slot2"><strong>Active and past listings load here</strong>From IDX Broker: current listings first, then the last three years of sales. Co-listed homes credit both agents.</div></div>
