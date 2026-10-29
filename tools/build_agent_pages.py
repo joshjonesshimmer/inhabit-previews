@@ -24,6 +24,21 @@ TOOLS = ROOT / "tools"
 PLACEHOLDER_DESC = "[Descriptor line to come]"
 BANNED = ["RF050125-9", "Samantha"]
 
+# Headshots served from this repo instead of Squarespace. Jonathan's Squarespace file
+# (a PNG screenshot) shows as a broken image in iPhone Safari, so a JPG copy lives here.
+PHOTO_OVERRIDES = {
+    "jonathan rand": "assets/photos/headshot-jonathan-rand.jpg",
+}
+
+# Our Team sections, top to bottom: (data-group, heading, filter label)
+GROUPS = [
+    ("leadership", "Leadership Team", "Leadership"),
+    ("agent", "Our Brokers", "Brokers"),
+    ("staff", "Staff", "Staff"),
+]
+GROUP_CSS = (".team-group .sec-title{margin-top:44px}.team-group:first-of-type .sec-title{margin-top:20px}"
+             ".team-group .cards-b{margin-top:14px}")
+
 
 def slug(name):
     s = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
@@ -85,6 +100,33 @@ def img_at(url, width):
     return re.sub(r"format=\d+w", f"format={width}w", url)
 
 
+def group_team(team):
+    """Split the one card grid into Leadership, Brokers and Staff sections (once)."""
+    if 'class="team-group"' not in team:
+        m = re.search(r'<ul class="cards-b">(.*?)</ul>', team, re.S)
+        items = re.findall(r'<li data-group="\w+".*?</li>', m.group(1), re.S)
+        sections = []
+        for key, heading, _ in GROUPS:
+            mine = "".join(i for i in items if i.startswith(f'<li data-group="{key}"'))
+            sections.append(f'<section class="team-group" aria-labelledby="g-{key}"><div class="sec-title">'
+                            f'<h2 id="g-{key}">{heading}</h2></div><ul class="cards-b">{mine}</ul></section>')
+        assert sum(s.count("<li ") for s in sections) == len(items)
+        team = team[:m.start()] + "\n".join(sections) + team[m.end():]
+        team = team.replace("</style>", GROUP_CSS + "\n</style>", 1)
+    # filter chips follow the section order and names
+    counts = {k: len(re.findall(f'<li data-group="{k}"', team)) for k, _, _ in GROUPS}
+    chips = "\n".join(f'<button type="button" data-filter="{k}" aria-pressed="false">{label} ({counts[k]})</button>'
+                      for k, _, label in GROUPS)
+    team = re.sub(r'(<button type="button" data-filter="all" aria-pressed="true">[^<]*</button>\n).*?(</div><p id="count")',
+                  lambda m: m.group(1) + chips + m.group(2), team, flags=re.S)
+    # hide a section's heading when the filter or search leaves it empty
+    hook = "if(count)count.textContent="
+    if "team-group" not in team.split("<script>")[-1]:
+        team = team.replace(hook, "[].forEach.call(document.querySelectorAll('.team-group'),function(s){"
+                            "s.hidden=!s.querySelector('[data-group]:not([hidden])');});" + hook, 1)
+    return team
+
+
 def split_bio(paras):
     """Dara's sample splits a long one-paragraph bio in two at a sentence break. Same words."""
     if len(paras) != 1 or len(paras[0].split()) < 70:
@@ -135,7 +177,10 @@ def build():
     staff = json.loads((TOOLS / "staff-bios.json").read_text(encoding="utf-8"))
     tpl = (TOOLS / "agent-template.html").read_text(encoding="utf-8")
     team_path = ROOT / "team.html"
-    team = team_path.read_text(encoding="utf-8")
+    team = group_team(team_path.read_text(encoding="utf-8"))
+    for key, photo in PHOTO_OVERRIDES.items():
+        team = re.sub(r'(<li data-group="\w+" data-name="' + re.escape(key) + r'"><a href="[^"]*"><div class="ph"><img src=")[^"]*(")',
+                      lambda m: m.group(1) + photo + m.group(2), team)
     cards = parse_cards(team)
     report = {"built": [], "placeholder_bio": [], "no_descriptor": [], "bios_without_card": []}
 
