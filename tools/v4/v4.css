@@ -674,6 +674,10 @@
   .idx-results__listing {
     margin-bottom: 16px !important;
   }
+  /* Phones: on the results page, the site's own Let's Talk and Call Us bar steps aside so two bars never stack */
+  body:has(#idx-results-content) .sticky-cta {
+    display: none !important;
+  }
   /* Phones: the bar pinned to the bottom (Filter, Save, New Search, Modify) in navy with even spacing */
   #IDX-main :has(> a[href*="modifySearch=true"]):has(> a[href="#saveSearch"]) {
     display: flex !important;
