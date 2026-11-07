@@ -322,5 +322,17 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&p.classList
 function update(){nav.classList.toggle('glass',window.scrollY>80);}
 update();window.addEventListener('scroll',update,{passive:true});})();
 </script><script>document.body.classList.add('has-sticky');</script>
+<script>
+/* TEMP (Nov 7): style-check helper. Runs only when the address ends in #inhabit-inspect. Remove after the IDX style write-up. */
+(function(){if(location.hash!=='#inhabit-inspect')return;window.addEventListener('load',function(){setTimeout(function(){
+var root=document.getElementById('main')||document.body,out=[];
+(function walk(el,d){if(d>40)return;for(var c=el.firstElementChild;c;c=c.nextElementSibling){var t=c.tagName.toLowerCase();if(t==='svg'||t==='script'||t==='style'||t==='path')continue;
+var own='';for(var n=c.firstChild;n;n=n.nextSibling){if(n.nodeType===3)own+=n.textContent}own=own.replace(/\s+/g,' ').trim().slice(0,40);
+var cls=(typeof c.className==='string'&&c.className.trim())?'.'+c.className.trim().split(/\s+/).join('.'):'';
+var cs=getComputedStyle(c),bg=cs.backgroundColor;var extra=(bg&&bg!=='rgba(0, 0, 0, 0)'?' bg='+bg:'')+(cs.position==='fixed'?' FIXED':'');
+if(c.id||cls||own)out.push(Array(d+1).join(' ')+t+(c.id?'#'+c.id:'')+cls+extra+(own?' "'+own+'"':''));walk(c,d+1);}})(root,0);
+var pre=document.createElement('pre');pre.id='inhabit-inspect-out';pre.textContent='INSPECT-START\n'+out.join('\n')+'\nINSPECT-END';
+pre.style.cssText='white-space:pre-wrap;font:12px monospace;background:#fff;color:#000;padding:12px';document.body.appendChild(pre);},2500)});})();
+</script>
 </body>
 </html>
