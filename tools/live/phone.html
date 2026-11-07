@@ -1,4 +1,4 @@
 <!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Phone width check (temporary)</title>
 <style>html,body{margin:0;background:#E9E2D3;font:14px system-ui}#f{display:block;margin:16px auto;width:390px;height:844px;border:1px solid #9a8f7a;background:#fff}</style></head>
 <body><iframe id="f" title="Phone width view"></iframe>
-<script>var u=new URLSearchParams(location.search).get('u')||'';if(/^https:\/\/inhabitthetriangle\.idxbroker\.com\//.test(u))document.getElementById('f').src=u;</script></body></html>
+<script>var u=new URLSearchParams(location.search).get('u')||'';if(/^https:\/\/inhabitthetriangle\.idxbroker\.com\//.test(u)){var f=document.getElementById('f');f.src=u;var h=+new URLSearchParams(location.search).get('h');if(h>0&&h<8000)f.style.height=h+'px';}</script></body></html>
