@@ -180,7 +180,6 @@
 
 /* Line everything up with the logo: take away IDX's extra 40px of side padding */
 #idx-results-refinement,
-.IDX-results__alert,
 .idx-results__header,
 #idx-results-content,
 #idx-results-pagination,
@@ -249,10 +248,27 @@
   height: 46px !important;
 }
 #IDX-main .select2-selection--multiple {
-  padding: 5px 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 14px !important;
 }
+#IDX-main .select2-selection--multiple .select2-selection__rendered {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 6px 0 !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+#IDX-main .select2-selection--multiple .select2-search--inline,
 #IDX-main .select2-selection--multiple .select2-search__field {
-  margin-top: 6px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  border: 0 !important;
+  font-size: 16px !important;
 }
 #IDX-main textarea {
   min-height: 120px !important;
@@ -345,6 +361,7 @@
 }
 #IDX-refinementSearchForm {
   display: flex !important;
+  flex-direction: row !important;
   flex-wrap: wrap !important;
   align-items: center !important;
   gap: 12px !important;
@@ -401,7 +418,7 @@
 }
 #IDX-map,
 .idx-results__listings {
-  height: 640px !important;
+  height: 600px !important;
 }
 .idx-results__category--title {
   margin: 0 0 12px !important;
@@ -507,6 +524,9 @@
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
+#IDX-detailsCourtesy {
+  margin-top: 8px !important;
+}
 #IDX-detailsCourtesy,
 #IDX-detailsCourtesy * {
   font-size: 14px !important;
@@ -544,9 +564,10 @@
   padding: 8px 0 0 !important;
 }
 #IDX-main .IDX-field {
-  display: flex !important;
-  justify-content: space-between !important;
+  display: grid !important;
+  grid-template-columns: minmax(110px, 42%) 1fr !important;
   gap: 16px !important;
+  align-items: baseline !important;
   padding: 10px 0 !important;
   border-bottom: 1px solid rgba(0, 62, 81, .08) !important;
 }
@@ -559,7 +580,7 @@
   font-size: 16px !important;
   font-weight: 500 !important;
   color: #003E51 !important;
-  text-align: right !important;
+  text-align: left !important;
 }
 
 /* Listing page: the contact card, white with room to breathe and a serif heading */
@@ -572,7 +593,7 @@
   background: transparent !important;
   border: 0 !important;
   padding: 0 0 16px !important;
-  margin: 24px 0 16px !important;
+  margin: 0 0 24px !important;
   border-bottom: 1px solid rgba(0, 62, 81, .16) !important;
   font-family: "EB Garamond", Georgia, serif !important;
   font-size: 1.6rem !important;
@@ -581,6 +602,18 @@
   letter-spacing: 0 !important;
   text-align: left !important;
   color: #003E51 !important;
+}
+#IDX-detailsContact form,
+#IDX-detailsContact .IDX-customRegistrationFields {
+  border: 0 !important;
+  background: transparent !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.IDX-detailsContactInformation__agentInfo {
+  margin-top: 24px !important;
+  padding-top: 20px !important;
+  border-top: 1px solid rgba(0, 62, 81, .12) !important;
 }
 .IDX-detailsContactInformation__agentInfo,
 .IDX-detailsContactInformation__agentInfo * {
