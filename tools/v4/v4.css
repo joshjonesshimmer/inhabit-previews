@@ -355,9 +355,13 @@
 
 /* Results page: filters, Apply and Save in one tidy row */
 #idx-results-refinement {
-  display: block !important;
   padding-top: 0 !important;
   padding-bottom: 24px !important;
+}
+@media (min-width: 768px) {
+  #idx-results-refinement {
+    display: block !important;
+  }
 }
 #IDX-refinementSearchForm {
   display: flex !important;
