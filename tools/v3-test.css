@@ -1,7 +1,7 @@
 /* Inhabit Real Estate: IDX pages in the approved preview look (version 3, Nov 7) */
 
 /* Main buttons (34 Photos, Search, Apply Filters, Sign Up): Inhabit orange, square corners */
-.IDX-btn:not(.IDX-btn__link):not(.IDX-btn--link):not(.IDX-btn-link):not(.IDX-btn__outline):not(.IDX-btn__PL--inverse),
+.IDX-btn:not(.IDX-btn__link):not(.IDX-btn--link):not(.IDX-btn-link):not(.IDX-btn__outline):not(.IDX-btn__PL--inverse):not(.idx-dropdown > *),
 #main input[type="submit"],
 #main button[type="submit"] {
   background: #A3502B !important;
@@ -15,10 +15,10 @@
   letter-spacing: .14em !important;
   text-transform: uppercase !important;
 }
-.IDX-btn:not(.IDX-btn__link):not(.IDX-btn--link):not(.IDX-btn-link):not(.IDX-btn__outline):not(.IDX-btn__PL--inverse) * {
+.IDX-btn:not(.IDX-btn__link):not(.IDX-btn--link):not(.IDX-btn-link):not(.IDX-btn__outline):not(.IDX-btn__PL--inverse):not(.idx-dropdown > *) * {
   color: #FFFDF8 !important;
 }
-.IDX-btn:not(.IDX-btn__link):not(.IDX-btn--link):not(.IDX-btn-link):not(.IDX-btn__outline):not(.IDX-btn__PL--inverse):hover,
+.IDX-btn:not(.IDX-btn__link):not(.IDX-btn--link):not(.IDX-btn-link):not(.IDX-btn__outline):not(.IDX-btn__PL--inverse):not(.idx-dropdown > *):hover,
 #main input[type="submit"]:hover,
 #main button[type="submit"]:hover {
   background: #C3623A !important;
@@ -125,6 +125,10 @@
 #IDX-detailsAddressStreet {
   font-size: 2.3rem !important;
   line-height: 1.1 !important;
+}
+.idx-results-total__heading,
+.idx-results__category--title {
+  font-size: 1.6rem !important;
 }
 
 /* "Showing 500 listings" note: cream instead of light blue */
