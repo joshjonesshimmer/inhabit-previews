@@ -706,8 +706,14 @@
     background: transparent !important;
     border: 0 !important;
     color: #F8F0DF !important;
+    font-family: "TT Commons Pro Expanded", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif !important;
     font-size: 12px !important;
+    font-weight: 600 !important;
     letter-spacing: .1em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    border-radius: 0 !important;
   }
   #IDX-refinementSearchForm .idx-dropdown {
     flex: 1 1 calc(50% - 6px) !important;
