@@ -1,0 +1,142 @@
+/* Inhabit Real Estate IDX look, version 6, Nov 7 */
+.IDX-btn:not(.IDX-btn__link):not(.IDX-btn--link):not(.IDX-btn-link):not(.IDX-btn__outline):not(.IDX-btn__PL--inverse):not(.idx-dropdown > *),#main input[type="submit"],#main button[type="submit"]{background: #A3502B !important;border: 2px solid #A3502B !important;color: #FFFDF8 !important;border-radius: 0 !important;box-shadow: none !important;font-family: "TT Commons Pro Expanded","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif !important;font-size: 13px !important;font-weight: 700 !important;letter-spacing: .12em !important;text-transform: uppercase !important;min-height: 48px !important;padding: 0 24px !important;line-height: 1.2 !important;display: inline-flex !important;align-items: center !important;justify-content: center !important}
+.IDX-btn:not(.IDX-btn__link):not(.IDX-btn--link):not(.IDX-btn-link):not(.IDX-btn__outline):not(.IDX-btn__PL--inverse):not(.idx-dropdown > *) *{color: #FFFDF8 !important}
+.IDX-btn:not(.IDX-btn__link):not(.IDX-btn--link):not(.IDX-btn-link):not(.IDX-btn__outline):not(.IDX-btn__PL--inverse):not(.idx-dropdown > *):hover,#main input[type="submit"]:hover,#main button[type="submit"]:hover{background: #C3623A !important;border-color: #C3623A !important}
+.IDX-btn.IDX-btn__outline,.IDX-btn.IDX-btn__PL--inverse,.idx-dropdown > .IDX-btn.IDX-btn{display: inline-flex !important;align-items: center !important;justify-content: center !important;gap: 8px !important;background: transparent !important;border: 2px solid #003E51 !important;border-radius: 0 !important;box-shadow: none !important;color: #003E51 !important;text-decoration: none !important;font-family: "TT Commons Pro Expanded","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif !important;font-size: 13px !important;font-weight: 700 !important;letter-spacing: .12em !important;text-transform: uppercase !important;min-height: 48px !important;padding: 0 20px !important}
+.IDX-btn.IDX-btn__outline *,.IDX-btn.IDX-btn__PL--inverse *,.idx-dropdown > .IDX-btn.IDX-btn *{color: #003E51 !important}
+.IDX-btn.IDX-btn__outline:hover,.IDX-btn.IDX-btn__PL--inverse:hover,.idx-dropdown > .IDX-btn.IDX-btn:hover{background: #003E51 !important}
+.IDX-btn.IDX-btn__outline:hover *,.IDX-btn.IDX-btn__PL--inverse:hover *,.idx-dropdown > .IDX-btn.IDX-btn:hover *{color: #FFFDF8 !important}
+.IDX-btn.IDX-btn__link,.IDX-btn.IDX-btn--link,.IDX-btn.IDX-btn-link{background: transparent !important;border: 0 !important;border-radius: 0 !important;box-shadow: none !important;color: #003E51 !important;padding: 12px 0 !important;min-height: 0 !important;text-decoration: none !important;font-family: "TT Commons Pro Expanded","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif !important;font-size: 13px !important;font-weight: 700 !important;letter-spacing: .12em !important;text-transform: uppercase !important}
+.IDX-btn.IDX-btn__link *,.IDX-btn.IDX-btn--link *,.IDX-btn.IDX-btn-link *{color: inherit !important}
+.IDX-btn.IDX-btn__link:hover,.IDX-btn.IDX-btn--link:hover,.IDX-btn.IDX-btn-link:hover{background: transparent !important;color: #A3502B !important}
+#IDX-detailsAddressStreet,.IDX-pageHeader,.IDX-panel-title,.idx-results-total__heading,.idx-results__category--title,#main h1,#main h2,#main h3{font-family: "EB Garamond",Georgia,serif !important;font-weight: 500 !important;text-transform: none !important;letter-spacing: -.01em !important;color: #003E51 !important}
+#IDX-detailsAddressStreet{font-size: 2.6rem !important;line-height: 1.08 !important;margin: 0 0 8px !important}
+.idx-results-total__heading,.idx-results__category--title{font-size: 1.6rem !important}
+.IDX-alert-info{background: #FFFDF8 !important;border: 0 !important;border-left: 3px solid #C3623A !important;border-radius: 0 !important;color: #003E51 !important;font-size: 15px !important;text-transform: none !important;letter-spacing: 0 !important;padding: 12px 16px !important;margin: 0 0 24px !important}
+.IDX-badge--success{background: #003E51 !important;color: #FFFDF8 !important;border-radius: 0 !important}
+.leaflet-label{background: #003E51 !important;border-color: #003E51 !important;color: #FFFDF8 !important}
+.leaflet-label.leaflet-tooltip-top::before{border-top-color: #003E51 !important}
+#IDX-main,#IDX-main p,#IDX-main li,#IDX-main td,#IDX-main th,#IDX-main label,#IDX-main input,#IDX-main select,#IDX-main textarea,#IDX-main .IDX-text,#IDX-main .IDX-label,#IDX-main .IDX-field,#IDX-main .idx-text,#IDX-main .idx-label,#IDX-main .select2-selection__rendered,.select2-results__option,.select2-search__field{font-family: "TT Commons Pro Expanded","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif !important}
+#IDX-main{font-size: 16px !important;font-weight: 400 !important;line-height: 1.6 !important;color: #003E51 !important}
+#IDX-main p,#IDX-main li,#IDX-main .IDX-text,#IDX-main .idx-text{font-weight: 400 !important}
+#idx-results-refinement,.idx-results__header,#idx-results-content,#idx-results-pagination,#IDX-detailsTopNav,#IDX-detailsPageContainer,#IDX-detailsHeader > .IDX-row{padding-left: 0 !important;padding-right: 0 !important}
+#IDX-detailsHeader > .IDX-row{margin-left: 0 !important;margin-right: 0 !important}
+#IDX-detailsAddress{padding-left: 0 !important}
+#IDX-detailsHeaderActions{padding-right: 0 !important;padding-left: 0 !important}
+#IDX-detailsHeader{margin-bottom: 24px !important}
+#IDX-main .IDX-title--PL,#IDX-main .IDX-control-label,#IDX-main .IDX-custom-form-element__label{font-family: "TT Commons Pro Expanded","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif !important;font-size: 14px !important;font-weight: 600 !important;color: #003E51 !important;text-transform: none !important;letter-spacing: 0 !important;padding: 0 !important;margin: 0 0 8px !important;display: block !important}
+#IDX-main .IDX-required{color: #A3502B !important}
+#IDX-main .select2-selection--single,#IDX-main .select2-selection--multiple,#IDX-main .IDX-form__element--PL,#IDX-main input[type="text"],#IDX-main input[type="email"],#IDX-main input[type="tel"],#IDX-main input[type="number"],#IDX-main select,#IDX-main textarea{min-height: 48px !important;border: 1px solid rgba(0,62,81,.35) !important;border-radius: 0 !important;background: #FFFFFF !important;box-shadow: none !important;font-size: 16px !important;color: #003E51 !important}
+#IDX-main .select2-selection--single{height: 48px !important}
+#IDX-main .select2-selection--single .select2-selection__rendered{line-height: 46px !important;padding-left: 14px !important;color: #003E51 !important}
+#IDX-main .select2-selection--single .select2-selection__arrow{height: 46px !important}
+#IDX-main .select2-selection--multiple{display: flex !important;align-items: center !important;padding: 0 14px !important}
+#IDX-main .select2-selection--multiple .select2-selection__rendered{display: flex !important;flex-wrap: wrap !important;align-items: center !important;gap: 6px !important;padding: 6px 0 !important;margin: 0 !important;line-height: 1.4 !important}
+#IDX-main .select2-selection--multiple .select2-search--inline,#IDX-main .select2-selection--multiple .select2-search__field{margin: 0 !important;padding: 0 !important;min-height: 0 !important;height: auto !important;border: 0 !important;font-size: 16px !important}
+#IDX-main textarea{min-height: 120px !important}
+#IDX-main .select2-container--focus .select2-selection,#IDX-main .select2-container--open .select2-selection,#IDX-main input:focus,#IDX-main select:focus,#IDX-main textarea:focus,#IDX-main a:focus-visible,#IDX-main button:focus-visible{outline: 2px solid #C3623A !important;outline-offset: 1px !important}
+.IDX-precision-navbar{height: auto !important;min-height: 0 !important;padding: 0 !important;margin: 0 0 32px !important;background: transparent !important;border: 0 !important;border-bottom: 1px solid rgba(0,62,81,.16) !important}
+.IDX-precision-navbar hr{display: none !important}
+.IDX-nav-items-container{display: flex !important;flex-wrap: wrap !important;gap: 0 32px !important}
+.IDX-searchNavItem{height: auto !important;background: transparent !important;border: 0 !important;box-shadow: none !important;padding: 0 !important;margin: 0 !important}
+.IDX-searchNavLink,.IDX-searchNavLink *{display: inline-block !important;background: transparent !important;border: 0 !important;box-shadow: none !important;color: #003E51 !important;text-decoration: none !important;font-family: "TT Commons Pro Expanded","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif !important;font-size: 13px !important;font-weight: 700 !important;letter-spacing: .12em !important;text-transform: uppercase !important}
+.IDX-searchNavLink{padding: 14px 0 12px !important;border-bottom: 2px solid transparent !important;margin-bottom: -1px !important}
+.IDX-searchNavLink:hover{border-bottom-color: #C3623A !important}
+.IDX-searchNavLink:hover *{color: #A3502B !important}
+#IDX-coreSearchFields{margin-left: -12px !important;margin-right: -12px !important}
+#IDX-searchForm .IDX-control-group{padding: 0 12px !important;margin: 0 0 24px !important}
+#IDX-action-buttons{padding-top: 8px !important}
+#IDX-formSubmit{min-width: 200px !important;margin: 0 !important}
+#idx-results-refinement{padding-top: 0 !important;padding-bottom: 24px !important}
+@media (min-width: 768px){#idx-results-refinement{display: block !important}
+}
+#IDX-refinementSearchForm{display: flex !important;flex-direction: row !important;flex-wrap: wrap !important;align-items: center !important;gap: 12px !important}
+#IDX-refinementSearchForm .idx-dropdown{position: relative !important;flex: 0 0 auto !important;width: auto !important}
+.idx-dropdown > .IDX-btn.IDX-btn{width: auto !important;min-width: 170px !important;justify-content: space-between !important;gap: 16px !important}
+#IDX-refineSubmit,#IDX-saveSearch{width: auto !important;flex: 0 0 auto !important}
+.idx-dropdown__menu{z-index: 50 !important;border: 1px solid rgba(0,62,81,.2) !important;border-radius: 0 !important;box-shadow: 0 12px 32px rgba(0,30,40,.14) !important}
+.IDX-topAction{justify-content: flex-end !important;gap: 24px !important;padding: 0 !important;margin: 0 0 8px !important}
+.idx-results__header{background: transparent !important;display: flex !important;align-items: center !important;justify-content: space-between !important;gap: 16px !important;padding-top: 0 !important;padding-bottom: 16px !important;margin-bottom: 24px !important;border-bottom: 1px solid rgba(0,62,81,.16) !important}
+.idx-results-total__heading{margin: 0 !important;font-size: 1.9rem !important;line-height: 1.1 !important}
+#idx-results-content{grid-template-columns: minmax(0,1fr) 380px !important;gap: 24px !important;padding-top: 0 !important}
+#IDX-map,.idx-results__listings{height: 600px !important}
+.idx-results__category--title{margin: 0 0 12px !important}
+.idx-results__listing{margin-bottom: 16px !important}
+.idx-listing-card__image-overlay{background: linear-gradient(to top,rgba(0,25,34,.88) 0%,rgba(0,25,34,.55) 45%,rgba(0,25,34,0) 75%) !important}
+.idx-listing-card__price,.idx-listing-card__price *{font-family: "EB Garamond",Georgia,serif !important;font-weight: 500 !important;letter-spacing: 0 !important}
+.idx-listing-card__content,.idx-listing-card__content *{color: #FFFDF8 !important}
+.idx-listing-card__details,.idx-listing-card__details *,.idx-listing-card__address,.idx-listing-card__address *{font-size: 14px !important;font-weight: 500 !important}
+#IDX-detailsTopNav{display: flex !important;flex-wrap: wrap !important;justify-content: space-between !important;align-items: center !important;gap: 8px 24px !important;background: transparent !important;padding-top: 0 !important;padding-bottom: 8px !important;margin: 0 0 32px !important;border-bottom: 1px solid rgba(0,62,81,.16) !important}
+#IDX-searchControls{display: flex !important;flex-wrap: wrap !important;gap: 0 24px !important}
+#IDX-detailsHeader{padding-top: 0 !important}
+#IDX-detailsAddress{margin-bottom: 24px !important}
+#IDX-detailsAddressRegion,#IDX-detailsAddressRegion *{font-family: "TT Commons Pro Expanded","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif !important;font-size: 16px !important;font-weight: 500 !important;text-transform: none !important;letter-spacing: 0 !important;color: #3E6573 !important}
+#IDX-detailsHeaderActions{display: flex !important;justify-content: flex-end !important;align-items: flex-start !important;gap: 12px !important}
+#IDX-detailsHeaderActions .IDX-btn{width: auto !important}
+#IDX-detailsPageContainer{background: transparent !important}
+#IDX-detailsMain{padding-right: 48px !important}
+#IDX-primaryPhoto{margin-bottom: 16px !important}
+#IDX-detailsPhotoGalleryLink{width: auto !important;background: transparent !important;border: 2px solid #003E51 !important;color: #003E51 !important}
+#IDX-detailsPhotoGalleryLink *{color: #003E51 !important}
+#IDX-detailsPhotoGalleryLink:hover{background: #003E51 !important}
+#IDX-detailsPhotoGalleryLink:hover,#IDX-detailsPhotoGalleryLink:hover *{color: #FFFDF8 !important}
+#IDX-detailsHead,#IDX-detailsCourtesy,#IDX-detailsDescription{margin-left: 0 !important;margin-right: 0 !important}
+#IDX-detailsCourtesy{margin-top: 8px !important}
+#IDX-detailsCourtesy,#IDX-detailsCourtesy *{font-size: 14px !important;color: #3E6573 !important;text-align: left !important}
+#IDX-detailsDescription{font-size: 17px !important;line-height: 1.7 !important;max-width: 68ch !important;margin-top: 24px !important;margin-bottom: 40px !important}
+#IDX-main .IDX-panel{background: transparent !important;border: 0 !important;box-shadow: none !important;margin: 0 0 40px !important}
+#IDX-main .IDX-panel-heading{background: transparent !important;border: 0 !important;border-bottom: 1px solid rgba(0,62,81,.16) !important;padding: 0 0 12px !important}
+#IDX-main .IDX-panel-title{font-size: 1.6rem !important;line-height: 1.15 !important;margin: 0 !important}
+#IDX-main .IDX-panel-body{margin: 0 !important;padding: 8px 0 0 !important}
+#IDX-main .IDX-field{display: grid !important;grid-template-columns: minmax(110px,42%) 1fr !important;gap: 16px !important;align-items: baseline !important;padding: 10px 0 !important;border-bottom: 1px solid rgba(0,62,81,.08) !important}
+#IDX-main .IDX-field .IDX-label{font-size: 14px !important;font-weight: 500 !important;color: #3E6573 !important}
+#IDX-main .IDX-field .IDX-text{font-size: 16px !important;font-weight: 500 !important;color: #003E51 !important;text-align: left !important}
+#IDX-detailsContact{background: #FFFFFF !important;border: 1px solid rgba(0,62,81,.14) !important;padding: 32px !important}
+#IDX-main .IDX-contact-form__title{background: transparent !important;border: 0 !important;padding: 0 0 16px !important;margin: 0 0 24px !important;border-bottom: 1px solid rgba(0,62,81,.16) !important;font-family: "EB Garamond",Georgia,serif !important;font-size: 1.6rem !important;font-weight: 500 !important;text-transform: none !important;letter-spacing: 0 !important;text-align: left !important;color: #003E51 !important}
+#IDX-detailsContact form,#IDX-detailsContact .IDX-customRegistrationFields{border: 0 !important;background: transparent !important;padding-left: 0 !important;padding-right: 0 !important}
+.IDX-detailsContactInformation__agentInfo{margin-top: 24px !important;padding-top: 20px !important;border-top: 1px solid rgba(0,62,81,.12) !important}
+.IDX-detailsContactInformation__agentInfo,.IDX-detailsContactInformation__agentInfo *{color: #3E6573 !important;font-size: 15px !important;line-height: 1.6 !important}
+#IDX-detailsContact .IDX-control-group,#IDX-detailsContact .IDX-form-group{margin-bottom: 16px !important}
+#IDX-submitBtn{width: 100% !important;margin-top: 8px !important}
+@media (max-width: 767px){#IDX-main .IDX-hidden-mobile{display: none !important}
+#IDX-searchForm .IDX-control-group{width: 100% !important;flex: 0 0 100% !important}
+#IDX-formSubmit,#IDX-refineSubmit,#IDX-saveSearch,#IDX-detailsPhotoGalleryLink,#IDX-detailsHeaderActions .IDX-btn{width: 100% !important;flex: 1 1 100% !important}
+.IDX-nav-items-container{flex-wrap: nowrap !important;gap: 0 24px !important;overflow-x: auto !important;scrollbar-width: none !important}
+.IDX-searchNavItem{flex: 0 0 auto !important}
+#IDX-main{overflow-x: hidden !important}
+.idx-results__listings,.idx-results__category,.idx-results__listing{padding-left: 0 !important;padding-right: 0 !important;margin-left: 0 !important;margin-right: 0 !important}
+.idx-results__listing{margin-bottom: 16px !important}
+body:has(#idx-results-content) .sticky-cta{display: none !important}
+#IDX-main :has(> a[href*="modifySearch=true"]):has(> a[href="#saveSearch"]){display: flex !important;align-items: stretch !important;justify-content: space-around !important;gap: 0 !important;padding: 0 8px env(safe-area-inset-bottom) !important;background: #003E51 !important;border: 0 !important;box-shadow: 0 -2px 12px rgba(0,62,81,.18) !important}
+#IDX-main :has(> a[href*="modifySearch=true"]):has(> a[href="#saveSearch"]) > *{flex: 1 1 0 !important;min-height: 56px !important;min-width: 0 !important;width: auto !important;padding: 0 6px !important;margin: 0 !important;display: inline-flex !important;align-items: center !important;justify-content: center !important;background: transparent !important;border: 0 !important;color: #F8F0DF !important;font-family: "TT Commons Pro Expanded","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif !important;font-size: 12px !important;font-weight: 600 !important;letter-spacing: .1em !important;text-transform: uppercase !important;text-decoration: none !important;white-space: nowrap !important;border-radius: 0 !important}
+#IDX-refinementSearchForm .idx-dropdown{flex: 1 1 calc(50% - 6px) !important}
+.idx-dropdown > .IDX-btn.IDX-btn{width: 100% !important;min-width: 0 !important}
+#idx-results-content{grid-template-columns: 1fr !important}
+#IDX-map{height: 320px !important}
+.idx-results__listings{height: auto !important}
+#IDX-detailsMain{padding-right: 0 !important}
+#IDX-detailsAddressStreet{font-size: 2rem !important}
+#IDX-detailsHeaderActions{flex-wrap: wrap !important;gap: 12px !important;margin-top: 20px !important}
+#IDX-detailsContact{padding: 24px !important}
+}
+#IDX-main .IDX-nav-items-container > *,#IDX-main .IDX-searchNavItem,#IDX-main .IDX-searchNavLink{flex: 0 0 auto !important;width: auto !important;min-width: 0 !important;max-width: none !important;float: none !important;text-align: left !important}
+#IDX-main .IDX-nav-items-container{gap: 0 32px !important}
+#IDX-main #IDX-coreSearchFields{width: calc(100% + 24px) !important;max-width: none !important}
+#IDX-searchForm .IDX-title--PL{display: block !important;padding: 0 !important;margin: 0 0 8px !important;line-height: 1.3 !important}
+#IDX-main .select2-selection--single .select2-selection__arrow{position: absolute !important;top: 0 !important;bottom: 0 !important;right: 12px !important;height: auto !important;display: flex !important;align-items: center !important;justify-content: center !important}
+#IDX-main .IDX-reduced{background: transparent !important;padding: 0 !important;border: 0 !important;box-shadow: none !important}
+#IDX-main .IDX-reduced .IDX-badge,#IDX-main .IDX-badge.IDX-badge--success{display: inline-flex !important;align-items: center !important;gap: 6px !important;background: #003E51 !important;border: 0 !important;border-radius: 0 !important;padding: 6px 10px !important;color: #FFFDF8 !important;font-size: 13px !important;font-weight: 700 !important;letter-spacing: .04em !important;line-height: 1.2 !important}
+#IDX-main .IDX-reduced .IDX-badge *,#IDX-main .IDX-badge.IDX-badge--success *{background: transparent !important;color: #FFFDF8 !important;padding: 0 !important;margin: 0 !important}
+#IDX-main .IDX-topAction .IDX-resultsAction{padding-left: 0 !important;padding-right: 0 !important;margin: 0 !important}
+#IDX-main .IDX-backToResults{padding-left: 0 !important;margin-left: 0 !important}
+[role="dialog"] input[type="text"],[role="dialog"] input[type="email"],[role="dialog"] input[type="tel"],[role="dialog"] input[type="password"]{box-sizing: border-box !important;min-height: 44px !important;padding: 0 12px !important;border: 1px solid rgba(0,62,81,.35) !important;border-radius: 0 !important;background: #FFFFFF !important;box-shadow: none !important;font-family: "TT Commons Pro Expanded","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif !important;font-size: 16px !important;color: #003E51 !important}
+[role="dialog"] label{font-family: "TT Commons Pro Expanded","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif !important;font-size: 14px !important;font-weight: 600 !important;color: #003E51 !important}
+[role="dialog"] > *{overflow-x: hidden !important}
+@media (max-width: 767px){.sticky-cta{display: none !important}
+body.has-sticky{padding-bottom: 0 !important}
+#IDX-main #IDX-coreSearchFields{margin-left: -15px !important;margin-right: -15px !important;width: calc(100% + 30px) !important}
+#IDX-searchForm .IDX-control-group{padding-left: 0 !important;padding-right: 0 !important}
+#idx-results-content ul,#idx-results-content ol{padding-left: 0 !important;margin-left: 0 !important;list-style: none !important}
+.idx-results__listing,.idx-results__listing .idx-listing-card{width: 100% !important;max-width: 100% !important;margin-left: 0 !important;margin-right: 0 !important;left: auto !important;right: auto !important}
+#IDX-main :has(> a[href*="modifySearch=true"]):has(> a[href="#saveSearch"]) > *{white-space: normal !important;text-align: center !important;line-height: 1.2 !important;font-size: 11px !important;letter-spacing: .06em !important;padding: 0 4px !important}
+}
