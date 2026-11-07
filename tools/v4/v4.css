@@ -198,6 +198,10 @@
 }
 #IDX-detailsHeaderActions {
   padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+#IDX-detailsHeader {
+  margin-bottom: 24px !important;
 }
 
 /* Field labels: 14px, a little heavier, in normal capitals */
@@ -739,6 +743,8 @@
   }
   #IDX-detailsHeaderActions {
     flex-wrap: wrap !important;
+    gap: 12px !important;
+    margin-top: 20px !important;
   }
   #IDX-detailsContact {
     padding: 24px !important;
