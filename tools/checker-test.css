@@ -46,6 +46,7 @@
   border: 0 !important;
   box-shadow: none !important;
   color: #003E51 !important;
+  text-decoration: none !important;
   font-family: "TT Commons Pro Expanded", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif !important;
 }
 
@@ -57,6 +58,7 @@
   border-radius: 0 !important;
   box-shadow: none !important;
   color: #003E51 !important;
+  text-decoration: none !important;
   font-family: "TT Commons Pro Expanded", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif !important;
   font-size: .8rem !important;
   font-weight: 700 !important;
