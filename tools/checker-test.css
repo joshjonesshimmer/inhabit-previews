@@ -1,0 +1,110 @@
+/* Inhabit Real Estate: IDX pages in the approved preview look (version 2, Nov 7) */
+
+/* Buttons: Inhabit orange, square corners, preview type */
+.IDX-btn,
+[class*="IDX-btn"],
+#main input[type="submit"],
+#main button[type="submit"] {
+  background: #A3502B !important;
+  border: 1px solid #A3502B !important;
+  color: #FFFDF8 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-family: "TT Commons Pro Expanded", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif !important;
+  font-size: .8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+}
+.IDX-btn *,
+[class*="IDX-btn"] * {
+  color: #FFFDF8 !important;
+}
+.IDX-btn:hover,
+[class*="IDX-btn"]:hover,
+#main input[type="submit"]:hover,
+#main button[type="submit"]:hover {
+  background: #C3623A !important;
+  border-color: #C3623A !important;
+}
+
+/* Back to Results bar: cream, with plain navy links (no orange boxes) */
+#IDX-detailsTopNav,
+[id*="TopNav"],
+[class*="TopNav"] {
+  background: #F8F0DF !important;
+  border: 0 !important;
+  color: #003E51 !important;
+}
+[id*="TopNav"] a,
+[class*="TopNav"] a,
+[id*="TopNav"] a:hover,
+[class*="TopNav"] a:hover,
+[id*="TopNav"] a *,
+[class*="TopNav"] a * {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: #003E51 !important;
+  font-family: "TT Commons Pro Expanded", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif !important;
+}
+
+/* Search page tabs (Advanced Search, Listing ID, Address, AI Smart Search, Map Search): navy outline buttons */
+#main nav a[href*="/idx/search/"]:not([id*="TopNav"] a):not([class*="TopNav"] a),
+#main nav a[href*="/idx/map/"]:not([id*="TopNav"] a):not([class*="TopNav"] a) {
+  background: transparent !important;
+  border: 1.5px solid #003E51 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: #003E51 !important;
+  font-family: "TT Commons Pro Expanded", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif !important;
+  font-size: .8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+}
+#main nav a[href*="/idx/search/"]:not([id*="TopNav"] a):not([class*="TopNav"] a) *,
+#main nav a[href*="/idx/map/"]:not([id*="TopNav"] a):not([class*="TopNav"] a) * {
+  color: #003E51 !important;
+}
+#main nav a[href*="/idx/search/"]:not([id*="TopNav"] a):not([class*="TopNav"] a):hover,
+#main nav a[href*="/idx/map/"]:not([id*="TopNav"] a):not([class*="TopNav"] a):hover {
+  background: #003E51 !important;
+}
+#main nav a[href*="/idx/search/"]:not([id*="TopNav"] a):not([class*="TopNav"] a):hover *,
+#main nav a[href*="/idx/map/"]:not([id*="TopNav"] a):not([class*="TopNav"] a):hover * {
+  color: #FFFDF8 !important;
+}
+
+/* Space and # before the unit number ("214 Hunt Street #510") */
+.IDX-detailsAddressUnitNumber::before,
+#main header [class*="unitNum" i]::before,
+#main header [class*="unit-num" i]::before,
+#main header [class*="unit_num" i]::before {
+  content: "\00a0#";
+}
+
+/* Section titles in the preview's serif (Similar Listings, 24 Listings, Contact) */
+#main h1,
+#main h2,
+#main h3 {
+  font-family: "EB Garamond", Georgia, serif !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: -.01em !important;
+  color: #003E51 !important;
+}
+
+/* Temporary page checker: does nothing for visitors. It only switches on
+   when a page address ends in #mobile-panel, so Claude can read the
+   names IDX uses. Remove this block in the final version. */
+body:has(#mobile-panel:target) #main [class]::after,
+body:has(#mobile-panel:target) #main [id]::after {
+  content: " {" attr(id) "|" attr(class) "}" !important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+}
