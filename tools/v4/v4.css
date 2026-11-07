@@ -645,6 +645,10 @@
 
 /* Phones: everything stacks, buttons go full width, side space stays even */
 @media (max-width: 767px) {
+  /* Phones: anything IDX already hides on phones stays hidden, even with the button styles above */
+  #IDX-main .IDX-hidden-mobile {
+    display: none !important;
+  }
   #IDX-searchForm .IDX-control-group {
     width: 100% !important;
     flex: 0 0 100% !important;
