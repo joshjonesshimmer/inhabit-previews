@@ -399,6 +399,11 @@
 
 /* Results page: the count as a serif heading with a line under it */
 .idx-results__header {
+  background: transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
   padding-top: 0 !important;
   padding-bottom: 16px !important;
   margin-bottom: 24px !important;
@@ -644,8 +649,57 @@
     width: 100% !important;
     flex: 1 1 100% !important;
   }
+  /* Phones: the search tabs sit on one line and slide sideways instead of being cut off */
   .IDX-nav-items-container {
-    gap: 0 20px !important;
+    flex-wrap: nowrap !important;
+    gap: 0 24px !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+  }
+  .IDX-searchNavItem {
+    flex: 0 0 auto !important;
+  }
+  /* Phones: nothing spills off the right edge, and the cards line up with the page edge */
+  #IDX-main {
+    overflow-x: hidden !important;
+  }
+  .idx-results__listings,
+  .idx-results__category,
+  .idx-results__listing {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .idx-results__listing {
+    margin-bottom: 16px !important;
+  }
+  /* Phones: the bar pinned to the bottom (Filter, Save, New Search, Modify) in navy with even spacing */
+  #IDX-main :has(> a[href*="modifySearch=true"]):has(> a[href="#saveSearch"]) {
+    display: flex !important;
+    align-items: stretch !important;
+    justify-content: space-around !important;
+    gap: 0 !important;
+    padding: 0 8px env(safe-area-inset-bottom) !important;
+    background: #003E51 !important;
+    border: 0 !important;
+    box-shadow: 0 -2px 12px rgba(0, 62, 81, .18) !important;
+  }
+  #IDX-main :has(> a[href*="modifySearch=true"]):has(> a[href="#saveSearch"]) > * {
+    flex: 1 1 0 !important;
+    min-height: 56px !important;
+    min-width: 0 !important;
+    width: auto !important;
+    padding: 0 6px !important;
+    margin: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: 0 !important;
+    color: #F8F0DF !important;
+    font-size: 12px !important;
+    letter-spacing: .1em !important;
   }
   #IDX-refinementSearchForm .idx-dropdown {
     flex: 1 1 calc(50% - 6px) !important;
