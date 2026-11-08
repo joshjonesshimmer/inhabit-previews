@@ -2,6 +2,8 @@ name: css-test
 on:
   push:
     branches: [css-test]
+permissions:
+  contents: write
 jobs:
   shots:
     runs-on: ubuntu-latest
@@ -12,5 +14,7 @@ jobs:
         with: { node-version: 20 }
       - run: cd tools/csstest && npm init -y >/dev/null && npm i playwright@1.47.2 >/dev/null && npx playwright install --with-deps chromium >/dev/null
       - run: cd tools/csstest && node shoot.js
-      - uses: actions/upload-artifact@v4
-        with: { name: shots, path: tools/csstest/out }
+      - run: |
+          git config user.name "css-test" && git config user.email "css-test@users.noreply.github.com"
+          rm -rf results && mkdir results && cp -r tools/csstest/out/* results/
+          git add results && git commit -qm "Test pictures [skip ci]" && git push -q
