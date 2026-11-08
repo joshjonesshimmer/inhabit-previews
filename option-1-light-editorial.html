@@ -76,8 +76,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Inhabit Real Estate, Option 1, Light Editorial</title>
 
-<!-- Curated, team-forward, preloaded so the showcase does not pop in. -->
-<link rel="preload" as="image" href="assets/photos/house-craftsman-red-door.jpg">
 
 <style>
   :root{
@@ -165,21 +163,21 @@
      team-photo hero, so the strip becomes one large cross-fading team photo,
      team shot first. Everything above it keeps v3's centred rhythm. */
   .showcase{position:relative;overflow:hidden;margin-top:56px;aspect-ratio:4/3;}
-  .showcase img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-                opacity:0;animation:heroFade 42s linear infinite;}
+  .showcase picture{position:absolute;inset:0;opacity:0;animation:heroFade 42s linear infinite;}
+  .showcase img{width:100%;height:100%;object-fit:cover;}
   /* six slides, 7s each: team, house, team, house, hard hats, house */
-  .showcase img:nth-child(1){animation-delay:0s;}
-  .showcase img:nth-child(2){animation-delay:7s;}
-  .showcase img:nth-child(3){animation-delay:14s;}
-  .showcase img:nth-child(4){animation-delay:21s;}
-  .showcase img:nth-child(5){animation-delay:28s;}
-  .showcase img:nth-child(6){animation-delay:35s;}
+  .showcase picture:nth-child(1){animation-delay:0s;}
+  .showcase picture:nth-child(2){animation-delay:7s;}
+  .showcase picture:nth-child(3){animation-delay:14s;}
+  .showcase picture:nth-child(4){animation-delay:21s;}
+  .showcase picture:nth-child(5){animation-delay:28s;}
+  .showcase picture:nth-child(6){animation-delay:35s;}
   @keyframes heroFade{
     0%{opacity:0} 2%{opacity:1} 16.67%{opacity:1} 18.67%{opacity:0} 100%{opacity:0}
   }
   @media(prefers-reduced-motion:reduce){
-    .showcase img{animation:none;}
-    .showcase img:nth-child(1){opacity:1;}
+    .showcase picture{animation:none;}
+    .showcase picture:nth-child(1){opacity:1;}
   }
   @media(min-width:820px){
     .hero{padding:84px 0 0;}
@@ -367,13 +365,58 @@
          Community shows here as candid agent photography, uncaptioned. -->
     <!-- v12, 10.29.26 call: real house photos from Becky's Website Photos > Houses folder now
          alternate with the team shots, every other slide. The hard-hat photo stays. -->
+    <!-- 11.08.26: mural team shot first; Connie's Taproot, Kingfisher and Nata 2 photos replace the
+         three houses. Each slide has a 16:7 crop for 820px and up and a 4:3 crop for phones,
+         in AVIF, WebP and JPEG (web.dev responsive images + art direction). -->
     <div class="showcase">
-      <img src="assets/photos/team-table-gathering.jpg" alt="Inhabit agents gathered around a table at an outdoor client appreciation event">
-      <img src="assets/photos/house-craftsman-red-door.jpg" alt="Two-story craftsman home with a red front door and a covered front porch">
-      <img src="assets/photos/team-mural-durham.jpg" alt="Five Inhabit agents standing together in front of a colourful Durham mural">
-      <img src="assets/photos/house-blue-cottage-porch.jpg" alt="Blue cottage with a white-railed front porch and crepe myrtles in bloom">
-      <img src="assets/photos/agents-site-visit.jpg" alt="Inhabit agents in hard hats touring a building under construction">
-      <img src="assets/photos/cottage-green.jpg" alt="Sage green cape cod with an arched portico, framed by dogwood trees">
+      <picture>
+        <source media="(min-width: 820px)" type="image/avif" srcset="assets/photos/slideshow/slide-1-team-mural-wide-1200.avif 1200w, assets/photos/slideshow/slide-1-team-mural-wide-1800.avif 1800w, assets/photos/slideshow/slide-1-team-mural-wide-2000.avif 2000w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source media="(min-width: 820px)" type="image/webp" srcset="assets/photos/slideshow/slide-1-team-mural-wide-1200.webp 1200w, assets/photos/slideshow/slide-1-team-mural-wide-1800.webp 1800w, assets/photos/slideshow/slide-1-team-mural-wide-2000.webp 2000w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source media="(min-width: 820px)" srcset="assets/photos/slideshow/slide-1-team-mural-wide-1200.jpg 1200w, assets/photos/slideshow/slide-1-team-mural-wide-1800.jpg 1800w, assets/photos/slideshow/slide-1-team-mural-wide-2000.jpg 2000w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source type="image/avif" srcset="assets/photos/slideshow/slide-1-team-mural-tall-600.avif 600w, assets/photos/slideshow/slide-1-team-mural-tall-900.avif 900w, assets/photos/slideshow/slide-1-team-mural-tall-1200.avif 1200w" sizes="calc(100vw - 48px)">
+        <source type="image/webp" srcset="assets/photos/slideshow/slide-1-team-mural-tall-600.webp 600w, assets/photos/slideshow/slide-1-team-mural-tall-900.webp 900w, assets/photos/slideshow/slide-1-team-mural-tall-1200.webp 1200w" sizes="calc(100vw - 48px)">
+        <img src="assets/photos/slideshow/slide-1-team-mural-tall-900.jpg" srcset="assets/photos/slideshow/slide-1-team-mural-tall-600.jpg 600w, assets/photos/slideshow/slide-1-team-mural-tall-900.jpg 900w, assets/photos/slideshow/slide-1-team-mural-tall-1200.jpg 1200w" sizes="calc(100vw - 48px)" width="1200" height="900" alt="Five Inhabit agents standing together in front of a colourful Durham mural" fetchpriority="high" decoding="async">
+      </picture>
+      <picture>
+        <source media="(min-width: 820px)" type="image/avif" srcset="assets/photos/slideshow/slide-2-taproot-wide-1200.avif 1200w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source media="(min-width: 820px)" type="image/webp" srcset="assets/photos/slideshow/slide-2-taproot-wide-1200.webp 1200w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source media="(min-width: 820px)" srcset="assets/photos/slideshow/slide-2-taproot-wide-1200.jpg 1200w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source type="image/avif" srcset="assets/photos/slideshow/slide-2-taproot-tall-600.avif 600w, assets/photos/slideshow/slide-2-taproot-tall-900.avif 900w, assets/photos/slideshow/slide-2-taproot-tall-1067.avif 1067w" sizes="calc(100vw - 48px)">
+        <source type="image/webp" srcset="assets/photos/slideshow/slide-2-taproot-tall-600.webp 600w, assets/photos/slideshow/slide-2-taproot-tall-900.webp 900w, assets/photos/slideshow/slide-2-taproot-tall-1067.webp 1067w" sizes="calc(100vw - 48px)">
+        <img src="assets/photos/slideshow/slide-2-taproot-tall-900.jpg" srcset="assets/photos/slideshow/slide-2-taproot-tall-600.jpg 600w, assets/photos/slideshow/slide-2-taproot-tall-900.jpg 900w, assets/photos/slideshow/slide-2-taproot-tall-1067.jpg 1067w" sizes="calc(100vw - 48px)" width="1200" height="900" alt="Modern home with rust-toned metal siding, a glass corner room and a glass front entry among tall trees" fetchpriority="low" decoding="async">
+      </picture>
+      <picture>
+        <source media="(min-width: 820px)" type="image/avif" srcset="assets/photos/slideshow/slide-3-team-table-wide-1200.avif 1200w, assets/photos/slideshow/slide-3-team-table-wide-1800.avif 1800w, assets/photos/slideshow/slide-3-team-table-wide-2000.avif 2000w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source media="(min-width: 820px)" type="image/webp" srcset="assets/photos/slideshow/slide-3-team-table-wide-1200.webp 1200w, assets/photos/slideshow/slide-3-team-table-wide-1800.webp 1800w, assets/photos/slideshow/slide-3-team-table-wide-2000.webp 2000w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source media="(min-width: 820px)" srcset="assets/photos/slideshow/slide-3-team-table-wide-1200.jpg 1200w, assets/photos/slideshow/slide-3-team-table-wide-1800.jpg 1800w, assets/photos/slideshow/slide-3-team-table-wide-2000.jpg 2000w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source type="image/avif" srcset="assets/photos/slideshow/slide-3-team-table-tall-600.avif 600w, assets/photos/slideshow/slide-3-team-table-tall-900.avif 900w, assets/photos/slideshow/slide-3-team-table-tall-1200.avif 1200w" sizes="calc(100vw - 48px)">
+        <source type="image/webp" srcset="assets/photos/slideshow/slide-3-team-table-tall-600.webp 600w, assets/photos/slideshow/slide-3-team-table-tall-900.webp 900w, assets/photos/slideshow/slide-3-team-table-tall-1200.webp 1200w" sizes="calc(100vw - 48px)">
+        <img src="assets/photos/slideshow/slide-3-team-table-tall-900.jpg" srcset="assets/photos/slideshow/slide-3-team-table-tall-600.jpg 600w, assets/photos/slideshow/slide-3-team-table-tall-900.jpg 900w, assets/photos/slideshow/slide-3-team-table-tall-1200.jpg 1200w" sizes="calc(100vw - 48px)" width="1200" height="900" alt="Inhabit agents gathered around a table at an outdoor client appreciation event" fetchpriority="low" decoding="async">
+      </picture>
+      <picture>
+        <source media="(min-width: 820px)" type="image/avif" srcset="assets/photos/slideshow/slide-4-kingfisher-wide-1200.avif 1200w, assets/photos/slideshow/slide-4-kingfisher-wide-1800.avif 1800w, assets/photos/slideshow/slide-4-kingfisher-wide-2048.avif 2048w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source media="(min-width: 820px)" type="image/webp" srcset="assets/photos/slideshow/slide-4-kingfisher-wide-1200.webp 1200w, assets/photos/slideshow/slide-4-kingfisher-wide-1800.webp 1800w, assets/photos/slideshow/slide-4-kingfisher-wide-2048.webp 2048w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source media="(min-width: 820px)" srcset="assets/photos/slideshow/slide-4-kingfisher-wide-1200.jpg 1200w, assets/photos/slideshow/slide-4-kingfisher-wide-1800.jpg 1800w, assets/photos/slideshow/slide-4-kingfisher-wide-2048.jpg 2048w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source type="image/avif" srcset="assets/photos/slideshow/slide-4-kingfisher-tall-600.avif 600w, assets/photos/slideshow/slide-4-kingfisher-tall-900.avif 900w, assets/photos/slideshow/slide-4-kingfisher-tall-1200.avif 1200w" sizes="calc(100vw - 48px)">
+        <source type="image/webp" srcset="assets/photos/slideshow/slide-4-kingfisher-tall-600.webp 600w, assets/photos/slideshow/slide-4-kingfisher-tall-900.webp 900w, assets/photos/slideshow/slide-4-kingfisher-tall-1200.webp 1200w" sizes="calc(100vw - 48px)">
+        <img src="assets/photos/slideshow/slide-4-kingfisher-tall-900.jpg" srcset="assets/photos/slideshow/slide-4-kingfisher-tall-600.jpg 600w, assets/photos/slideshow/slide-4-kingfisher-tall-900.jpg 900w, assets/photos/slideshow/slide-4-kingfisher-tall-1200.jpg 1200w" sizes="calc(100vw - 48px)" width="1200" height="900" alt="Modern white two-story home with a long flat roofline and glass garage doors" fetchpriority="low" decoding="async">
+      </picture>
+      <picture>
+        <source media="(min-width: 820px)" type="image/avif" srcset="assets/photos/slideshow/slide-5-site-visit-wide-1200.avif 1200w, assets/photos/slideshow/slide-5-site-visit-wide-1800.avif 1800w, assets/photos/slideshow/slide-5-site-visit-wide-2000.avif 2000w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source media="(min-width: 820px)" type="image/webp" srcset="assets/photos/slideshow/slide-5-site-visit-wide-1200.webp 1200w, assets/photos/slideshow/slide-5-site-visit-wide-1800.webp 1800w, assets/photos/slideshow/slide-5-site-visit-wide-2000.webp 2000w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source media="(min-width: 820px)" srcset="assets/photos/slideshow/slide-5-site-visit-wide-1200.jpg 1200w, assets/photos/slideshow/slide-5-site-visit-wide-1800.jpg 1800w, assets/photos/slideshow/slide-5-site-visit-wide-2000.jpg 2000w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source type="image/avif" srcset="assets/photos/slideshow/slide-5-site-visit-tall-600.avif 600w, assets/photos/slideshow/slide-5-site-visit-tall-900.avif 900w, assets/photos/slideshow/slide-5-site-visit-tall-1200.avif 1200w" sizes="calc(100vw - 48px)">
+        <source type="image/webp" srcset="assets/photos/slideshow/slide-5-site-visit-tall-600.webp 600w, assets/photos/slideshow/slide-5-site-visit-tall-900.webp 900w, assets/photos/slideshow/slide-5-site-visit-tall-1200.webp 1200w" sizes="calc(100vw - 48px)">
+        <img src="assets/photos/slideshow/slide-5-site-visit-tall-900.jpg" srcset="assets/photos/slideshow/slide-5-site-visit-tall-600.jpg 600w, assets/photos/slideshow/slide-5-site-visit-tall-900.jpg 900w, assets/photos/slideshow/slide-5-site-visit-tall-1200.jpg 1200w" sizes="calc(100vw - 48px)" width="1200" height="900" alt="Inhabit agents in hard hats touring a building under construction" fetchpriority="low" decoding="async">
+      </picture>
+      <picture>
+        <source media="(min-width: 820px)" type="image/avif" srcset="assets/photos/slideshow/slide-6-nata-wide-1200.avif 1200w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source media="(min-width: 820px)" type="image/webp" srcset="assets/photos/slideshow/slide-6-nata-wide-1200.webp 1200w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source media="(min-width: 820px)" srcset="assets/photos/slideshow/slide-6-nata-wide-1200.jpg 1200w" sizes="(min-width: 1240px) 1192px, calc(100vw - 48px)">
+        <source type="image/avif" srcset="assets/photos/slideshow/slide-6-nata-tall-600.avif 600w, assets/photos/slideshow/slide-6-nata-tall-900.avif 900w, assets/photos/slideshow/slide-6-nata-tall-1067.avif 1067w" sizes="calc(100vw - 48px)">
+        <source type="image/webp" srcset="assets/photos/slideshow/slide-6-nata-tall-600.webp 600w, assets/photos/slideshow/slide-6-nata-tall-900.webp 900w, assets/photos/slideshow/slide-6-nata-tall-1067.webp 1067w" sizes="calc(100vw - 48px)">
+        <img src="assets/photos/slideshow/slide-6-nata-tall-900.jpg" srcset="assets/photos/slideshow/slide-6-nata-tall-600.jpg 600w, assets/photos/slideshow/slide-6-nata-tall-900.jpg 900w, assets/photos/slideshow/slide-6-nata-tall-1067.jpg 1067w" sizes="calc(100vw - 48px)" width="1200" height="900" alt="White brick home with arched windows and a wooden front door, lit at dusk" fetchpriority="low" decoding="async">
+      </picture>
     </div>
   </div>
 </header>
