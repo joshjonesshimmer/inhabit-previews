@@ -1,0 +1,16 @@
+name: css-test
+on:
+  push:
+    branches: [css-test]
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: cd tools/csstest && npm init -y >/dev/null && npm i playwright@1.47.2 >/dev/null && npx playwright install --with-deps chromium >/dev/null
+      - run: cd tools/csstest && node shoot.js
+      - uses: actions/upload-artifact@v4
+        with: { name: shots, path: tools/csstest/out }

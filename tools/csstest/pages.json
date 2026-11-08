@@ -1,0 +1,12 @@
+[
+ {"n":"map","u":"/idx/map/mapsearch","maxh":1400},
+ {"n":"gallery","u":"/idx/photogallery/e026/10189147"},
+ {"n":"moreinfo","u":"/idx/moreinfo/e026/10189147"},
+ {"n":"showing","u":"/idx/scheduleshowing/e026/10189147"},
+ {"n":"featured","u":"/idx/featured","maxh":1800},
+ {"n":"sold","u":"/idx/soldpending","maxh":1800},
+ {"n":"results","u":"/idx/results/listings?csv_listingID=10202124%2C10200937&a_statusCategory%5B%5D=active&a_statusCategory%5B%5D=sold"},
+ {"n":"details","u":"/idx/details/listing/e026/10202124/219-Monmouth-Avenue-Durham-NC-27701","maxh":5000},
+ {"n":"basic","u":"/idx/search/basic"},
+ {"n":"advanced","u":"/idx/search/advanced","maxh":1800}
+]
