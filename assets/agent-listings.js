@@ -23,7 +23,8 @@
   function empty(box) {
     var first = box.getAttribute('data-first') || 'us';
     box.innerHTML =
-      '<div class="lst-empty"><p class="lst-empty-t">No homes listed right now</p>' +
+      '<div class="lst-empty"><p class="lst-empty-t">' +
+      (box.getAttribute('data-widget') ? 'No homes listed right now' : 'Find your next home') + '</p>' +
       '<p>Search every home for sale in the Triangle, then reach out to ' + esc(first) +
       ' about any that catch your eye.</p>' +
       '<div class="btn-row"><a class="btn" href="' + SEARCH + '">Search homes</a>' +
