@@ -11,6 +11,18 @@
    "year": 2026,
    "detail": "Real Estate Agent, Durham Magazine readers' favorite",
    "img": "assets/awards/best-of-durham-2026.png"
+  },
+  {
+   "title": "Best of the Triangle",
+   "year": 2025,
+   "detail": "Best Realtor, Triangle-wide, INDY Week",
+   "img": "assets/awards/indy-best-of-the-triangle-2025-triangle-wide.png"
+  },
+  {
+   "title": "Best of the Triangle",
+   "year": 2025,
+   "detail": "Best Realtor, Durham County, INDY Week",
+   "img": "assets/awards/indy-best-of-the-triangle-2025-durham.png"
   }
  ],
  "dave cherry": false,
@@ -36,7 +48,20 @@
    "img": "assets/awards/best-of-durham-2025.png"
   }
  ],
- "marie brockenbrough": false,
+ "marie brockenbrough": [
+  {
+   "title": "Best of the Triangle",
+   "year": 2026,
+   "detail": "Best Realtor, Durham County, INDY Week",
+   "img": "assets/awards/indy-best-of-the-triangle-2026-durham.png"
+  },
+  {
+   "title": "Best of the Triangle",
+   "year": 2023,
+   "detail": "Best Realtor, Durham County, INDY Week",
+   "img": "assets/awards/indy-best-of-the-triangle-2023-durham.png"
+  }
+ ],
  "meredith pope": false,
  "nata bozymski": false,
  "natalie shaw": false,
@@ -45,7 +70,14 @@
  "rebecca ferguson": false,
  "rebecca ives": false,
  "ryan lockamy": false,
- "shelby bishop": false,
+ "shelby bishop": [
+  {
+   "title": "Best of the Triangle",
+   "year": 2025,
+   "detail": "Best Realtor, Orange & Chatham Counties, INDY Week",
+   "img": "assets/awards/indy-best-of-the-triangle-2025-orange-chatham.png"
+  }
+ ],
  "stephanie ross": false,
  "sue fox": false,
  "tamara talansky": false,
