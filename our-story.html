@@ -251,6 +251,7 @@ body.has-sticky{padding-bottom:84px}
 .story-grid{display:grid;gap:14px;margin-top:14px}
 @media(min-width:900px){.story-grid{grid-template-columns:7fr 5fr;gap:18px;align-items:stretch}}
 .story-grid .tile p{font-size:1.08rem}
+.story-grid.solo{grid-template-columns:1fr}.story-grid.solo .tile p{max-width:var(--measure)}
 .pullq{display:flex;align-items:center;justify-content:center;text-align:center}
 .pullq p{font-family:var(--serif);font-style:italic;font-size:clamp(3rem,6.4vw,5.6rem);line-height:.95;color:var(--orange);margin:0;letter-spacing:-.02em}
 .wide-photo{border-radius:24px;overflow:hidden;margin-top:14px;aspect-ratio:21/9;background:var(--sand)}
@@ -281,9 +282,8 @@ body.has-sticky{padding-bottom:84px}
   <div class="tile t-blue on-blue"><p>We build a plan around your life, not around a sale. That&rsquo;s been the idea since 2016, when we set out to build a real estate company that belonged to its neighbors: small enough to know the neighborhoods, committed enough to pick up the phone, and rooted deeply enough to still be around long after closing day.</p></div>
 </div>
 <div class="wide-photo"><img src="assets/photos/team-hardhats-group.jpg" alt="The Inhabit team together in hard hats during a development tour"></div>
-<div class="story-grid">
+<div class="story-grid solo">
   <div class="tile t-white"><p style="margin:0">All these years later, we still are. Inhabit is independent and woman-owned, with offices in Durham and Chapel Hill and agents who live all over the Triangle. Regional and national firms have asked more than once whether we&rsquo;d sell. Our answer has been the same every time: <em>Thanks. We&rsquo;re good.</em></p></div>
-  <div class="tile t-sand pullq" aria-hidden="true"><p>Thanks. We&rsquo;re good.</p></div>
 </div>
 <div class="story-grid">
   <div class="tile t-sand"><p>Staying independent lets us serve clients the way we think they should be served. At a lot of brokerages, agents compete against each other. We work the other way, because clients are better off when agents share what they know. Our agents compare notes on everything, from new contract clauses to the lender who calls back on a Saturday. The market keeps changing, so we keep learning together. When you work with one Inhabit agent, <em>you get the whole firm&rsquo;s experience behind them.</em></p></div>
