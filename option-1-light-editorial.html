@@ -244,9 +244,11 @@
   /* AWARDS */
   .awards{background:var(--cream);text-align:center;}
   /* v12: seven badges from Becky's artwork, so a centred wrap instead of a 4-up grid */
-  .badges{display:flex;flex-wrap:wrap;justify-content:center;gap:22px 26px;margin-top:48px;align-items:center;
-          max-width:1000px;margin-left:auto;margin-right:auto;}
-  .badges img{height:92px;width:auto;object-fit:contain;}
+  /* v13: thirteen badges once INDY's Best of the Triangle stars joined, so the phone
+     size drops to four across and the desktop row widens to seven across. */
+  .badges{display:flex;flex-wrap:wrap;justify-content:center;gap:18px 12px;margin-top:48px;align-items:center;
+          max-width:1040px;margin-left:auto;margin-right:auto;}
+  .badges img{height:74px;width:auto;object-fit:contain;}
   @media(min-width:760px){.badges{gap:30px 34px;}.badges img{height:116px;}}
   .aw-list{display:grid;gap:26px;max-width:760px;margin:46px auto 0;text-align:left;font-family:var(--sans);}
   .aw-list>div{background:var(--white);border-radius:15px;padding:24px 26px;}
@@ -255,7 +257,9 @@
   .aw-list p{font-size:.9rem;margin:0 0 10px;line-height:1.55;}
   .aw-list b{display:block;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:2px;}
   .aw-list a{color:var(--blue);}
-  @media(min-width:760px){.aw-list{grid-template-columns:1fr 1fr;}}
+  .aw-cols{display:grid;gap:0 26px;}
+  @media(min-width:760px){.aw-list{grid-template-columns:1fr 1fr;}.aw-list>.aw-wide{grid-column:1/-1;}
+    .aw-cols{grid-template-columns:1fr 1fr;}}
 
   /* EVENTS, Option 2's treatment. The wash sits at .84 rather than .9 so this
      reads as photography under warm light, not a flat orange fill. That is what
@@ -526,17 +530,30 @@
       <p class="eyebrow">Recognition</p>
       <h2>Voted in by the<br>people who live here.</h2>
       <div class="badges">
-        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/79f3c7a4-a2bf-4113-9864-02deb277e6bf/Best+of+the+Triangle+Real+Estate+Badge+2024.png?format=500w" alt="Best of the Triangle, Real Estate, 2024" loading="lazy">
+        <img src="assets/awards/indy-best-of-the-triangle-2026-durham.png" alt="Best of the Triangle, INDY Week, Durham County, 2026" loading="lazy">
+        <img src="assets/awards/indy-best-of-the-triangle-2026-wake.png" alt="Best of the Triangle, INDY Week, Wake County, 2026" loading="lazy">
         <img src="assets/awards/best-of-durham-2026.png" alt="Best of Durham, Durham Magazine readers' favorite, 2026" loading="lazy">
+        <img src="assets/awards/indy-best-of-the-triangle-2025-triangle-wide.png" alt="Best of the Triangle, INDY Week, Triangle-wide, 2025" loading="lazy">
+        <img src="assets/awards/indy-best-of-the-triangle-2025-durham.png" alt="Best of the Triangle, INDY Week, Durham County, 2025" loading="lazy">
+        <img src="assets/awards/indy-best-of-the-triangle-2025-orange-chatham.png" alt="Best of the Triangle, INDY Week, Orange and Chatham Counties, 2025" loading="lazy">
         <img src="assets/awards/best-of-durham-2025.png" alt="Best of Durham, Durham Magazine readers' favorite, 2025" loading="lazy">
+        <img src="https://images.squarespace-cdn.com/content/v1/6685bdfc99c27559b9c37ca1/79f3c7a4-a2bf-4113-9864-02deb277e6bf/Best+of+the+Triangle+Real+Estate+Badge+2024.png?format=500w" alt="Best of the Triangle, Real Estate, 2024" loading="lazy">
+        <img src="assets/awards/indy-best-of-the-triangle-2024-durham.png" alt="Best of the Triangle, INDY Week, Durham County, 2024" loading="lazy">
         <img src="assets/awards/best-of-durham-2024.png" alt="Best of Durham, Durham Magazine readers' favorite, 2024" loading="lazy">
+        <img src="assets/awards/best-of-chapel-hill-2024.png" alt="Best of Chapel Hill, Chapel Hill Magazine readers' favorite, 2024" loading="lazy">
         <img src="assets/awards/best-of-durham-2023.png" alt="Best of Durham, Durham Magazine readers' favorite, 2023" loading="lazy">
         <img src="assets/awards/best-of-durham-2022.png" alt="Best of Durham, Durham Magazine readers' favorite, 2022" loading="lazy">
-        <img src="assets/awards/best-of-chapel-hill-2024.png" alt="Best of Chapel Hill, Chapel Hill Magazine readers' favorite, 2024" loading="lazy">
       </div>
       <!-- v12, 10.29.26 call: Becky's Oct 28 awards list and artwork. Former agents' wins
-           (2023, 2024) are left off; INDY artwork still to come from Becky. -->
+           (2023, 2024) are left off.
+           v13, 11.09.26: INDY Week's Best of the Triangle list (Lauren Boyle via Becky) and
+           Marie's note. Winners only; badge art used as supplied, only downsized. -->
       <div class="aw-list">
+        <div class="aw-wide"><h3>Best of the Triangle</h3><p class="aw-src">INDY Week</p>
+          <div class="aw-cols">
+          <p><b>Real estate company</b>Triangle-wide, 2024, 2025<br>Durham County, 2024, 2025, 2026<br>Wake County, 2026<br>Orange &amp; Chatham Counties, 2025</p>
+          <p><b>Real estate agent</b><a href="agent-marie-brockenbrough.html">Marie Brockenbrough</a>, Durham County, 2023, 2026<br><a href="agent-dara-shain.html">Dara Shain</a>, Triangle-wide and Durham County, 2025<br><a href="agent-shelby-bishop.html">Shelby Bishop</a>, Orange &amp; Chatham Counties, 2025</p>
+          </div></div>
         <div><h3>Best of Durham</h3><p class="aw-src">Durham Magazine readers&rsquo; favorite</p>
           <p><b>Real estate company</b>2022, 2023, 2024, 2025, 2026</p>
           <p><b>Real estate agent</b><a href="agent-tammi-brooks.html">Tammi Brooks</a>, 2018<br><a href="agent-liz-dean.html">Liz Dean</a>, 2025<br><a href="agent-dara-shain.html">Dara Shain</a>, 2026</p></div>
