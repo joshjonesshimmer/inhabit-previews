@@ -300,6 +300,35 @@ body.has-sticky{padding-bottom:84px}
 .cards-b a,.more a,.office,.ghostcard{border-radius:15px!important}
 .tB .ph,.slot2,.leads4 a{border-radius:14px!important}
 .leads4 .ph,.field input,.field textarea,.finder input,.finder select,.radio{border-radius:9px!important}
+/* Broker listings: cards built from the IDX "Featured Agent" widget (assets/agent-listings.js). */
+.lst-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 20px;margin-bottom:20px}
+.lst-head h2{font-size:clamp(1.5rem,2.2vw,1.9rem)}
+.lst-all{font-family:var(--sans);font-size:.88rem;font-weight:700;letter-spacing:.02em}
+.lst-box{min-height:120px}
+.lst-box:not(.lst-done)::before{content:"Loading listings\2026";display:block;font-family:var(--sans);font-size:.9rem;color:var(--ink-soft)}
+.lst-box [id^="IDX-showcaseGallery"]{display:none!important}
+.lst-grid{list-style:none;margin:0;padding:0;display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:700px){.lst-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1060px){.lst-grid{grid-template-columns:repeat(3,1fr)}}
+.lst{position:relative;background:var(--cream);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease}
+.lst:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,62,81,.12)}
+.lst-photo{position:relative;aspect-ratio:4/3;background:var(--sand)}
+.lst-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.lst-status{position:absolute;left:12px;top:12px;font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:var(--blue);color:var(--cream)}
+.lst-status.pending{background:var(--white);color:var(--orange-ink)}
+.lst-body{padding:16px 18px 18px}
+.lst-price{font-family:var(--serif);font-size:1.6rem;font-weight:500;line-height:1.1;margin:0 0 6px}
+.lst-addr{font-family:var(--sans);font-size:.92rem;font-weight:700;margin:0;color:var(--blue)}
+.lst-addr a{color:inherit;text-decoration:none}
+.lst-addr a::after{content:"";position:absolute;inset:0}
+.lst-addr a:focus-visible{outline:none}.lst:focus-within{outline:3px solid var(--orange-ink);outline-offset:3px}
+.lst-city{font-family:var(--sans);font-size:.85rem;color:var(--ink-soft);margin:2px 0 10px}
+.lst-facts{font-family:var(--sans);font-size:.85rem;color:var(--ink-soft);margin:0;display:flex;flex-wrap:wrap;gap:4px 14px}
+.lst-note{font-family:var(--sans);font-size:.74rem;color:var(--ink-soft);margin:18px 0 0;opacity:.85}
+.lst-empty{background:var(--cream);border-radius:14px;padding:24px 22px}
+.lst-empty p{margin:0 0 14px;max-width:52ch}
+.lst-empty .lst-empty-t{font-family:var(--serif);font-size:1.3rem;color:var(--blue);margin-bottom:6px}
+@media(prefers-reduced-motion:reduce){.lst,.lst:hover{transition:none;transform:none}}
 </style>
 </head>
 <body>
@@ -326,7 +355,7 @@ body.has-sticky{padding-bottom:84px}
    <p>The Triangle is home to me. Always has been, always will be. I’ve lived in Durham, Wake, and Orange Counties: north of town, south of town, and “in town.” I live next door to my sister (literally, and on purpose), so I understand that sometimes a buyer doesn’t have a “good” reason for wanting a particular house; it’s just meant to be.</p>
    <p style="margin:0">I could tell you more about me, but honestly, I’m not the focus of our relationship. You are. You’re the reason I love this work. I want to get to know your family, your needs, your wants, and your budget, and I want our relationship to last well beyond closing day. That’s how community works, and I’d love to have you in mine.</p></div></div>
 </div>
-<div class="tile t-white" id="listings"><h2 style="font-size:clamp(1.5rem,2.2vw,1.9rem);margin-bottom:14px">Rebecca&rsquo;s listings</h2><div class="slot2"><strong>Active and past listings load here</strong>From IDX Broker: current listings first, then the last three years of sales. Co-listed homes credit both agents.</div></div>
+<div class="tile t-white" id="listings"><div class="lst-head"><h2>Rebecca&rsquo;s listings</h2><a class="lst-all" href="https://inhabitthetriangle.idxbroker.com/idx/search/basic">Search all homes &rarr;</a></div><div class="lst-box" data-widget="34157" data-first="Rebecca" data-contact="contact.html"><script charset="UTF-8" type="text/javascript" id="idxwidgetsrc-34157" src="https://inhabitthetriangle.idxbroker.com/idx/customshowcasejs.php?widgetid=34157"></script></div><p class="lst-note">Listings courtesy of Inhabit Real Estate. Data from Doorify MLS of North Carolina.</p></div>
 <div class="bento end" style="padding-bottom:72px"><div class="tile t-orange closing-b"><h2>Want Rebecca in your corner?</h2><div class="btn-row"><a class="btn" href="contact.html">Contact Rebecca</a></div></div></div>
 </div><div class="sticky-cta"><a class="btn" href="contact.html">Let&rsquo;s talk</a><a class="btn ghost" href="tel:+19198084549">Call us</a></div>
 </main>
@@ -359,5 +388,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&p.classList
 function update(){nav.classList.toggle('glass',window.scrollY>80);}
 update();window.addEventListener('scroll',update,{passive:true});})();
 </script><script>document.body.classList.add('has-sticky');</script>
+<script src="assets/agent-listings.js"></script>
 </body>
 </html>

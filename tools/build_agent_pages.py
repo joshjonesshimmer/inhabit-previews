@@ -6,6 +6,7 @@ Inputs
   tools/staff-bios.json    staff bios copied word for word from the current site
   tools/agent-template.html  Dara's page with the person-specific parts marked
   tools/agent-parts.txt      listings, awards and reviews blocks (agents and leadership only)
+  tools/listings-widgets.json each broker's IDX listings widget number
   tools/awards.json          each person's own awards, from Becky's Oct 28 list of Durham and
                              Chapel Hill Magazine wins (badge artwork in assets/awards);
                              only they get the Recognition tile
@@ -202,6 +203,16 @@ def load_parts(path):
     return {k: "\n".join(v) for k, v in parts.items()}
 
 
+def listings_box(widget, first):
+    """The live listings box: an IDX widget for brokers set up in IDX, else the Search homes box
+    (assets/agent-listings.js turns either into the site's own cards)."""
+    attrs = f'data-first="{html.escape(first)}" data-contact="contact.html"'
+    if not widget:
+        return f'<div class="lst-box" {attrs}></div>'
+    return (f'<div class="lst-box" data-widget="{widget}" {attrs}><script charset="UTF-8" type="text/javascript" '
+            f'id="idxwidgetsrc-{widget}" src="https://inhabitthetriangle.idxbroker.com/idx/customshowcasejs.php?widgetid={widget}"></script></div>')
+
+
 def build():
     parts = load_parts(TOOLS / "agent-parts.txt")
     bios = parse_bios(TOOLS / "bios-source.txt")
@@ -214,6 +225,7 @@ def build():
     awards = json.loads((TOOLS / "awards.json").read_text(encoding="utf-8"))
     testimonials = json.loads((TOOLS / "testimonials.json").read_text(encoding="utf-8"))
     tpl = (TOOLS / "agent-template.html").read_text(encoding="utf-8")
+    widgets = json.loads((TOOLS / "listings-widgets.json").read_text(encoding="utf-8"))
     team_path = ROOT / "team.html"
     team = group_team(team_path.read_text(encoding="utf-8"))
     for key, photo in PHOTO_OVERRIDES.items():
@@ -255,6 +267,7 @@ def build():
                 .replace("{{RECOGNITION}}", "\n" + recognition if recognition else "")
                 .replace("{{REVIEWS}}", "\n" + reviews if reviews else "")
                 .replace("{{LISTINGS}}", "" if is_staff else "\n" + parts["LISTINGS"])
+                .replace("{{LISTINGS_BOX}}", listings_box(widgets.get(slug(c["name"])), first))
                 .replace("{{NAME}}", smart(c["name"]))
                 .replace("{{NAME_ATTR}}", html.escape(c["name"]))
                 .replace("{{FIRST}}", smart(first))

@@ -4,4 +4,4 @@ Agent-only parts of the page. Staff pages leave these out (no listings, awards o
 === RECOGNITION
   <div class="tile t-sand recog"><h2>Recognition</h2>{{AWARDS}}</div>
 === LISTINGS
-<div class="tile t-white" id="listings"><h2 style="font-size:clamp(1.5rem,2.2vw,1.9rem);margin-bottom:14px">{{FIRST}}&rsquo;s listings</h2><div class="slot2"><strong>Active and past listings load here</strong>From IDX Broker: current listings first, then the last three years of sales. Co-listed homes credit both agents.</div></div>
+<div class="tile t-white" id="listings"><div class="lst-head"><h2>{{FIRST}}&rsquo;s listings</h2><a class="lst-all" href="https://inhabitthetriangle.idxbroker.com/idx/search/basic">Search all homes &rarr;</a></div>{{LISTINGS_BOX}}<p class="lst-note">Listings courtesy of Inhabit Real Estate. Data from Doorify MLS of North Carolina.</p></div>
