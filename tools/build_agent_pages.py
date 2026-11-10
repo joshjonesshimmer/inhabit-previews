@@ -220,7 +220,8 @@ def build():
     for key, o in overrides.items():
         if key.startswith("_"):
             continue
-        bios[key] = {"descriptor": o["descriptor"], "bio": o["bio"]}
+        # an entry with no "bio" changes only the descriptor and keeps the doc's After text
+        bios[key] = {"descriptor": o["descriptor"], "bio": o.get("bio") or bios.get(key, {}).get("bio", [])}
     staff = json.loads((TOOLS / "staff-bios.json").read_text(encoding="utf-8"))
     awards = json.loads((TOOLS / "awards.json").read_text(encoding="utf-8"))
     testimonials = json.loads((TOOLS / "testimonials.json").read_text(encoding="utf-8"))
