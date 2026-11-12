@@ -29,8 +29,30 @@
       ' about any that catch your eye.</p>' +
       '<div class="btn-row"><a class="btn" href="' + SEARCH + '">Search homes</a>' +
       '<a class="btn ghost" href="' + esc(box.getAttribute('data-contact') || 'contact.html') +
-      '">Contact ' + esc(first) + '</a></div></div>';
+      '">' + (/^mailto:/.test(box.getAttribute('data-contact') || '') ? 'Email ' : 'Contact ') + esc(first) + '</a></div></div>';
     box.classList.add('lst-done');
+    finish(box, false);
+  }
+
+  /* Past sales: a link to the broker's sold homes on the home search. When a broker
+     has no current listings and no past sales, the whole listings section is hidden. */
+  function finish(box, hasActive) {
+    var sold = box.getAttribute('data-sold');
+    var first = box.getAttribute('data-first') || 'our';
+    var tile = box.closest('#listings') || box.parentNode;
+    if (!hasActive && !sold) {
+      if (tile) tile.style.display = 'none';
+      Array.prototype.forEach.call(document.querySelectorAll('a[href="#listings"]'), function (a) { a.style.display = 'none'; });
+      return;
+    }
+    if (hasActive) { var e = box.querySelector('.lst-empty'); if (e) e.remove(); }
+    if (sold && !box.querySelector('.lst-sold')) {
+      var d = document.createElement('div');
+      d.className = 'lst-sold';
+      d.innerHTML = '<div><h3>Past sales</h3><p>Homes ' + esc(first) + ' has helped sell or buy.</p></div>' +
+        '<a class="btn ghost" href="' + esc(sold) + '">See ' + esc(first) + '&rsquo;s past sales &rarr;</a>';
+      box.appendChild(d);
+    }
   }
 
   function cards(box, gal) {
@@ -68,6 +90,7 @@
     gal.style.display = 'none';
     box.appendChild(out);
     box.classList.add('lst-done');
+    finish(box, true);
   }
 
   function start(box) {
@@ -83,7 +106,19 @@
     })();
   }
 
+  function css() {
+    if (document.getElementById('lst-sold-css')) return;
+    var s = document.createElement('style');
+    s.id = 'lst-sold-css';
+    s.textContent = '.lst-sold{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;' +
+      'background:var(--sand,#efe4cc);border-radius:14px;padding:22px 24px}' +
+      '.lst-sold h3{font-family:var(--serif);font-size:1.3rem;color:var(--blue);margin:0 0 4px}' +
+      '.lst-sold p{margin:0;max-width:52ch}';
+    document.head.appendChild(s);
+  }
+
   function init() {
+    css();
     Array.prototype.forEach.call(document.querySelectorAll('.lst-box'), start);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
