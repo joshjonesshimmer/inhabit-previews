@@ -335,9 +335,10 @@
 
   /* REVIEW OPTION B: slim welcome strip under the header */
   .pride-strip{background:var(--white);border-bottom:1px solid rgba(0,62,81,.12);}
-  .pride-strip p{display:flex;align-items:center;justify-content:center;gap:12px;margin:0;padding:10px 24px;
+  .pride-strip p{text-align:center;margin:0;padding:10px 24px;line-height:26px;
     font-family:var(--sans);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--blue);}
-  .pride-strip img{width:26px;height:26px;flex:none;}
+  .pride-strip img{width:26px;height:26px;display:inline-block;vertical-align:middle;margin:-3px 12px 0 0;}
+  @media(max-width:600px){.pride-strip span{display:none;}}
   .pride-strip span{color:var(--orange);}
 </style>
 <style id="nov12-footer">.legal.legal2{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;justify-content:space-between;opacity:1;font-size:.8rem}.legal2 .l-txt{opacity:.82;display:flex;flex-direction:column;gap:4px}.legal2 .eho{display:inline-flex;align-items:center;gap:12px;font-size:1.05rem;font-weight:600;letter-spacing:.01em}.legal2 .eho img{width:auto;height:46px;background:#fff;padding:4px;border-radius:4px}.legal2 .f-social{display:inline-flex;gap:14px}.legal2 .f-social a{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;border:1px solid rgba(248,240,223,.4);border-radius:50%;color:var(--cream)}.legal2 .f-social a:hover{background:rgba(248,240,223,.14)}.legal2 .f-social svg{width:18px;height:18px;fill:currentColor}@media(max-width:640px){.legal.legal2{flex-direction:column;align-items:flex-start}}</style>
