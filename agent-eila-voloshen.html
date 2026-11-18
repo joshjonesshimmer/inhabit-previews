@@ -409,8 +409,8 @@ pop.innerHTML='<strong></strong><button type="button">Copy</button>';pop.querySe
 var b=pop.querySelector('button');b.addEventListener('click',function(e){e.stopPropagation();
  function ok(){b.textContent='Copied';}
  if(navigator.clipboard){navigator.clipboard.writeText(addr).then(ok,function(){});}else{var r=document.createRange();r.selectNodeContents(pop.querySelector('strong'));var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');ok();}catch(x){}}});
-document.body.appendChild(pop);var r=a.getBoundingClientRect(),w=pop.offsetWidth,h=pop.offsetHeight;
-var left=Math.min(Math.max(16,r.left),innerWidth-w-16),top=(r.bottom+h+12>innerHeight)?r.top-h-10:r.bottom+10;
+var cw=document.documentElement.clientWidth;pop.style.maxWidth=(cw-32)+'px';document.body.appendChild(pop);var r=a.getBoundingClientRect(),w=pop.offsetWidth,h=pop.offsetHeight;
+var left=Math.min(Math.max(16,r.left),cw-w-16),top=(r.bottom+h+12>innerHeight)?r.top-h-10:r.bottom+10;
 pop.style.left=left+'px';pop.style.top=top+'px';}
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="mailto:"]');if(!a)return;var left=false;
  function gone(){left=true;}window.addEventListener('blur',gone,{once:true});document.addEventListener('visibilitychange',gone,{once:true});
