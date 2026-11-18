@@ -1,0 +1,8 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Phone frame (review only)</title>
+<style>html,body{margin:0;background:#ddd}iframe{display:block;width:390px;height:844px;border:0;background:#fff}</style></head>
+<body><iframe id="f"></iframe><script>
+var p=new URLSearchParams(location.search),s=p.get('src')||'option-1-light-editorial.html';
+if(!/^[a-z0-9-]+\.html(#[a-z0-9-]*)?$/.test(s))s='option-1-light-editorial.html';
+var sha=p.get('sha')||'',f=document.getElementById('f');f.src=/^[0-9a-f]{40}$/.test(sha)?'/joshjonesshimmer/inhabit-previews/'+sha+'/'+s:'../'+s;
+f.onload=function(){var y=+(p.get('y')||0);if(y)f.contentWindow.scrollTo(0,y);var c=p.get('click');if(c){var b=f.contentDocument.querySelector('[data-filter="'+c+'"]');if(b)b.click();}};
+</script></body></html>
