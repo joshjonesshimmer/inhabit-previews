@@ -373,8 +373,14 @@ function update(){nav.classList.toggle('glass',window.scrollY>80);}
 update();window.addEventListener('scroll',update,{passive:true});})();
 </script><script>
 // A link like contact.html?topic=events picks that choice for the visitor.
-(function(){var m=/[?&]topic=([a-z]+)/.exec(location.search);if(!m)return;var r=document.querySelector('input[name="topic"][value="'+m[1]+'"]');if(!r)return;r.checked=true;
- if(m[1]==='events'){var h=document.querySelector('#cf h2');if(h)h.textContent='Ask about upcoming events';var l=document.querySelector('label[for="msg"]');if(l)l.innerHTML='Which event, or what would you like to know? <span class="opt">(optional)</span>';}})();
+// The form heading follows the choice that's ticked. A link like contact.html?topic=events ticks that choice.
+(function(){var f=document.getElementById('cf');if(!f)return;var h=f.querySelector('h2'),l=f.querySelector('label[for="msg"]');
+ var H={'':'Send a note',buying:'Let\u2019s find your next home',selling:'Let\u2019s talk about selling',both:'Let\u2019s plan your next move',wondering:'Let\u2019s talk it through',events:'Ask about upcoming events'};
+ var L0=l.innerHTML,LE='Which event, or what would you like to know? <span class="opt">(optional)</span>';
+ function set(v){h.textContent=H[v]||H[''];l.innerHTML=v==='events'?LE:L0;}
+ var m=/[?&]topic=([a-z]+)/.exec(location.search),r=m&&f.querySelector('input[name="topic"][value="'+m[1]+'"]');if(r)r.checked=true;
+ var c=f.querySelector('input[name="topic"]:checked');set(c?c.value:'');
+ f.addEventListener('change',function(e){if(e.target.name==='topic')set(e.target.value);});})();
 (function(){var f=document.getElementById('cf');if(!f)return;
 function check(i){var e=document.getElementById(i.id+'-err'),msg='';
  if(i.required&&!i.value.trim())msg=i.dataset.need;
