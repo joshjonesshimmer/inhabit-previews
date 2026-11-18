@@ -83,7 +83,7 @@
 <style>
   :root{
     --blue:#003E51;
-    --orange:#C3623A;
+    --orange:#C3623A;--orange-ink:#A3502B;
     --orange-glow:#E59A75;
     --cream:#F8F0DF;
     --white:#FFFDF8;
@@ -106,9 +106,9 @@
   .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 24px;}
   .eyebrow{font-family:var(--sans);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
            color:var(--orange);font-weight:700;margin:0 0 18px;}
-  .btn{font-family:var(--sans);display:inline-block;background:var(--orange);color:var(--white);
+  .btn{font-family:var(--sans);display:inline-block;background:var(--orange-ink);color:var(--white);
        text-decoration:none;padding:15px 30px;font-size:.76rem;letter-spacing:.14em;
-       text-transform:uppercase;font-weight:700;border:2px solid var(--orange);}
+       text-transform:uppercase;font-weight:700;border:2px solid var(--orange-ink);}
   .btn.ghost{background:transparent;color:var(--blue);border-color:var(--blue);}
   .btn.light{background:var(--cream);color:var(--orange);border-color:var(--cream);}
   .btn.ghost-light{background:transparent;color:var(--cream);border-color:var(--cream);}
@@ -240,7 +240,7 @@
               font-weight:700;text-decoration:none;color:var(--cream);
               border:1px solid rgba(248,240,223,.45);padding:11px 18px;
               transition:background .15s,color .15s,border-color .15s;}
-  .sublinks a:hover{background:var(--orange);border-color:var(--orange);color:var(--white);}
+  .sublinks a:hover{background:var(--orange-ink);border-color:var(--orange-ink);color:var(--white);}
   .cond .quiet{font-family:var(--sans);font-size:.78rem;opacity:.62;margin:26px 0 0;max-width:40em;}
   @media(min-width:900px){.cond-grid{grid-template-columns:5fr 7fr;gap:64px;}}
 
@@ -340,15 +340,20 @@
   .eyebrow.pride .pr-top{display:none;}
   .eyebrow.pride .pr-sep{display:none;}
   @media(max-width:819px){.eyebrow.pride .pr-mid{display:none;}.eyebrow.pride .pr-top{display:block;margin:0 auto 14px;width:34px;height:34px;}.eyebrow.pride .pr-sep{display:inline;}}
+  .skip{position:absolute;left:-9999px;top:8px;background:var(--white);color:var(--blue);padding:10px 16px;font-family:var(--sans);z-index:200}
+  .skip:focus{left:8px}
+  main:focus{outline:none}
+  .nav-home{display:inline-flex;flex:none}
 </style>
 <style id="nov12-footer">.legal.legal2{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;justify-content:space-between;opacity:1;font-size:.8rem}.legal2 .l-txt{opacity:.82;display:flex;flex-direction:column;gap:4px}.legal2 .eho{display:inline-flex;align-items:center;gap:12px;font-size:1.05rem;font-weight:600;letter-spacing:.01em}.legal2 .eho img{width:auto;height:46px;background:#fff;padding:4px;border-radius:4px}.legal2 .f-social{display:inline-flex;gap:14px}.legal2 .f-social a{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;border:1px solid rgba(248,240,223,.4);border-radius:50%;color:var(--cream)}.legal2 .f-social a:hover{background:rgba(248,240,223,.14)}.legal2 .f-social svg{width:18px;height:18px;fill:currentColor}.legal2 .l-links{display:inline-flex;flex-wrap:wrap;gap:4px 18px;margin-top:2px}.legal2 .l-links a{color:inherit;text-decoration:underline;text-underline-offset:2px}@media(max-width:640px){.legal.legal2{flex-direction:column;align-items:flex-start}}</style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-in">
-    <img src="assets/inhabit-horizontal-orange-cream.png" alt="Inhabit Real Estate">
+    <a class="nav-home" href="option-1-light-editorial.html" aria-label="Inhabit Real Estate, home"><img src="assets/inhabit-horizontal-orange-cream.png" alt=""></a>
     <div class="nav-links">
       <a href="buying.html">Buying</a>
       <a href="selling.html">Selling</a>
@@ -363,6 +368,7 @@
   <nav id="mobile-panel" class="mobile-panel" aria-label="Main, mobile"><a href="buying.html">Buying</a><a href="selling.html">Selling</a><a href="sell-and-buy.html">Sell and Buy</a><a href="team.html">Our Team</a><a class="sub-link" href="our-story.html">Our Story</a><a href="community.html">Community</a><a class="sub-link" href="events.html">Events</a><a href="need-advice.html">Need Advice?</a><a href="https://inhabitthetriangle.idxbroker.com/idx/search/basic">Browse homes</a><a href="contact.html">Let's talk</a></nav>
 </nav>
 
+<main id="main" tabindex="-1">
 <!-- HERO, centred per v3 -->
 <header class="hero">
   <div class="wrap">
@@ -613,6 +619,7 @@
 </div>
 
 <!-- FOOTER -->
+</main>
 <footer>
   <div class="wrap">
     <div class="aw-strip">
