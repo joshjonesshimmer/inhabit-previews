@@ -311,7 +311,8 @@ count=document.getElementById('count'),empty=document.getElementById('empty'),gr
 function apply(){var t=(q.value||'').trim().toLowerCase(),seen={},n=0;items.forEach(function(c){var ok=(group==='all'||c.dataset.group===group)&&(!t||c.dataset.name.indexOf(t)>-1);c.hidden=!ok;if(ok&&!seen[c.dataset.name]){seen[c.dataset.name]=1;n++;}});
 [].forEach.call(document.querySelectorAll('.team-group'),function(s){s.hidden=!s.querySelector('[data-group]:not([hidden])');});if(count)count.textContent='Showing '+n+(n===1?' person':' people');if(empty)empty.hidden=n!==0;}
 chips.forEach(function(ch){ch.addEventListener('click',function(){chips.forEach(function(x){x.setAttribute('aria-pressed','false');});ch.setAttribute('aria-pressed','true');group=ch.dataset.filter;apply();});});
-q.addEventListener('input',apply);apply();})();
+q.addEventListener('input',apply);apply();
+var on=document.querySelector('[data-filter][aria-pressed="true"]'),row=on&&on.parentNode;if(row&&row.scrollWidth>row.clientWidth){row.scrollLeft=Math.max(0,on.offsetLeft-row.offsetLeft-(row.clientWidth-on.offsetWidth)/2);}})();
 </script>
 </body>
 </html>
