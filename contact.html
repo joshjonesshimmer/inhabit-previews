@@ -271,6 +271,7 @@ body.has-sticky{padding-bottom:84px}
 fieldset{border:0;margin:0 0 22px;padding:0}
 .radios{display:grid;gap:10px}
 @media(min-width:560px){.radios{grid-template-columns:1fr 1fr}}
+@media(min-width:560px){.radios .radio:last-child:nth-child(odd){grid-column:1/-1}}
 .radio{display:flex;align-items:center;gap:12px;min-height:50px;padding:10px 14px;border:1.5px solid var(--line);font-family:var(--sans);font-size:.95rem;cursor:pointer}
 .radio:has(input:checked){border-color:var(--blue);background:rgba(0,62,81,.05)}
 .radio input{width:20px;height:20px;accent-color:var(--orange-ink);margin:0}
@@ -330,6 +331,7 @@ fieldset{border:0;margin:0 0 22px;padding:0}
           <label class="radio"><input type="radio" name="topic" value="selling"> Selling a home</label>
           <label class="radio"><input type="radio" name="topic" value="both"> Selling and buying</label>
           <label class="radio"><input type="radio" name="topic" value="wondering"> Just starting to wonder</label>
+          <label class="radio"><input type="radio" name="topic" value="events"> Upcoming events</label>
         </div></fieldset>
       <div class="field"><label for="msg">Anything you&rsquo;d like us to know? <span class="opt">(optional)</span></label><textarea id="msg" name="msg"></textarea></div>
       <button class="btn" type="submit">Send your note</button>
@@ -370,6 +372,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&p.classList
 function update(){nav.classList.toggle('glass',window.scrollY>80);}
 update();window.addEventListener('scroll',update,{passive:true});})();
 </script><script>
+// A link like contact.html?topic=events picks that choice for the visitor.
+(function(){var m=/[?&]topic=([a-z]+)/.exec(location.search);if(!m)return;var r=document.querySelector('input[name="topic"][value="'+m[1]+'"]');if(r)r.checked=true;})();
 (function(){var f=document.getElementById('cf');if(!f)return;
 function check(i){var e=document.getElementById(i.id+'-err'),msg='';
  if(i.required&&!i.value.trim())msg=i.dataset.need;

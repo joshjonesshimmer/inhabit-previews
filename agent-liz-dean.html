@@ -400,5 +400,26 @@ function update(){nav.classList.toggle('glass',window.scrollY>80);}
 update();window.addEventListener('scroll',update,{passive:true});})();
 </script><script>document.body.classList.add('has-sticky');</script>
 <script src="assets/agent-listings.js"></script>
+<script>
+// Email buttons: if no email app opens, show the address with a Copy button.
+(function(){
+var st=document.createElement('style');st.textContent='.mail-pop{position:fixed;z-index:60;max-width:calc(100vw - 32px);background:var(--white);color:var(--blue);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 32px rgba(0,62,81,.18);padding:14px 16px;font-family:var(--sans);font-size:.95rem;display:flex;align-items:center;gap:14px;flex-wrap:wrap}.mail-pop strong{font-weight:600;user-select:all;word-break:break-all}.mail-pop button{font:inherit;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);background:transparent;border:1.5px solid var(--blue);border-radius:999px;padding:8px 14px;cursor:pointer}';document.head.appendChild(st);
+var pop=null;function close(){if(pop){pop.remove();pop=null;}}
+function show(a){close();var addr=decodeURIComponent(a.getAttribute('href').slice(7).split('?')[0]);
+pop=document.createElement('div');pop.className='mail-pop';pop.setAttribute('role','status');
+pop.innerHTML='<strong></strong><button type="button">Copy</button>';pop.querySelector('strong').textContent=addr;
+var b=pop.querySelector('button');b.addEventListener('click',function(e){e.stopPropagation();
+ function ok(){b.textContent='Copied';}
+ if(navigator.clipboard){navigator.clipboard.writeText(addr).then(ok,function(){});}else{var r=document.createRange();r.selectNodeContents(pop.querySelector('strong'));var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');ok();}catch(x){}}});
+document.body.appendChild(pop);var r=a.getBoundingClientRect(),w=pop.offsetWidth,h=pop.offsetHeight;
+var left=Math.min(Math.max(16,r.left),innerWidth-w-16),top=(r.bottom+h+12>innerHeight)?r.top-h-10:r.bottom+10;
+pop.style.left=left+'px';pop.style.top=top+'px';}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="mailto:"]');if(!a)return;var left=false;
+ function gone(){left=true;}window.addEventListener('blur',gone,{once:true});document.addEventListener('visibilitychange',gone,{once:true});
+ setTimeout(function(){window.removeEventListener('blur',gone);document.removeEventListener('visibilitychange',gone);if(!left)show(a);},900);});
+document.addEventListener('click',function(e){if(pop&&!pop.contains(e.target)&&!(e.target.closest&&e.target.closest('a[href^="mailto:"]')))close();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+window.addEventListener('scroll',close,{passive:true});})();
+</script>
 </body>
 </html>
