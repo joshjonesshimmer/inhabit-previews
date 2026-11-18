@@ -322,9 +322,6 @@ fieldset{border:0;margin:0 0 22px;padding:0}
   <div class="formcard">
     <form id="cf" novalidate>
       <h2>Send a note</h2>
-      <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required data-need="Enter your name so we know who to reply to."><p id="name-err" class="err" hidden></p></div>
-      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required data-need="Enter your email so we can reply."><p id="email-err" class="err" hidden></p></div>
-      <div class="field"><label for="phone">Phone <span class="opt">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"><p id="phone-err" class="err" hidden></p></div>
       <fieldset><legend style="margin:0 0 10px;font-family:var(--sans);font-size:.95rem;font-weight:600">What&rsquo;s on your mind? <span class="opt">(optional)</span></legend>
         <div class="radios">
           <label class="radio"><input type="radio" name="topic" value="buying"> Buying a home</label>
@@ -333,6 +330,9 @@ fieldset{border:0;margin:0 0 22px;padding:0}
           <label class="radio"><input type="radio" name="topic" value="wondering"> Just starting to wonder</label>
           <label class="radio"><input type="radio" name="topic" value="events"> Upcoming events</label>
         </div></fieldset>
+      <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required data-need="Enter your name so we know who to reply to."><p id="name-err" class="err" hidden></p></div>
+      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required data-need="Enter your email so we can reply."><p id="email-err" class="err" hidden></p></div>
+      <div class="field"><label for="phone">Phone <span class="opt">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"><p id="phone-err" class="err" hidden></p></div>
       <div class="field"><label for="msg">Anything you&rsquo;d like us to know? <span class="opt">(optional)</span></label><textarea id="msg" name="msg"></textarea></div>
       <button class="btn" type="submit">Send your note</button>
       <p class="next">A real person on our team will get back to you, usually within one business day.</p>
@@ -373,7 +373,14 @@ function update(){nav.classList.toggle('glass',window.scrollY>80);}
 update();window.addEventListener('scroll',update,{passive:true});})();
 </script><script>
 // A link like contact.html?topic=events picks that choice for the visitor.
-(function(){var m=/[?&]topic=([a-z]+)/.exec(location.search);if(!m)return;var r=document.querySelector('input[name="topic"][value="'+m[1]+'"]');if(r)r.checked=true;})();
+// The form heading follows the choice that's ticked. A link like contact.html?topic=events ticks that choice.
+(function(){var f=document.getElementById('cf');if(!f)return;var h=f.querySelector('h2'),l=f.querySelector('label[for="msg"]');
+ var H={'':'Send a note',buying:'Let\u2019s find your next home',selling:'Let\u2019s talk about selling',both:'Let\u2019s plan your next move',wondering:'Let\u2019s talk it through',events:'Ask about upcoming events'};
+ var L0=l.innerHTML,LE='Which event, or what would you like to know? <span class="opt">(optional)</span>';
+ function set(v){h.textContent=H[v]||H[''];l.innerHTML=v==='events'?LE:L0;}
+ var m=/[?&]topic=([a-z]+)/.exec(location.search),r=m&&f.querySelector('input[name="topic"][value="'+m[1]+'"]');if(r)r.checked=true;
+ var c=f.querySelector('input[name="topic"]:checked');set(c?c.value:'');
+ f.addEventListener('change',function(e){if(e.target.name==='topic')set(e.target.value);});})();
 (function(){var f=document.getElementById('cf');if(!f)return;
 function check(i){var e=document.getElementById(i.id+'-err'),msg='';
  if(i.required&&!i.value.trim())msg=i.dataset.need;
