@@ -332,6 +332,13 @@
  .teasers .opt{grid-column:span 2;padding:30px 28px}
  .teasers .opt:nth-child(n+4){grid-column:span 3}}
 .months div{border-radius:9px}
+
+  /* Rainbow icon in the eyebrow line: between the words and the towns on desktop, above the line on phones */
+  .eyebrow.pride img{width:30px;height:30px;vertical-align:middle;}
+  .eyebrow.pride .pr-mid{display:inline-block;margin:-3px 14px 0;}
+  .eyebrow.pride .pr-top{display:none;}
+  .eyebrow.pride .pr-sep{display:none;}
+  @media(max-width:819px){.eyebrow.pride .pr-mid{display:none;}.eyebrow.pride .pr-top{display:block;margin:0 auto 14px;width:34px;height:34px;}.eyebrow.pride .pr-sep{display:inline;}}
 </style>
 <style id="nov12-footer">.legal.legal2{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;justify-content:space-between;opacity:1;font-size:.8rem}.legal2 .l-txt{opacity:.82;display:flex;flex-direction:column;gap:4px}.legal2 .eho{display:inline-flex;align-items:center;gap:12px;font-size:1.05rem;font-weight:600;letter-spacing:.01em}.legal2 .eho img{width:auto;height:46px;background:#fff;padding:4px;border-radius:4px}.legal2 .f-social{display:inline-flex;gap:14px}.legal2 .f-social a{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;border:1px solid rgba(248,240,223,.4);border-radius:50%;color:var(--cream)}.legal2 .f-social a:hover{background:rgba(248,240,223,.14)}.legal2 .f-social svg{width:18px;height:18px;fill:currentColor}@media(max-width:640px){.legal.legal2{flex-direction:column;align-items:flex-start}}</style>
 </head>
@@ -358,7 +365,7 @@
 <!-- HERO, centred per v3 -->
 <header class="hero">
   <div class="wrap">
-    <p class="eyebrow">Woman-owned . Durham, Raleigh, Chapel Hill</p>
+    <p class="eyebrow pride"><img class="pr-top" src="assets/inhabit-icon-rainbow-96.png" srcset="assets/inhabit-icon-rainbow-96.png 1x, assets/inhabit-icon-rainbow-192.png 2x" alt="Inhabit Real Estate rainbow logo" width="30" height="30">Woman-owned . LGBTQIA+ friendly<span class="pr-sep"> . </span><img class="pr-mid" src="assets/inhabit-icon-rainbow-96.png" srcset="assets/inhabit-icon-rainbow-96.png 1x, assets/inhabit-icon-rainbow-192.png 2x" alt="Inhabit Real Estate rainbow logo" width="30" height="30">Durham, Raleigh, Chapel Hill</p>
     <h1>It takes good people<br>to find a <em>great home.</em></h1>
     <p class="sub">
       Independent, woman-owned, and rooted in the Triangle for more than a
