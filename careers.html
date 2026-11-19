@@ -271,6 +271,13 @@ body.has-sticky{padding-bottom:84px}
 .why li:nth-child(even){background:var(--sand)}
 .why h3{font-size:clamp(1.3rem,1.8vw,1.55rem);line-height:1.15;margin:0 0 10px}
 .why p{margin:0;font-size:1rem;line-height:1.55}
+.title-bar{margin-top:14px;padding:20px 28px!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;gap:16px;flex-wrap:wrap;min-height:0!important}
+.title-bar .pill{margin:0}
+.title-bar h1{margin:0;font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.1}
+@media(min-width:900px){.title-bar{padding:24px 40px!important}.story-grid.pair{grid-template-columns:1fr 1fr}}
+.story-grid.pair .tile{display:flex;align-items:center;justify-content:flex-start}
+.story-grid.pair .tile p{margin:0;font-size:1.08rem;line-height:1.6;max-width:none}
+.story-grid.pair .t-blue p{color:var(--cream)}
 .why-head{margin:44px 0 18px}
 .why a{color:var(--orange-ink);font-weight:600}
 </style>
@@ -288,13 +295,11 @@ body.has-sticky{padding-bottom:84px}
 </header>
 <main id="main">
 <div class="wrap">
-<div class="hero2c">
-  <div class="tile t-title"><span class="pill">Careers</span><h1>Careers with Inhabit</h1></div>
-  <div class="tile t-blue on-blue"><p>We view real estate brokerage as a team sport. That&rsquo;s why we hire thoughtfully, with an emphasis on how an individual agent can both learn from and contribute to our culture. Our core values as a company are to conduct ourselves with <strong>integrity, competence, and compassion</strong> as we navigate the real estate market for our buyer and seller clients. We also are a group of folks who really enjoy being around each other, and we like to have fun!</p></div>
-</div>
+<div class="tile t-title title-bar"><span class="pill">Careers</span><h1>Careers with Inhabit</h1></div>
 <div class="wide-photo"><img src="assets/photos/team-table-gathering.jpg" alt="Inhabit agents gathered around a table at an outdoor team get-together"></div>
-<div class="story-grid solo">
-  <div class="tile t-white"><p style="margin:0">In a dynamic real estate market, there&rsquo;s something new to learn every single day. That&rsquo;s where we draw from the wealth of experience we have on our team to ensure we provide the highest standard of agency representation for our clients. Whether you&rsquo;re a new agent or an agent with years of experience, there&rsquo;s a place for you at Inhabit.</p></div>
+<div class="story-grid pair">
+  <div class="tile t-blue on-blue"><p>We view real estate brokerage as a team sport. That&rsquo;s why we hire thoughtfully, with an emphasis on how an individual agent can both learn from and contribute to our culture. Our core values as a company are to conduct ourselves with <strong>integrity, competence, and compassion</strong> as we navigate the real estate market for our buyer and seller clients. We also are a group of folks who really enjoy being around each other, and we like to have fun!</p></div>
+  <div class="tile t-white"><p>In a dynamic real estate market, there&rsquo;s something new to learn every single day. That&rsquo;s where we draw from the wealth of experience we have on our team to ensure we provide the highest standard of agency representation for our clients. Whether you&rsquo;re a new agent or an agent with years of experience, there&rsquo;s a place for you at Inhabit.</p></div>
 </div>
 <h2 class="why-head">Why should you work at Inhabit?</h2>
 <ul class="why">
