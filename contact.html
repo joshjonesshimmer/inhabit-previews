@@ -329,6 +329,7 @@ fieldset{border:0;margin:0 0 22px;padding:0}
           <label class="radio"><input type="radio" name="topic" value="both"> Selling and buying</label>
           <label class="radio"><input type="radio" name="topic" value="wondering"> Just starting to wonder</label>
           <label class="radio"><input type="radio" name="topic" value="events"> Upcoming events</label>
+          <label class="radio"><input type="radio" name="topic" value="other"> Something else</label>
         </div></fieldset>
       <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required data-need="Enter your name so we know who to reply to."><p id="name-err" class="err" hidden></p></div>
       <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required data-need="Enter your email so we can reply."><p id="email-err" class="err" hidden></p></div>
@@ -375,7 +376,7 @@ update();window.addEventListener('scroll',update,{passive:true});})();
 // A link like contact.html?topic=events picks that choice for the visitor.
 // The form heading follows the choice that's ticked. A link like contact.html?topic=events ticks that choice.
 (function(){var f=document.getElementById('cf');if(!f)return;var h=f.querySelector('h2'),l=f.querySelector('label[for="msg"]');
- var H={'':'Send a note',buying:'Let\u2019s find your next home',selling:'Let\u2019s talk about selling',both:'Let\u2019s plan your next move',wondering:'Let\u2019s talk it through',events:'Ask about upcoming events'};
+ var H={'':'Send a note',buying:'Let\u2019s find your next home',selling:'Let\u2019s talk about selling',both:'Let\u2019s plan your next move',wondering:'Let\u2019s talk it through',events:'Ask about upcoming events',other:'Send a note'};
  var L0=l.innerHTML,LE='Which event, or what would you like to know? <span class="opt">(optional)</span>';
  function set(v){h.textContent=H[v]||H[''];l.innerHTML=v==='events'?LE:L0;}
  var m=/[?&]topic=([a-z]+)/.exec(location.search),r=m&&f.querySelector('input[name="topic"][value="'+m[1]+'"]');if(r)r.checked=true;
